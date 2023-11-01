@@ -1,6 +1,6 @@
 :root {
   --primary: #d6fef6;
-  --bg: #1987b1;
+  --bg: rgb(25, 135, 177);
 }
 * {
   margin: 0;
@@ -15,6 +15,7 @@ body {
   font-family: "Koh Santepheap", serif;
   background-color: var(--bg);
   color: azure;
+  min-height: 2000px;
 }
 
 /* navbar */
@@ -23,7 +24,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 5%;
-  background-color: rgba(10, 122, 167, 0.5);
+  background-color: rgba(10, 122, 167, 0.7);
   border-bottom: 1px solid #197296;
   position: fixed;
   top: 0;
@@ -73,6 +74,61 @@ body {
   display: none;
 }
 
+.awal {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url(../img/bg-pertama.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.awal::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(25, 135, 177, 1) 5%,
+    rgb(13, 106, 143, 0) 25%
+  );
+}
+
+.awal .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+.awal .content h1 {
+  font-size: 5rem;
+  color: #d6fef6;
+  text-shadow: 1px 1px 3px rgba(10, 122, 167, 0.5);
+  line-height: 1;
+}
+.awal .content p {
+  font-family: "Koh Santepheap", serif;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  line-height: 1.4;
+  font-weight: 100;
+  text-shadow: 1px 1px 3px rgba(10, 122, 167, 0.7);
+  mix-blend-mode: difference;
+}
+.awal .content .cari {
+  width: 30rem;
+  margin-top: 1.5rem;
+  display: inline-block;
+  padding: 0.5rem 15rem 0.5rem 1rem;
+  color: var(--bg);
+  background-color: rgba(214, 254, 246, 0.5);
+  border-radius: 1.5rem;
+  box-shadow: 1px 1px 3px rgba(25, 135, 177, 0.7);
+}
+
 /* responsive */
 
 /* Laptop */
@@ -84,7 +140,7 @@ body {
 /* Tablet */
 @media (max-width: 1180px) {
   html {
-    font-size: 70%;
+    font-size: 65%;
   }
   #menu {
     display: inline-block;
@@ -113,13 +169,22 @@ body {
   }
 
   .Navbar .navbar-nav a:hover::after {
-    content: "";
     display: block;
     padding-bottom: 0.5rem;
     border-bottom: 0.1rem solid var(--bg);
     transform: scaleX(0.25);
     transition: 0.3s;
     transform-origin: 0 0;
+  }
+  .awal .content .cari {
+    width: 25rem;
+    padding: 0.5rem 15rem 0.5rem 1rem;
+  }
+}
+/* HP */
+@media (max-width: 320px) {
+  html {
+    font-size: 50%;
   }
 }
 /* HP */
