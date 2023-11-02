@@ -1,0 +1,130 @@
+:root {
+  --primary: #d6fef6;
+  --bg: #1987b1;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Koh Santepheap", serif;
+  background-color: var(--bg);
+  color: azure;
+}
+
+/* navbar */
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 5%;
+  background-color: rgba(10, 122, 167, 0.5);
+  border-bottom: 1px solid #197296;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.Navbar .navbar-logo {
+  font-size: 1.8rem;
+  font-style: italic;
+  color: rgb(20, 20, 20);
+}
+.Navbar .navbar-logo span {
+  color: #e6f1fa;
+}
+
+.Navbar .navbar-nav a {
+  color: black;
+  display: inline-block;
+  font-size: 1.25rem;
+  margin: 0.4rem;
+}
+.Navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.Navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s;
+}
+
+.Navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.Navbar .navbar-tambahan a {
+  color: black;
+  margin: 0.4rem;
+}
+
+#menu {
+  display: none;
+}
+
+/* responsive */
+
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 85%;
+  }
+}
+/* Tablet */
+@media (max-width: 1180px) {
+  html {
+    font-size: 70%;
+  }
+  #menu {
+    display: inline-block;
+  }
+  .Navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #d6fef6;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+  .Navbar .navbar-nav.aktif {
+    right: 0;
+  }
+  .Navbar .navbar-nav a {
+    color: black;
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+  .Navbar .navbar-nav a:hover {
+    color: black;
+  }
+
+  .Navbar .navbar-nav a:hover::after {
+    content: "";
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--bg);
+    transform: scaleX(0.25);
+    transition: 0.3s;
+    transform-origin: 0 0;
+  }
+}
+/* HP */
+@media (max-width: 320px) {
+  html {
+    font-size: 55%;
+  }
+}
