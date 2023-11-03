@@ -82,9 +82,15 @@ body {
   }
 }
 /* Tablet */
-@media (max-width: 1180px) {
+@media (max-width: 820px) {
   html {
     font-size: 70%;
+  }
+}
+/* HP */
+@media (max-width: 320px) {
+  html {
+    font-size: 60%;
   }
   #menu {
     display: inline-block;
@@ -94,7 +100,7 @@ body {
     top: 100%;
     right: -100%;
     background-color: #d6fef6;
-    width: 30rem;
+    width: 15rem;
     height: 100vh;
     transition: 0.3s;
   }
@@ -120,11 +126,5 @@ body {
     transform: scaleX(0.25);
     transition: 0.3s;
     transform-origin: 0 0;
-  }
-}
-/* HP */
-@media (max-width: 320px) {
-  html {
-    font-size: 55%;
   }
 }
