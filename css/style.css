@@ -86,6 +86,12 @@ body {
   html {
     font-size: 70%;
   }
+}
+/* HP */
+@media (max-width: 320px) {
+  html {
+    font-size: 60%;
+  }
   #menu {
     display: inline-block;
   }
@@ -113,17 +119,12 @@ body {
   }
 
   .Navbar .navbar-nav a:hover::after {
+    content: "";
     display: block;
     padding-bottom: 0.5rem;
     border-bottom: 0.1rem solid var(--bg);
     transform: scaleX(0.25);
     transition: 0.3s;
     transform-origin: 0 0;
-  }
-}
-/* HP */
-@media (max-width: 320px) {
-  html {
-    font-size: 60%;
   }
 }
