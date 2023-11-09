@@ -1,3 +1,13 @@
+// ketika di scroll navbarnya muncul
+const navbar = document.querySelector(".Navbar");
+window.addEventListener("scroll", function () {
+  if (window.scrollY > navbar.offsetHeight) {
+    navbar.classList.add("fixed");
+  } else {
+    navbar.classList.remove("fixed");
+  }
+});
+
 // mengeluarkan menu ketika di klik
 const navbarNav = document.querySelector(".navbar-nav");
 document.querySelector("#menu").onclick = () => {
