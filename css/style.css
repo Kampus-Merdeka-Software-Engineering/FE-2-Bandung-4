@@ -130,6 +130,10 @@ body {
   box-shadow: 1px 1px 3px rgba(25, 135, 177, 0.7);
 }
 
+.ticketing-title {
+  color: pink;
+}
+
 /* responsive */
 
 /* Laptop */
