@@ -1,6 +1,6 @@
 :root {
   --primary: #d6fef6;
-  --bg: rgb(25, 135, 177);
+  --bg: rgb(85, 157, 171);
 }
 
 * {
@@ -18,15 +18,17 @@ body {
   color: azure;
   min-height: 2000px;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* navbar */
 .Navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 5%;
-  background-color: rgba(10, 122, 167, 0.7);
-  border-bottom: 1px solid #197296;
+  padding: 0.2rem 5%;
+  background-color: rgba(255, 255, 255, 0);
   position: fixed;
   top: 0;
   left: 0;
@@ -34,13 +36,27 @@ body {
   z-index: 9999;
 }
 
+.Navbar.fixed {
+  background-color: rgba(85, 157, 171, 0.85);
+  border-bottom: 1px solid #197296;
+}
+.Navbar .logo {
+  display: flex;
+  flex: 0.8;
+  align-items: center;
+}
 .Navbar .navbar-logo {
   font-size: 1.8rem;
-  font-style: italic;
+  font-style: solid;
   color: rgb(20, 20, 20);
 }
 .Navbar .navbar-logo span {
-  color: #e6f1fa;
+  color: #031727;
+  font-style: italic;
+}
+.Navbar img {
+  width: 82.61px;
+  height: 70px;
 }
 
 .Navbar .navbar-nav a {
@@ -80,7 +96,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url(../img/bg-pertama.jpg);
+  background-image: url(../img/bg-index.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -95,7 +111,7 @@ body {
   bottom: 0;
   background: linear-gradient(
     0deg,
-    rgba(25, 135, 177, 1) 5%,
+    rgba(85, 157, 171, 1) 5%,
     rgb(13, 106, 143, 0) 25%
   );
 }
@@ -137,15 +153,15 @@ body {
 /* responsive */
 
 /* Laptop */
-@media (max-width: 1366px) {
+@media (max-width: 1180px) {
   html {
     font-size: 85%;
   }
 }
 /* Tablet */
-@media (max-width: 1180px) {
+@media (max-width: 819px) {
   html {
-    font-size: 65%;
+    font-size: 75%;
   }
   #menu {
     display: inline-block;
@@ -195,6 +211,6 @@ body {
 /* HP */
 @media (max-width: 320px) {
   html {
-    font-size: 55%;
+    font-size: 60%;
   }
 }
