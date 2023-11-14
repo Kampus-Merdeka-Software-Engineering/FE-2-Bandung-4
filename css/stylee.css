@@ -4,7 +4,7 @@ body {
 }
 
 .tiket {
-    background-color: rgb(0, 140, 255);
+    background-color: rgba(85, 157, 171, 1);
     border-radius: 10px;
     box-shadow: 0 2px 4px black(0, 0, 0, 0.1);
     padding: 20px;
@@ -66,5 +66,5 @@ body {
 }
 
 .tombol-pesan:hover {
-    background-color: blue; /* Warna Biru Muda saat Hover */
+    background-color: rgba(85, 157, 171, 0.85); /* Warna Biru Muda saat Hover */
 }
