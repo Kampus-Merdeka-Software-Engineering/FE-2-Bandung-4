@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiket Pesawat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="tiketContainer"></div>
+
+<div class="form-container">
+    <form>
+        <label for="namaPesawat">Nama Pesawat:</label>
+        <input type="text" id="namaPesawat" name="namaPesawat">
+
+        <label for="berangkat">Waktu Berangkat:</label>
+        <input type="text" id="berangkat" name="berangkat">
+
+        <label for="sampai">Waktu Sampai:</label>
+        <input type="text" id="sampai" name="sampai">
+
+        <label for="tujuan">Tujuan:</label>
+        <input type="text" id="tujuan" name="tujuan">
+
+        <label for="harga">Harga:</label>
+        <input type="text" id="harga" name="harga">
+
+        <button type="button" onclick="addTiket()">Tambah Tiket</button>
+    </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px; /* Adjust as needed */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Salam Perkenalan styling */
+.perkenalan {
+    text-align: center;
+    padding: 2em;
+}
+
+.teks-perkenalan {
+    margin-top: 20px;
+}
+
+.tombol-tindakan {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Rekomendasi Penerbangan styling */
+.rekomendasi-penerbangan {
+    padding: 2em;
+}
+
+.rekomendasi-penerbangan h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rekomendasi-penerbangan ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.rekomendasi-penerbangan li {
+    text-align: center;
+    margin: 0 10px 20px;
+}
+
+.rekomendasi-penerbangan img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Informasi Maskapai styling */
+.informasi-maskapai {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2em;
+    background-color: #fff;
+}
+
+.galeri-logo img {
+    width: 80px; /* Adjust as needed */
+    margin-right: 20px;
+}
+
+.teks-penjelasan {
+    max-width: 600px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.informasi-kontak p {
+    margin-bottom: 10px;
+}
+
+.sosial-media a img {
+    width: 30px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+.tautan-cepat a {
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+}
