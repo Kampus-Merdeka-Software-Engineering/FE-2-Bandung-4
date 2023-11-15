@@ -59,7 +59,7 @@ html {
 }
 
 .Navbar .navbar-nav a {
-  color: black;
+  color: #d6fef6;
   display: inline-block;
   font-size: 1.25rem;
   margin: 0.4rem;
@@ -195,107 +195,51 @@ html {
   line-height: 1.6rem;
 }
 
-/* Pencarian */
-
+/* CSS untuk form pencarian */
 .booking__container {
-  max-width: var(--max-width);
-  margin: auto;
-  padding: 5rem 1rem;
-  border-radius: 2rem;
-  border: 1px solid var(--extra-light);
-  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
-}
-
-.booking__nav {
-  /* max-width: 600px; */
-  margin: auto;
-  /* display: flex; */
-  align-items: center;
-  background-color: var(--extra-light);
-  border-radius: 5px;
-}
-
-.booking__nav h3 {
-  flex: 1;
-  padding: 1rem 2rem;
-  /* font-weight: 500; */
-  color: var(--text-light);
-  text-align: center;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.booking__nav h3:nth-child(2) {
-  color: var(--white);
-  background-color: var(--primary-color);
+  background-color: #accdec;
+  border: 1px solid #197296;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .booking__container form {
-  margin-top: 4rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr) auto;
-  gap: 1rem;
-}
-
-.booking__container .input__content {
-  width: 100%;
-}
-
-.booking__container .form__group {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.booking__container .form__group span {
-  padding: 10px;
-  font-size: 1.5rem;
-  color: var(--text-dark);
-  background-color: var(--extra-light);
-  border-radius: 1rem;
-}
-
-.booking__container .input__group {
-  width: 100%;
-  position: relative;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
 }
 
 .booking__container label {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--text-dark);
-  pointer-events: none;
-  transition: 0.3s;
+  font-size: 1rem;
+  color: #495057;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
 .booking__container input {
   width: 100%;
-  padding: 10px 0;
+  padding: 10px;
   font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
   outline: none;
-  border: none;
-  border-bottom: 1px solid var(--primary-color);
-  color: var(--text-dark);
-}
-
-.booking__container input:focus ~ label {
-  font-size: 0.8rem;
-  top: 0;
-}
-
-.booking__container .form__group p {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-  color: var(--text-light);
 }
 
 .booking__container .btn {
-  padding: 1rem;
-  font-size: 1.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: rgb(57, 116, 128);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.booking__container .btn:hover {
+  background-color: rgba(57, 116, 128, 0.5);
 }
 
 /* Daerah */
@@ -309,6 +253,7 @@ html {
   text-align: center;
   background-color: #accdec;
   border: 1px solid #197296;
+  border-radius: 10px;
   padding: 1rem;
 }
 .daerah .daerah-card .daerah-gambar img {
@@ -323,6 +268,9 @@ html {
   font-size: 0.8rem;
   color: #d6fef6;
   background-color: rgb(57, 116, 128);
+}
+.daerah .daerah-card .daerah-content .cta:hover {
+  background-color: rgba(57, 116, 128, 0.5);
 }
 /* Maskapai */
 .maskapai h2 {
@@ -400,7 +348,7 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid #197296;
 }
 
 .footer__bar p {
