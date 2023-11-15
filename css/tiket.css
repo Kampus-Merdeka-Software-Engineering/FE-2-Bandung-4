@@ -1,70 +1,85 @@
 body {
-    background-color: white;
-    font-family: Arial, sans-serif;
+  background-color: white;
+  font-family: "Poppins", sans-serif;
 }
 
 .tiket {
-    background-color: rgba(85, 157, 171, 1);
-    border-radius: 10px;
-    box-shadow: 0 2px 4px black(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px auto;
-    text-align: center;
+  background-color: rgba(85, 157, 171, 1);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  text-align: center;
 }
 
-.style{
-    background-color: whitesmoke;
-    
+.style {
+  background-color: whitesmoke;
 }
 
 .tiket h1 {
-    color: #0f0f0f;
-    font-size: 24px;
+  color: #0f0f0f;
+  font-size: 24px;
 }
 
 .garis-lurus {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .detail-tiket {
-    padding: 10px;
+  padding: 10px;
 }
 
 .nama-pesawat {
-    color: black; /* Warna Biru Tua */
-    font-size: 18px;
-    font-weight: bold;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .waktu {
-    color: black; /* Warna Abu-abu Tua */
-    font-size: 16px;
+  color: black;
+  font-size: 16px;
 }
 
 .tujuan {
-    color: black;
-    font-size: 16px;
+  color: black;
+  font-size: 16px;
 }
 
 .harga {
-    color: red; /* Warna Merah Muda */
-    font-size: 20px;
-    font-weight: bold;
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .tombol-pesan {
-    background-color: blue; /* Warna Hijau Muda */
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    margin: 10px;
-    display: inline-block;
+  background-color: blue;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px;
+  display: inline-block;
 }
 
 .tombol-pesan:hover {
-    background-color: rgba(85, 157, 171, 0.85); /* Warna Biru Muda saat Hover */
+  background-color: rgba(85, 157, 171, 0.85);
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .tiket {
+    padding: 10px;
+  }
+
+  .harga {
+    font-size: 16px;
+  }
+
+  .tombol-pesan {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }

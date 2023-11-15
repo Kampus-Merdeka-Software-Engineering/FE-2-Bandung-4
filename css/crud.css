@@ -75,3 +75,36 @@ button {
 button:hover {
   background-color: rgba(10, 122, 167, 0.5); /* Warna merah tua */
 }
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  table {
+    font-size: 12px; /* Mengurangi ukuran font */
+  }
+
+  th,
+  td {
+    padding: 8px; /* Mengurangi padding */
+  }
+
+  td:nth-child(6),
+  th:nth-child(6) {
+    display: none; /* Menyembunyikan kolom Kode Booking pada layar kecil */
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  td {
+    display: flex;
+    flex-direction: column;
+  }
+
+  td:before {
+    content: attr(data-label); /* Menampilkan label kolom sebagai teks */
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+}
