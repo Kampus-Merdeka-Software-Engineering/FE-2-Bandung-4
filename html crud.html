@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pemesanan Pesawat</title>
+  <link rel="stylesheet" href="css/styleee.css">
+  <script src="js/scriptt.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Pemesanan Pesawat</h1>
+  </header>
+  <main>
+    <section class="form">
+      <form action="index.php" method="post">
+        <div class="field">
+          <label for="kode_pesawat">Kode Pesawat</label>
+          <input type="text" id="kode_pesawat" name="kode_pesawat" required>
+        </div>
+        <div class="field">
+          <label for="asal">Asal</label>
+          <input type="text" id="asal" name="asal" required>
+        </div>
+        <div class="field">
+          <label for="tujuan">Tujuan</label>
+          <input type="text" id="tujuan" name="tujuan" required>
+        </div>
+        <div class="field">
+          <label for="tanggal_berangkat">Tanggal Berangkat</label>
+          <input type="date" id="tanggal_berangkat" name="tanggal_berangkat" required>
+        </div>
+        <div class="field">
+          <label for="jam_berangkat">Jam Berangkat</label>
+          <input type="time" id="jam_berangkat" name="jam_berangkat" required>
+        </div>
+        <div class="field">
+          <label for="harga">Harga</label>
+          <input type="number" id="harga" name="harga" required>
+        </div>
+        <div class="button-group">
+          <input type="submit" value="Simpan" class="btn btn-primary">
+          <input type="reset" value="Reset" class="btn btn-secondary">
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>Copyright &copy; 2023</p>
+  </footer>
+</body>
+</html>
