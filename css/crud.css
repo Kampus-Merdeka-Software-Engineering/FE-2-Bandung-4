@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgba(10, 122, 167); /* Warna biru muda */
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #ffffff; /* Warna putih */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: rgb(85, 157, 171); /* Warna biru navy */
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgb(85, 157, 171); /* Warna biru navy */
+}
+
+input[type="text"],
+input[type="date"],
+input[type="button"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+input[type="button"] {
+  background-color: rgba(10, 122, 167, 1); /* Warna biru navy */
+  color: #fff; /* Warna putih */
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: rgba(10, 122, 167, 0.5); /* Warna biru tua */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: rgb(85, 157, 171); /* Warna biru navy */
+  color: #fff; /* Warna putih */
+}
+
+button {
+  background-color: rgba(10, 122, 167, 1); /* Warna merah */
+  color: #fff; /* Warna putih */
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(10, 122, 167, 0.5); /* Warna merah tua */
+}
