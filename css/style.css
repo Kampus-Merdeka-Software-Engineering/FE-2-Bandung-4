@@ -2,7 +2,6 @@
   --primary: #d6fef6;
   --bg: rgb(85, 157, 171);
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -90,18 +89,31 @@ html {
 #menu {
   display: none;
 }
-
+/* Display */
 .awal {
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
   display: flex;
   align-items: center;
   background-image: url(../img/bg-index.png);
+  animation: slide 20s infinite;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
 }
+@keyframes slide {
+  0% {
+    background-image: url(../img/bg-index.png);
+  }
+  50% {
+    background-image: url(../img/hamza-alghamdi-qgz8FU_IMlA-unsplash.png);
+  }
+  100% {
+    background-image: url(../img/bg-pertama.jpg);
+  }
+}
+
 .awal::after {
   content: "";
   display: block;
@@ -145,10 +157,6 @@ html {
   border-radius: 1.5rem;
   box-shadow: 1px 1px 3px rgba(25, 135, 177, 0.7);
 }
-
-.ticketing-title {
-  color: pink;
-}
 /* Tentang Kami */
 .about,
 .maskapai,
@@ -187,6 +195,229 @@ html {
   line-height: 1.6rem;
 }
 
+/* Pencarian */
+
+.booking__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid var(--extra-light);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.booking__nav {
+  /* max-width: 600px; */
+  margin: auto;
+  /* display: flex; */
+  align-items: center;
+  background-color: var(--extra-light);
+  border-radius: 5px;
+}
+
+.booking__nav h3 {
+  flex: 1;
+  padding: 1rem 2rem;
+  /* font-weight: 500; */
+  color: var(--text-light);
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.booking__nav h3:nth-child(2) {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+.booking__container form {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  gap: 1rem;
+}
+
+.booking__container .input__content {
+  width: 100%;
+}
+
+.booking__container .form__group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.booking__container .form__group span {
+  padding: 10px;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  background-color: var(--extra-light);
+  border-radius: 1rem;
+}
+
+.booking__container .input__group {
+  width: 100%;
+  position: relative;
+}
+
+.booking__container label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.booking__container input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--text-dark);
+}
+
+.booking__container input:focus ~ label {
+  font-size: 0.8rem;
+  top: 0;
+}
+
+.booking__container .form__group p {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.booking__container .btn {
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Daerah */
+.daerah .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.daerah .daerah-card {
+  text-align: center;
+  background-color: #accdec;
+  border: 1px solid #197296;
+  padding: 1rem;
+}
+.daerah .daerah-card .daerah-gambar img {
+  margin-top: 1rem;
+  width: 15rem;
+  height: 15rem;
+}
+.daerah .daerah-card .daerah-content .cta {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 1rem;
+  font-size: 0.8rem;
+  color: #d6fef6;
+  background-color: rgb(57, 116, 128);
+}
+/* Maskapai */
+.maskapai h2 {
+  margin-bottom: 0.5rem;
+}
+.maskapai p {
+  text-align: center;
+  max-width: 38rem;
+  margin: auto;
+  font-weight: 100;
+  line-height: 1.6;
+}
+.maskapai .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+  justify-content: center;
+}
+.maskapai .row .maskapai-card {
+  text-align: center;
+  padding-bottom: 5rem;
+}
+.maskapai .row .maskapai-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.maskapai .row .maskapai-card .nama-maskapai {
+  margin: 1.5rem auto 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--bg);
+}
+
+.footer__container {
+  border-top: 1px solid #197296;
+  margin: auto;
+  padding: 3rem 2rem 2rem 3rem;
+  display: grid;
+  grid-template-columns: 3fr repeat(2, 1fr);
+  gap: 5rem;
+}
+
+.footer__col h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.footer__col h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.footer__col p {
+  color: #f1f5f9;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer__col p:hover {
+  color: #ffffff;
+}
+
+.footer__bar {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.footer__bar p {
+  font-size: 0.9rem;
+  color: #f1f5f9;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socials span {
+  font-size: 1.2rem;
+  color: #f1f5f9;
+}
 /* responsive */
 
 /* Laptop */
@@ -238,16 +469,38 @@ html {
     width: 25rem;
     padding: 0.5rem 15rem 0.5rem 1rem;
   }
-}
-/* HP */
-@media (max-width: 320px) {
-  html {
-    font-size: 50%;
+  .travellers__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .booking__container form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__container {
+    gap: 2rem;
+  }
+  .about .row {
+    flex-wrap: wrap;
   }
 }
 /* HP */
-@media (max-width: 320px) {
+@media (max-width: 500px) {
   html {
-    font-size: 60%;
+    font-size: 50%;
+  }
+  .booking__nav span {
+    padding: 1rem 0.5rem;
+  }
+
+  .booking__container form {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .footer__container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__bar {
+    flex-direction: column;
+    text-align: center;
   }
 }
