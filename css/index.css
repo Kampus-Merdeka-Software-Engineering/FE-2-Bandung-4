@@ -14,7 +14,6 @@
 body {
   font-family: "Koh Santepheap", serif;
   background-color: var(--bg);
-  color: azure;
   min-height: 2000px;
 }
 html {
@@ -171,6 +170,7 @@ html {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
+  color: azure;
 }
 
 .about .row {
@@ -226,8 +226,9 @@ html {
 }
 
 .about .row .content {
-  flex: 1 1 65%;
-  padding: 0 1rem;
+  flex: 1 1 35rem;
+  padding: 8 1rem;
+  color: azure;
 }
 
 .about .row .content h3 {
@@ -312,7 +313,7 @@ html {
   display: inline-block;
   padding: 1rem 1rem;
   font-size: 0.8rem;
-  color: #d6fef6;
+  color: black;
   background-color: rgb(57, 116, 128);
 }
 .daerah .daerah-card .daerah-content .cta:hover {
