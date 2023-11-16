@@ -29,14 +29,14 @@
         <a href="#" class="navbar-logo">Four'G<span> Traveler</span></a>
       </div>
       <div class="navbar-nav">
-        <a href="#">Home</a>
-        <a href="#about">About</a>
+        <a href="#">Beranda</a>
+        <a href="#about">Tentang</a>
         <a href="#daerah">Penerbangan</a>
-        <a href="#maskapai">maskapai</a>
+        <a href="#maskapai">Maskapai</a>
       </div>
 
       <div class="navbar-tambahan">
-        <a href="crud.html" id="shopping">
+        <a href="tiket makasar.html" id="shopping">
           <i data-feather="shopping-bag"></i
         ></a>
         <a href="signin (1).html" id="user"> <i data-feather="user"></i></a>
@@ -45,13 +45,13 @@
     </nav>
     <!-- Navbar -->
     <!-- display awal -->
-    <section class="awal" id="home">
+    <section class="awal" data-speed="0.5" id="home">
       <main class="content">
-        <h1>Hi, where are you going??</h1>
+        <h1>Pusing, stres, dan bosan? Terbang yuk</h1>
         <p>Find Your Travel Inspiration. Explore Now....!!!</p>
-        <a href="pencarian.html" class="cari" id="search">
-          <i data-feather="search"></i
-        ></a>
+        <a href="tiket pesawat.html" class="cari" id="search">
+          <span>Cari penerbangan</span></a
+        >
       </main>
     </section>
     <!-- display awal -->
@@ -60,10 +60,9 @@
       <h2>Tentang Kami</h2>
       <div class="row">
         <div class="about-img">
-          <img
-            src="img/hamza-alghamdi-qgz8FU_IMlA-unsplash.png"
-            alt="Tentang Kami"
-          />
+          <img src="img/pesawat1.jpg" alt="Tentang Kami" />
+          <img src="img/pesawat2.jpg" alt="Tentang" />
+          <img src="img/pesawat3.jpg" alt="Tentang" />
         </div>
         <div class="content">
           <h3>Selamat Datang di Four'G Travel</h3>
@@ -87,8 +86,9 @@
     <!-- tiket -->
     <section class="daerah" id="daerah">
       <!-- Form Pencarian Tiket Pesawat -->
+      <!-- Form Pencarian Tiket Pesawat -->
       <div class="booking__container">
-        <form>
+        <form id="searchForm">
           <div class="input__group">
             <label for="asal">Asal</label>
             <input type="text" id="asal" name="asal" required />
@@ -103,12 +103,18 @@
           </div>
           <div class="input__group">
             <label for="maskapai">Maskapai</label>
-            <input type="text" id="maskapai" name="maskapai" required />
+            <input type="text" id="Maskapai" name="Maskapai" required />
           </div>
-          <button type="button" class="btn">Cari Tiket</button>
+          <!-- ... (form elements) ... -->
+          <button type="button" class="btn" onclick="cariTiket()">
+            Cari Tiket
+          </button>
         </form>
       </div>
-      <!-- Form Pencarian Tiket Pesawat -->
+      <!-- Hasil Pencarian Tiket Pesawat -->
+      <div id="hasilPencarian">
+        <!-- Hasil pencarian akan ditampilkan di sini -->
+      </div>
 
       <h2>Rekomendasi Penerbangan</h2>
       <div class="row">
@@ -206,11 +212,11 @@
         </div>
         <div class="footer__col">
           <h4>Sponsor</h4>
-          <p>RevoU</p>
+          <a href="https://revou.co/">RevoU</a>
         </div>
       </div>
       <div class="section__container footer__bar">
-        <p>Copyright © 2023 Selection Bandung. Team 4</p>
+        <p>Copyright © 2023 Section Bandung. Team 4</p>
         <div class="socials">
           <span><i data-feather="facebook"></i></span>
           <span><i data-feather="twitter"></i></span>

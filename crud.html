@@ -9,6 +9,20 @@
   <body>
     <div class="container">
       <h2>Pemesanan Tiket Pesawat</h2>
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Maskapai</th>
+            <th>Tanggal</th>
+            <th>Asal</th>
+            <th>Tujuan</th>
+            <th>Kode Booking</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody id="data-body"></tbody>
+      </table>
       <form id="bookingForm">
         <label for="nama">Nama:</label>
         <input type="text" id="nama" required />
@@ -32,20 +46,6 @@
       </form>
 
       <!-- Tabel untuk menampilkan data -->
-      <table id="data-table">
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>Maskapai</th>
-            <th>Tanggal</th>
-            <th>Asal</th>
-            <th>Tujuan</th>
-            <th>Kode Booking</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="data-body"></tbody>
-      </table>
     </div>
     <script src="js/crud.js"></script>
   </body>
