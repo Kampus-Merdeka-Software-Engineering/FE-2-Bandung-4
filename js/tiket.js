@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Ambil data tiket dari backend (misalnya melalui API)
-  // Gantilah bagian ini dengan logika pengambilan data sesuai dengan backend Anda
   const dataTiket = [
     {
       namaPesawat: "Garuda Indonesia",
