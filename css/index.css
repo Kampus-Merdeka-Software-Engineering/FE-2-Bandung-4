@@ -133,6 +133,7 @@ html {
   margin-top: 1rem;
   line-height: 1.4;
   font-weight: 100;
+  color: #d6fef6;
   text-shadow: 1px 1px 3px rgba(10, 122, 167, 0.7);
   mix-blend-mode: difference;
 }
