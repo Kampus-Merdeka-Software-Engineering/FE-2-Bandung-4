@@ -1,7 +1,8 @@
 :root {
-  --primary: #d6fef6;
-  --bg: rgb(85, 157, 171);
+  --primary: #559dab;
+  --bg: #ffffff;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +17,7 @@ body {
   background-color: var(--bg);
   min-height: 2000px;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -26,6 +28,7 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 0.2rem 5%;
+  padding-bottom: 0.5rem;
   background-color: rgba(255, 255, 255, 0);
   position: fixed;
   top: 0;
@@ -37,34 +40,40 @@ html {
 .Navbar.fixed {
   background-color: rgba(85, 157, 171, 0.85);
   border-bottom: 1px solid #197296;
+  padding-bottom: 0rem;
 }
+
 .Navbar .logo {
   display: flex;
   flex: 0.8;
   align-items: center;
 }
+
 .Navbar .navbar-logo {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-style: solid;
   color: rgb(20, 20, 20);
 }
+
 .Navbar .navbar-logo span {
   color: #031727;
   font-style: italic;
 }
+
 .Navbar img {
-  width: 82.61px;
+  width: 80px;
   height: 70px;
 }
 
 .Navbar .navbar-nav a {
-  color: #d6fef6;
+  color: #ffffff;
   display: inline-block;
-  font-size: 1.25rem;
+  font-size: 1.8rem;
   margin: 0.4rem;
 }
+
 .Navbar .navbar-nav a:hover {
-  color: var(--primary);
+  color: black;
 }
 
 .Navbar .navbar-nav a::after {
@@ -88,6 +97,7 @@ html {
 #menu {
   display: none;
 }
+
 /* Display */
 .awal {
   font-family: "Poppins", sans-serif;
@@ -121,19 +131,21 @@ html {
   padding: 1.4rem 7%;
   max-width: 60rem;
 }
+
 .awal .content h1 {
   font-size: 5rem;
-  color: #d6fef6;
+  color: #ffffff;
   text-shadow: 1px 1px 3px rgba(10, 122, 167, 0.5);
   line-height: 1;
 }
+
 .awal .content p {
   font-family: "Koh Santepheap", serif;
   font-size: 1.5rem;
   margin-top: 1rem;
   line-height: 1.4;
   font-weight: 100;
-  color: #d6fef6;
+  color: #ffffff;
   text-shadow: 1px 1px 3px rgba(10, 122, 167, 0.7);
   mix-blend-mode: difference;
 }
@@ -142,12 +154,8 @@ html {
   display: inline-block;
   padding: 0.5rem 1rem;
   margin-top: 1rem;
-  color: white; /* Warna teks diubah menjadi putih */
-  background-color: rgb(
-    85,
-    157,
-    171
-  ); /* Warna latar belakang sesuai dengan RGB yang diberikan */
+  color: #ffffff;
+  background-color: var(--primary);
   border-radius: 0.8rem;
   box-shadow: 1px 1px 5px rgba(25, 135, 177, 0.7);
   transition: background-color 0.3s, box-shadow 0.3s;
@@ -171,7 +179,7 @@ html {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
-  color: azure;
+  color: var(--primary);
 }
 
 .about .row {
@@ -229,7 +237,7 @@ html {
 .about .row .content {
   flex: 1 1 35rem;
   padding: 8 1rem;
-  color: azure;
+  color: var(--primary);
 }
 
 .about .row .content h3 {
@@ -297,33 +305,40 @@ html {
   gap: 1.5rem;
   margin-top: 2rem;
 }
+
 .daerah .daerah-card {
   text-align: center;
   background-color: #accdec;
+  color: #495057;
   border: 1px solid #197296;
   border-radius: 10px;
   padding: 1rem;
 }
+
 .daerah .daerah-card .daerah-gambar img {
   margin-top: 1rem;
   width: 15rem;
   height: 15rem;
 }
+
 .daerah .daerah-card .daerah-content .cta {
   margin-top: 1rem;
   display: inline-block;
   padding: 1rem 1rem;
   font-size: 0.8rem;
-  color: black;
+  color: #fff;
   background-color: rgb(57, 116, 128);
 }
+
 .daerah .daerah-card .daerah-content .cta:hover {
   background-color: rgba(57, 116, 128, 0.5);
 }
+
 /* Maskapai */
 .maskapai h2 {
   margin-bottom: 0.5rem;
 }
+
 .maskapai p {
   text-align: center;
   max-width: 38rem;
@@ -331,21 +346,26 @@ html {
   font-weight: 100;
   line-height: 1.6;
 }
+
 .maskapai .row {
   display: flex;
   flex-wrap: wrap;
   margin-top: 5rem;
   justify-content: center;
 }
+
 .maskapai .row .maskapai-card {
   text-align: center;
   padding-bottom: 5rem;
 }
+
 .maskapai .row .maskapai-card img {
-  width: 150px;
-  height: 150px;
+  width: 165px;
+  height: 165px;
+  margin: 2rem;
   border-radius: 50%;
 }
+
 .maskapai .row .maskapai-card .nama-maskapai {
   margin: 1.5rem auto 0.5rem;
   font-size: 1.2rem;
@@ -353,42 +373,47 @@ html {
 
 /* Footer */
 .footer {
-  background-color: var(--bg);
+  background-color: var(--primary);
 }
 
 .footer__container {
-  border-top: 1px solid #197296;
+  border-top: 1px solid var(--dark-gray);
   margin: auto;
-  padding: 3rem 2rem 2rem 3rem;
+  padding: 1.5rem 1rem 1rem 1.5rem;
   display: grid;
   grid-template-columns: 3fr repeat(2, 1fr);
   gap: 5rem;
 }
 
-.footer__col h3 {
-  font-size: 1.5rem;
+.footer__col a {
+  font-size: 2rem;
   font-weight: 500;
-  color: #ffffff;
-  margin-bottom: 1rem;
+  color: var(--bg);
+  margin-bottom: 0.8rem;
+}
+
+.footer__col span {
+  color: var(--deep-sky-blue);
+  font-style: italic;
 }
 
 .footer__col h4 {
   font-size: 1.2rem;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--bg);
   margin-bottom: 1rem;
 }
 
 .footer__col p,
 a {
-  color: #f1f5f9;
+  color: var(--bg);
   margin-bottom: 1rem;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .footer__col p:hover {
-  color: #ffffff;
+  color: var(--silver);
 }
 
 .footer__bar {
@@ -397,12 +422,12 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  border-top: 1px solid #197296;
+  border-top: 1px solid var(--bg);
 }
 
 .footer__bar p {
   font-size: 0.9rem;
-  color: #f1f5f9;
+  color: var(--bg);
 }
 
 .socials {
@@ -413,8 +438,9 @@ a {
 
 .socials span {
   font-size: 1.2rem;
-  color: #f1f5f9;
+  color: var(--bg);
 }
+
 /* responsive */
 
 /* Laptop */
@@ -423,6 +449,7 @@ a {
     font-size: 85%;
   }
 }
+
 /* Tablet */
 @media (max-width: 975px) {
   html {
@@ -431,27 +458,31 @@ a {
   #menu {
     display: inline-block;
   }
+
   .Navbar .navbar-nav {
     position: absolute;
     top: 100%;
     right: -100%;
-    background-color: #d6fef6;
+    background-color: var(--primary);
     width: 30rem;
     height: 100vh;
     transition: 0.3s;
   }
+
   .Navbar .navbar-nav.aktif {
     right: 0;
   }
+
   .Navbar .navbar-nav a {
-    color: black;
+    color: var(--dark-gray);
     display: block;
     margin: 1.5rem;
     padding: 0.5rem;
     font-size: 2rem;
   }
+
   .Navbar .navbar-nav a:hover {
-    color: black;
+    color: var(--dark-gray);
   }
 
   .Navbar .navbar-nav a:hover::after {
@@ -462,13 +493,24 @@ a {
     transition: 0.3s;
     transform-origin: 0 0;
   }
-  .awal .content .cari {
-    width: 25rem;
-    padding: 0.5rem 15rem 0.5rem 1rem;
+
+  .about,
+  .maskapai,
+  .daerah {
+    padding: 7.5rem 7% 1.4rem;
+    margin-top: 2rem;
   }
+
+  .awal .content .cari {
+    width: calc(100% - 2rem);
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
   .travellers__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .booking__container form {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -476,6 +518,7 @@ a {
   .footer__container {
     gap: 2rem;
   }
+
   .about .row {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -485,11 +528,13 @@ a {
     grid-area: 1/1/2/2;
   }
 }
+
 /* HP */
 @media (max-width: 500px) {
   html {
     font-size: 50%;
   }
+
   .booking__nav span {
     padding: 1rem 0.5rem;
   }

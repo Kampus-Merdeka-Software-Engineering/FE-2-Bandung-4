@@ -109,21 +109,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Isi tiket
     tiketElement.innerHTML = `
-    <div class="style">
-    <h1 class="judul">Tiket Penerbangan</h1>
-    <hr>
-    <div class="detail-tiket">
-        <p class="nama-pesawat">${tiket.namaPesawat}</p>
-        <p class="asal">Asal: ${tiket.asal}</p>
-        <p class="waktu">Berangkat: ${tiket.berangkat}</p>
-        <p class="waktu">Sampai: ${tiket.sampai}</p>
-        <p class="tujuan">Tujuan: ${tiket.tujuan}</p>
-        <p class="harga">Harga: ${tiket.harga}</p>
-    </div>
-    <img src="${tiket.imgSrc}" alt="${tiket.namaPesawat}">
-    <a href="pesan-tiket.html" class="tombol-pesan">Pesan Tiket</a>
-</div>
-        `;
+  <div class="style">
+  <h1 class="judul">Tiket Penerbangan</h1>
+  <hr>
+  <div class="detail-tiket">
+      <p class="nama-pesawat">${tiket.namaPesawat}</p>
+      <p class="asal">Asal: ${tiket.asal}</p>
+      <p class="waktu">Berangkat: ${tiket.berangkat}</p>
+      <p class="waktu">Sampai: ${tiket.sampai}</p>
+      <p class="tujuan">Tujuan: ${tiket.tujuan}</p>
+      <p class="harga">Harga: ${tiket.harga}</p>
+  </div>
+  <img src="${tiket.imgSrc}" alt="${tiket.namaPesawat}">
+  <a href="pesan-tiket.html" class="tombol-pesan">Pesan Tiket</a>
+  </div>
+      `;
 
     tiketContainer.appendChild(tiketElement);
   });
