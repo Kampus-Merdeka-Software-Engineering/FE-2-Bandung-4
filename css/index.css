@@ -335,38 +335,19 @@ h2 {
   background-color: rgba(57, 116, 128, 0.5);
 }
 
-/* Reset Browser Default Styles */
-body,
-h1,
-h2,
-h3,
-p,
-a,
-img {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Style the body */
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
-
 /* Style the Rekomendasi Tour Section */
 .rekomendasi-tour {
-  padding: 50px 0;
+  padding: 50px 20px; /* Mengurangi padding pada layar kecil */
   background-color: #f7f7f7;
 }
 
 .tours {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .tour {
-  flex: 1 1 300px;
   margin: 15px;
   padding: 10px;
   background-color: #fff;
@@ -384,6 +365,7 @@ body {
 .tour-image img {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .tour-content {
@@ -396,6 +378,11 @@ body {
 
 .tour-content p {
   margin-bottom: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .tour-content a {
