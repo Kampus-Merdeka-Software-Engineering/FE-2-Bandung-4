@@ -74,7 +74,7 @@ html {
 .Navbar .navbar-nav a {
   color: var(--navbar-text);
   display: inline-block;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin: 0.4rem;
 }
 
@@ -209,29 +209,36 @@ h2 {
 }
 
 .reasons {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
 }
 
 .reason {
   text-align: center;
-  max-width: 300px;
+  padding: 1rem;
+  max-width: 500px;
+  margin: auto;
 }
 
 .reason img {
   width: 80px;
-  height: 80px auto;
-  margin-bottom: 20px auto;
+  height: 80px;
+  margin: 2rem;
+  border-radius: 50%;
 }
 
 .reason h3 {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 1.2rem;
+  margin: 1.5rem auto 0.5rem;
 }
 
 .reason p {
-  color: rgb(57, 116, 128);
+  text-align: center;
+  max-width: 38rem;
+  margin: auto;
+  font-weight: 100;
+  line-height: 1.6;
 }
 
 /* Gambar pertama */
@@ -579,6 +586,9 @@ a {
 
   .booking__container form {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .reasons {
+    grid-template-columns: 1fr;
   }
 
   .footer__container {
