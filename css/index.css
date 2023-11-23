@@ -110,13 +110,31 @@ html {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url(../img/bg-index.png);
-  animation: slide 20s infinite;
+  background-image: url(../img/bg-1.jpeg), url(../img/bg-2.jpeg),
+    url(../img/bg-3.jpeg);
+  animation: slideshow 15s infinite;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideshow {
+  0%,
+  100% {
+    opacity: 1;
+    background-image: url(../img/bg-1.jpeg);
+  }
+  25% {
+    opacity: 1;
+    background-image: url(../img/bg-2.jpeg);
+  }
+  50% {
+    opacity: 1;
+    background-image: url(../img/bg-3.jpeg);
+  }
 }
 
 .awal::after {
@@ -172,42 +190,48 @@ html {
   box-shadow: 1px 1px 8px rgba(214, 254, 246, 0.9);
 }
 
-/* Tentang Kami */
-.about,
-.maskapai,
-.daerah {
-  padding: 7rem 7% 1.4rem;
+/* Why Choose Us*/
+.why-choose-us {
+  background-color: #f8f8f8;
+  padding: 50px 0;
 }
 
-.about h2,
-.maskapai h2,
-.daerah h2 {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h2 {
   text-align: center;
-  font-size: 2.6rem;
-  margin-bottom: 3rem;
-  color: var(--primary);
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-.about .row {
-  margin-top: 4rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+.reasons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.about .row .about-img {
-  flex: 1 1 30%;
-  max-width: 45rem;
-  margin-bottom: 2rem;
-  position: relative;
+.reason {
+  text-align: center;
+  max-width: 300px;
 }
 
-.about .row .about-img img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10rem;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+.reason img {
+  width: 80px;
+  height: 80px auto;
+  margin-bottom: 20px auto;
+}
+
+.reason h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.reason p {
+  color: rgb(57, 116, 128);
 }
 
 /* Gambar pertama */
@@ -304,40 +328,76 @@ html {
   background-color: rgba(57, 116, 128, 0.5);
 }
 
-/* Daerah */
-.daerah .row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+/* Reset Browser Default Styles */
+body,
+h1,
+h2,
+h3,
+p,
+a,
+img {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.daerah .daerah-card {
-  text-align: center;
-  background-color: #accdec;
-  color: #495057;
-  border: 1px solid #197296;
-  border-radius: 10px;
-  padding: 1rem;
+/* Style the body */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
-.daerah .daerah-card .daerah-gambar img {
-  margin-top: 1rem;
-  width: 15rem;
-  height: 15rem;
+/* Style the Rekomendasi Tour Section */
+.rekomendasi-tour {
+  padding: 50px 0;
+  background-color: #f7f7f7;
 }
 
-.daerah .daerah-card .daerah-content .cta {
-  margin-top: 1rem;
-  display: inline-block;
-  padding: 1rem 1rem;
-  font-size: 0.8rem;
-  color: #fff;
-  background-color: rgb(57, 116, 128);
+.tours {
+  display: flex;
+  justify-content: space-between;
 }
 
-.daerah .daerah-card .daerah-content .cta:hover {
-  background-color: rgba(57, 116, 128, 0.5);
+.tour {
+  flex: 1 1 300px;
+  margin: 15px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tour-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.tour-image img {
+  width: 100%;
+  height: auto;
+}
+
+.tour-content {
+  padding-top: 15px;
+}
+
+.tour-content h3 {
+  margin-bottom: 10px;
+}
+
+.tour-content p {
+  margin-bottom: 15px;
+}
+
+.tour-content a {
+  color: #197296;
+  text-decoration: none;
+}
+
+.tour-content a:hover {
+  text-decoration: underline;
 }
 
 /* Maskapai */
@@ -392,7 +452,7 @@ html {
 }
 
 .footer__col a {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--bg);
   margin-bottom: 0.8rem;
@@ -457,7 +517,7 @@ a {
 }
 
 /* Tablet */
-@media (max-width: 975px) {
+@media (max-width: 768px) {
   html {
     font-size: 75%;
   }

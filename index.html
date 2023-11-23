@@ -24,15 +24,16 @@
     <nav class="Navbar">
       <div class="logo">
         <a href="#" class="navbar-gambar">
-          <img src="img/logo.png" alt="logo"
+          <img src="img/logooo.png" alt="logo"
         /></a>
-        <a href="#" class="navbar-logo">Four'G<span> Traveler</span></a>
+        <a href="#" class="navbar-logo">Open<span> Trip</span></a>
       </div>
       <div class="navbar-nav">
         <a href="#">Beranda</a>
-        <a href="#about">Tentang</a>
-        <a href="#daerah">Penerbangan</a>
-        <a href="#maskapai">Maskapai</a>
+        <a href="#about">Tours</a>
+        <a href="#daerah">Open Trip</a>
+        <a href="#maskapai">Gallery</a>
+        <a href="#maskapai">About Us</a>
       </div>
 
       <div class="navbar-tambahan">
@@ -45,105 +46,126 @@
     </nav>
     <!-- Navbar -->
     <!-- display awal -->
-    <section class="awal" data-speed="0.5" id="home">
+    <section class="awal" id="home">
       <main class="content">
-        <h1>Pusing, stres, dan bosan? Terbang yuk</h1>
-        <p>Find Your Travel Inspiration. Explore Now....!!!</p>
-        <a href="tiket pesawat.html" class="cari" id="search">
-          <span>Cari penerbangan</span></a
-        >
       </main>
     </section>
     <!-- display awal -->
-    <!-- Tentang kami -->
-    <section id="about" class="about">
-      <h2>Tentang Kami</h2>
-      <div class="row">
-        <div class="about-img">
-          <img src="img/pesawat1.jpg" alt="Tentang Kami" />
-          <img src="img/pesawat2.jpg" alt="Tentang" />
-          <img src="img/pesawat3.jpg" alt="Tentang" />
-        </div>
-        <div class="content">
-          <h3>Selamat Datang di Four'G Travel</h3>
-          <p>
-            Travel adalah salah satu cara yang paling efisien untuk menjelajahi
-            dunia. Dengan berbagai pilihan destinasi yang dapat dipilih, para
-            pelancong dapat dengan mudah merencanakan petualangan mereka, mulai
-            dari kota-kota metropolitan hingga pulau-pulau eksotis. Tiket
-            pesawat travel juga memungkinkan penumpang untuk mengeksplorasi
-            beragam budaya, makanan, dan pengalaman unik di seluruh dunia.
-            Dengan fasilitas penerbangan yang semakin modern dan layanan yang
-            disesuaikan, seperti makanan lezat di atas awan dan hiburan di
-            pesawat, perjalanan dengan tiket pesawat travel tidak hanya menjadi
-            sarana untuk mencapai tujuan, tetapi juga sebuah pengalaman yang
-            mendalam dan tak terlupakan.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!-- Tentang kami -->
-    <!-- tiket -->
-    <section class="daerah" id="daerah">
-      <!-- Form Pencarian Tiket Pesawat -->
-      <!-- Form Pencarian Tiket Pesawat -->
-      <div class="booking__container">
-        <form id="searchForm">
-          <div class="input__group">
-            <label for="asal">Asal</label>
-            <input type="text" id="asal" name="asal" required />
-          </div>
-          <div class="input__group">
-            <label for="tujuan">Tujuan</label>
-            <input type="text" id="tujuan" name="tujuan" required />
-          </div>
-          <div class="input__group">
-            <label for="tanggal">Tanggal</label>
-            <input type="date" id="tanggal" name="tanggal" required />
-          </div>
-          <div class="input__group">
-            <label for="maskapai">Maskapai</label>
-            <input type="text" id="Maskapai" name="Maskapai" required />
-          </div>
-          <!-- ... (form elements) ... -->
-          <button type="button" class="btn" onclick="cariTiket()">
-            Cari Tiket
-          </button>
-        </form>
-      </div>
-      <!-- Hasil Pencarian Tiket Pesawat -->
-      <div id="hasilPencarian">
-        <!-- Hasil pencarian akan ditampilkan di sini -->
-      </div>
 
-      <h2>Rekomendasi Penerbangan</h2>
-      <div class="row">
-        <div class="daerah-card">
-          <div class="daerah-gambar">
-            <img src="img/Masjid 99 Kuba-Makassar.webp" alt="Makassar" />
+<!-- tiket -->
+<section class="daerah" id="daerah">
+  <!-- Form Pencarian Tiket Pesawat -->
+  <!-- Form Pencarian Tiket Pesawat -->
+  <div class="booking__container">
+    <form id="searchForm">
+      <div class="input__group">
+        <label for="asal">Destinasi</label>
+        <input type="text" id="asal" name="asal" required />
+      </div>
+      <div class="input__group">
+        <label for="tujuan">Tipe Tour</label>
+        <input type="text" id="tujuan" name="tujuan" required />
+      </div>
+      <div class="input__group">
+        <label for="tanggal">Tanggal</label>
+        <input type="date" id="tanggal" name="tanggal" required />
+      </div>
+      <!-- ... (form elements) ... -->
+      <button type="button" class="btn" onclick="cariTiket()">
+        Cari Tours
+      </button>
+    </form>
+  </div>
+  <!-- Hasil Pencarian Tiket Pesawat -->
+  <div id="hasilPencarian">
+    <!-- Hasil pencarian akan ditampilkan di sini -->
+  </div>
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+      <div class="container">
+        <h2>Mengapa Memilih Kami</h2>
+        <div class="reasons">
+          <div class="reason">
+            <img src="img/icon-pengalaman.png" alt="Icon 1">
+            <h3>Pengalaman yang Dibanggakan</h3>
+            <p>Kami memiliki pengalaman yang solid dalam membawa Anda ke destinasi yang menakjubkan. Jadikan petualangan Anda bersama kami sebagai pengalaman tak terlupakan.</p>
           </div>
-          <div class="daerah-content">
-            <h3>Makassar</h3>
-            <a href="tiket makasar.html" class="cta">Lihat Penerbangan</a>
+          <div class="reason">
+            <img src="img/icon-tourguide.png" alt="Icon 1">
+            <h3>Pemandu Berpengalaman</h3>
+            <p>Panduan kami tidak hanya berpengalaman, tapi juga menjamin Anda mengeksplorasi destinasi dengan keamanan dan kebijaksanaan. Temukan keajaiban dunia dengan para ahli kami.</p>
           </div>
-        </div>
-        <div class="daerah-card">
-          <div class="daerah-gambar">
-            <img src="img/bali.jpg" alt="Bali" />
+          <div class="reason">
+            <img src="img/icon-destinasii.png" alt="Icon 2">
+            <h3>Destinasi Unik</h3>
+            <p>Jelajahi destinasi unik dan permata tersembunyi. Destinasi kami bukan hanya tempat, tapi cerita yang menunggu untuk Anda tulis. Temukan cerita menarik Anda bersama kami.</p>
           </div>
-          <div class="daerah-content">
-            <h3>Bali</h3>
-            <a href="tiket bali.html" class="cta">Lihat Penerbangan</a>
+          <div class="reason">
+            <img src="img/icon-kepuasan.png" alt="Icon 3">
+            <h3>Kepuasan Pelanggan</h3>
+            <p>Kepuasan Anda adalah misi utama kami. Layanan pelanggan kami hadir untuk memastikan setiap momen perjalanan Anda sesuai dengan harapan.</p>
           </div>
         </div>
       </div>
     </section>
-    <!-- tiket -->
+    <hr>
+    
+    <!-- Why Choose Us -->
+    <!--Rekomendasi Tour-->
+    <hr size='20px'>
+    <section class="rekomendasi-tour">
+      <div class="container">
+        <h2>Tour Paling Populer</h2>
+        <div class="tours">
+          <div class="tour">
+            <div class="tour-image">
+              <img src="img/gunung-bromo.jpg" alt="Tour 1">
+            </div>
+            <div class="tour-content">
+              <h3>Gunung Bromo</h3>
+              <p>Ikon alam Indonesia yang menakjubkan, dengan kawahnya yang mmebara dan pemandangan matahari terbit yang memukau diantara lautan pasir. Keindahannya yang megah dan potensi petualangan menjadikannya destinasi yang sangat diminati bagi para pelancong.</p>
+              <a href="#">Lihat Detail</a>
+            </div>
+          </div>
+          <div class="tour">
+            <div class="tour-image">
+              <img src="img/nusa-penida.jpg" alt="Tour 2">
+            </div>
+            <div class="tour-content">
+              <h3>Nusa Penida</h3>
+              <p>Pulau yang menakjubkan di Indonesia dengan pantai-pantai eksotis, terumbu karang yang memukau, dan tebing-tebing yang menjulang tinggi di atas laut biru. Keindahan alamnya yang belum tersentuh menjadikan Nusa Penida surganya para pecinta alam dan penyelam.</p>
+              <a href="#">Lihat Detail</a>
+            </div>
+          </div>
+          <div class="tour">
+            <div class="tour-image">
+              <img src="img/kawah-ijen.jpg" alt="Tour 3">
+            </div>
+            <div class="tour-content">
+              <h3>Kawah Ijen</h3>
+              <p>Tempat yang luar biasa dengan danau asam biru terbesar di dunia serta fenomena api biru yang menakjubkan di malam hari, menarik wisatawan dengan pemandangan alamnya yang unik. Keunikan kawah ini tidak hanya terletak pada panorama alamnya tetapi juga pada kegiatan pertambangan belerang yang dilakukan oleh penduduk setempat di sekitarnya.</p>
+              <a href="#">Lihat Detail</a>
+            </div>
+          </div>
+          <div class="tour">
+            <div class="tour-image">
+              <img src="img/candi-borobudur.jpg" alt="Tour 3">
+            </div>
+            <div class="tour-content">
+              <h3>Candi Borobudur</h3>
+              <p>Keajaiban arsitektur Buddha di Indonesia, dengan struktur monumental yang menakjubkan yang terdiri dari ribuan relief dan stupa, mencerminkan keagungan seni dan spiritualitas pada masa lampau. Sebagai situs warisan dunia UNESCO, Borobudur menarik pengunjung dari seluruh dunia untuk menyaksikan keindahan dan makna budayanya yang mendalam.</p>
+              <a href="#">Lihat Detail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Rekomendasi Tour -->
     <!-- Makapai -->
     <section id="maskapai" class="maskapai">
-      <h2>Maskapai</h2>
+      <h2>Mitra</h2>
       <p>
-        Kami bekerja sama dengan berbagai maskapai penerbangan untuk  menerbangkan Anda ke mana pun Anda inginkan !
+        Kami bekerja sama dengan berbagai perusahaan untuk membawa Anda ke destinasi impian Anda !
       </p>
       <div class="row">
         <div class="maskapai-card">
@@ -193,20 +215,23 @@
     <footer class="footer">
       <div class="section__container footer__container">
         <div class="footer__col">
-          <h3 class="navbar-logo"><a href="#">FourG <span>Traveller</span></h3>
+          <h3 class="navbar-logo"><a href="#">Open <span>Trip</span></h3>
           <p></a>
-            Dimana Keunggulan Terbang. Dengan komitmen yang kuat kepada
-            pelanggan kepuasan dan hasrat untuk perjalanan udara, ditawarkan
-            FourG Traveler layanan luar biasa dan perjalanan mulus.
+            Dimana Keunggulan Trip. Dengan komitmen yang kuat kepada
+            pelanggan kepuasan dan hasrat untuk perjalanan udara dan darat ditawarkan
+            Open Trip layanan luar biasa dan perjalanan mulus.
           </p>
         </div>
         <div class="footer__col">
           <h4>Product</h4>
           <p>Tikect</p>
+          <p>Destinasi</p>
+          <p>Hotel</p>
         </div>
         <div class="footer__col">
           <h4>Sponsor</h4>
-          <a href="https://revou.co/">RevoU</a>
+          <p><a href="https://revou.co/">RevoU</a></p>
+          <p><a href="https://kampusmerdeka.kemdikbud.go.id/">Kampus Merdeka</a></p>
         </div>
       </div>
       <div class="section__container footer__bar">
