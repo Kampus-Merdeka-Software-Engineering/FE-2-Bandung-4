@@ -1,6 +1,12 @@
 :root {
   --primary: #559dab;
   --bg: #ffffff;
+  --navbar-bg: rgba(85, 157, 171, 0.85);
+  --navbar-border: #197296;
+  --navbar-text: #ffffff;
+  --dark-gray: #031727;
+  --deep-sky-blue: #197296;
+  --silver: #c0c0c0;
 }
 
 * {
@@ -38,8 +44,8 @@ html {
 }
 
 .Navbar.fixed {
-  background-color: rgba(85, 157, 171, 0.85);
-  border-bottom: 1px solid #197296;
+  background-color: var(--navbar-bg);
+  border-bottom: 1px solid var(--navbar-border);
   padding-bottom: 0rem;
 }
 
@@ -66,7 +72,7 @@ html {
 }
 
 .Navbar .navbar-nav a {
-  color: #ffffff;
+  color: var(--navbar-text);
   display: inline-block;
   font-size: 1.8rem;
   margin: 0.4rem;
@@ -90,7 +96,7 @@ html {
 }
 
 .Navbar .navbar-tambahan a {
-  color: black;
+  color: var(--navbar-text);
   margin: 0.4rem;
 }
 
