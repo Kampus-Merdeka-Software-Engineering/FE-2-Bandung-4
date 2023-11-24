@@ -18,14 +18,13 @@
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Koh Santepheap", serif;
   background-color: var(--bg);
-  min-height: 2000px;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 /* navbar */
@@ -337,7 +336,7 @@ h2 {
 
 /* Style the Rekomendasi Tour Section */
 .rekomendasi-tour {
-  padding: 50px 20px; /* Mengurangi padding pada layar kecil */
+  padding: 50px 20px;
   background-color: #f7f7f7;
 }
 

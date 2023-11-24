@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      h1,
+      h2 {
+        color: #333;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .product-container,
+      .cart-container {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .cart-detail,
+      .product-detail {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Product Detail</h1>
+
+    <div class="product-container">
+      <h2>Product Details</h2>
+      <pre class="product-detail"></pre>
+      <button onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <div class="cart-container">
+      <h2>Shopping Cart</h2>
+      <pre class="cart-detail"></pre>
+    </div>
+
+    <script src="js/products.js"></script>
+
+    <script src="js/tours.js"></script>
+    <script>
+      const cart = [];
+
+      window.addEventListener("DOMContentLoaded", async function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get("id");
+
+        if (productId) {
+          const product = products.find((product) => product.id === productId);
+
+          if (product) {
+            document.querySelector(".product-detail").textContent =
+              JSON.stringify(product, null, 2);
+          } else {
+            console.warn("Product not found.");
+          }
+        } else {
+          console.warn("No product ID found in the URL.");
+        }
+      });
+
+      // Adds a product to the shopping cart based on the product ID extracted from the URL.
+      function addToCart() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get("id");
+
+        if (productId) {
+          const productToAdd = products.find(
+            (product) => product.id === productId
+          );
+
+          if (productToAdd) {
+            cart.push(productToAdd);
+            console.log("Product added to cart:", productToAdd);
+            updateCartUI();
+          } else {
+            console.warn("Product not found.");
+          }
+        } else {
+          console.warn("No product ID found in the URL.");
+        }
+      }
+
+      // Updates the user interface to display the current state of the cart.
+      function updateCartUI() {
+        document.querySelector(".cart-detail").textContent = JSON.stringify(
+          cart,
+          null,
+          2
+        );
+      }
+    </script>
+  </body>
+</html>
