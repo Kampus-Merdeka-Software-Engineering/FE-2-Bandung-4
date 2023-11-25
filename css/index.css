@@ -190,7 +190,8 @@ body {
 }
 
 /* Why Choose Us*/
-.why-choose-us {
+.why-choose-us,
+.product-container {
   background-color: #f8f8f8;
   padding: 50px 0;
 }
@@ -310,7 +311,8 @@ h2 {
   display: block;
 }
 
-.booking__container input {
+.booking__container input,
+.booking__container select {
   width: 100%;
   padding: 10px;
   font-size: 1rem;

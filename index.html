@@ -54,32 +54,31 @@
 
 <!-- tiket -->
 <section class="daerah" id="daerah">
-  <!-- Form Pencarian Tiket Pesawat -->
-  <!-- Form Pencarian Tiket Pesawat -->
   <div class="booking__container">
-    <form id="searchForm">
+    <form id="searchForm" action="tours.html" method="get">
       <div class="input__group">
-        <label for="asal">Destinasi</label>
+        <label for="asal">Tempat</label>
         <input type="text" id="asal" name="asal" required />
       </div>
-      <div class="input__group">
-        <label for="tujuan">Tipe Tour</label>
-        <input type="text" id="tujuan" name="tujuan" required />
-      </div>
+      <div class="input__group dropdown">
+        <label for="tujuan">Tipe Trip</label>
+        <select id="tujuan" name="tujuan" required>
+          <option value="all">All</option>
+          <option value="group trip">Group Trip</option>
+          <option value="konser trip">Konser Trip</option>
+          <option value="honeymoon trip">Honeymoon Trip</option>
+        </select>
+      </div>      
       <div class="input__group">
         <label for="tanggal">Tanggal</label>
-        <input type="date" id="tanggal" name="tanggal" required />
+        <input type="month" id="tanggal" name="tanggal" required />
       </div>
-      <!-- ... (form elements) ... -->
-      <button type="button" class="btn" onclick="cariTiket()">
+      <button type="submit" class="btn" onclick="cariTours()">
         Cari Tours
       </button>
     </form>
   </div>
-  <!-- Hasil Pencarian Tiket Pesawat -->
-  <div id="hasilPencarian">
-    <!-- Hasil pencarian akan ditampilkan di sini -->
-  </div>
+</section>
     <!-- Why Choose Us -->
     <section class="why-choose-us">
       <h2>Mengapa Memilih Kami</h2>
@@ -256,6 +255,7 @@
     <script>
       feather.replace();
     </script>
-    <script src="js/index.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

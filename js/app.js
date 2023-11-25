@@ -70,12 +70,12 @@ const displayButtons = () => {
   // Mengambil daftar unik perusahaan dari produk
   const buttons = [
     "all",
-    ...new Set(products.map((product) => product.company)),
+    ...new Set(products.map((product) => product.category)),
   ];
   // Menampilkan tombol perusahaan berdasarkan daftar unik
   companiesDOM.innerHTML = buttons
-    .map((company) => {
-      return `<button class='company-btn' data-id="${company}">${company}</button>`;
+    .map((category) => {
+      return `<button class='category-btn' data-id="${category}">${category}</button>`;
     })
     .join("");
 };
@@ -87,12 +87,12 @@ displayButtons();
 companiesDOM.addEventListener("click", (e) => {
   const el = e.target;
   // Memfilter produk berdasarkan perusahaan sesuai dengan tombol yang diklik
-  if (el.classList.contains("company-btn")) {
+  if (el.classList.contains("category-btn")) {
     if (el.dataset.id === "all") {
       filteredProducts = [...products];
     } else {
       filteredProducts = products.filter((product) => {
-        return product.company === el.dataset.id;
+        return product.category === el.dataset.id;
       });
     }
     // Mengosongkan nilai input pencarian
