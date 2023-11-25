@@ -25,6 +25,7 @@ html {
 body {
   font-family: "Koh Santepheap", serif;
   background-color: var(--bg);
+  padding: 0;
 }
 
 /* navbar */
@@ -293,7 +294,7 @@ h2 {
   background-color: #accdec;
   border: 1px solid #197296;
   border-radius: 10px;
-  padding: 20px;
+  padding: 0px;
   margin: 20px auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -440,7 +441,7 @@ h2 {
 .footer__container {
   border-top: 1px solid var(--dark-gray);
   margin: auto;
-  padding: 1.5rem 1rem 1rem 1.5rem;
+  padding: 0;
   display: grid;
   grid-template-columns: 3fr repeat(2, 1fr);
   gap: 5rem;
@@ -558,7 +559,7 @@ a {
   .about,
   .maskapai,
   .daerah {
-    padding: 7.5rem 7% 1.4rem;
+    padding: 0;
     margin-top: 2rem;
   }
 
