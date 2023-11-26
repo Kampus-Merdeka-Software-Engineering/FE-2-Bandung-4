@@ -25,7 +25,6 @@ html {
 body {
   font-family: "Koh Santepheap", serif;
   background-color: var(--bg);
-  padding: 0;
 }
 
 /* navbar */
@@ -104,7 +103,7 @@ body {
   display: none;
 }
 
-/* Display */
+/* Initial Display Section Styles */
 .awal {
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
@@ -156,45 +155,10 @@ body {
   max-width: 60rem;
 }
 
-.awal .content h1 {
-  font-size: 5rem;
-  color: #ffffff;
-  text-shadow: 1px 1px 3px rgba(10, 122, 167, 0.5);
-  line-height: 1;
-}
-
-.awal .content p {
-  font-family: "Koh Santepheap", serif;
-  font-size: 1.5rem;
-  margin-top: 1rem;
-  line-height: 1.4;
-  font-weight: 100;
-  color: #ffffff;
-  text-shadow: 1px 1px 3px rgba(10, 122, 167, 0.7);
-  mix-blend-mode: difference;
-}
-
-.awal .content .cari {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  color: #ffffff;
-  background-color: var(--primary);
-  border-radius: 0.8rem;
-  box-shadow: 1px 1px 5px rgba(25, 135, 177, 0.7);
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.awal .content .cari:hover {
-  background-color: rgba(25, 135, 177, 1);
-  box-shadow: 1px 1px 8px rgba(214, 254, 246, 0.9);
-}
-
 /* Why Choose Us*/
-.why-choose-us,
-.product-container {
+.why-choose-us {
   background-color: #f8f8f8;
-  padding: 50px 0;
+  padding: 30px 0;
 }
 
 .container {
@@ -225,7 +189,7 @@ h2 {
 .reason img {
   width: 80px;
   height: 80px;
-  margin: 2rem;
+  margin: 2rem auto 0.5rem;
   border-radius: 50%;
 }
 
@@ -235,7 +199,7 @@ h2 {
 }
 
 .reason p {
-  text-align: center;
+  text-align: justify;
   max-width: 38rem;
   margin: auto;
   font-weight: 100;
@@ -243,65 +207,24 @@ h2 {
 }
 
 /* Gambar pertama */
-.about .row .about-img img:nth-child(1) {
-  max-width: 250px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(calc(-50% - 9rem), calc(-50% + 5rem));
-  z-index: 3;
-}
 
 /* Gambar kedua */
-.about .row .about-img img:nth-child(2) {
-  max-width: 260px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, calc(-50% - 5rem));
-  z-index: 2;
-}
 
 /* Gambar ketiga */
-.about .row .about-img img:nth-child(3) {
-  max-width: 230px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(calc(-50% + 9rem), calc(-50% + 5rem));
-  z-index: 1;
-}
-
-.about .row .content {
-  flex: 1 1 35rem;
-  padding: 8 1rem;
-  color: var(--primary);
-}
-
-.about .row .content h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.about .row .content p {
-  margin-bottom: 1.2rem;
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-}
 
 /* CSS untuk form pencarian */
 .booking__container {
   background-color: #accdec;
   border: 1px solid #197296;
   border-radius: 10px;
-  padding: 0px;
-  margin: 20px auto;
+  padding: 20px;
+  margin: 20px 30px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .booking__container form {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
@@ -336,7 +259,6 @@ h2 {
 .booking__container .btn:hover {
   background-color: rgba(57, 116, 128, 0.5);
 }
-
 /* Style the Rekomendasi Tour Section */
 .rekomendasi-tour {
   padding: 50px 20px;
@@ -441,7 +363,7 @@ h2 {
 .footer__container {
   border-top: 1px solid var(--dark-gray);
   margin: auto;
-  padding: 0;
+  padding: 1.5rem 1rem 1rem 1.5rem;
   display: grid;
   grid-template-columns: 3fr repeat(2, 1fr);
   gap: 5rem;
@@ -559,7 +481,7 @@ a {
   .about,
   .maskapai,
   .daerah {
-    padding: 0;
+    padding: 7.5rem 7% 1.4rem;
     margin-top: 2rem;
   }
 

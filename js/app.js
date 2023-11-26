@@ -101,3 +101,27 @@ companiesDOM.addEventListener("click", (e) => {
     displayProducts();
   }
 });
+
+function cariTours() {
+  const lokasiValue = document.getElementById("asal").value.toLowerCase();
+  const tipeTripValue = document.getElementById("tujuan").value.toLowerCase();
+  const tanggalValue = document.getElementById("tanggal").value;
+
+  window.location.href = `tours.html?lokasi=${lokasiValue}&tipeTrip=${tipeTripValue}&tanggal=${tanggalValue}`;
+}
+const urlParams = new URLSearchParams(window.location.search);
+const lokasiParam = urlParams.get("lokasi");
+const tipeTripParam = urlParams.get("tipeTrip");
+const tanggalParam = urlParams.get("tanggal");
+
+filteredProducts = products.filter((product) => {
+  const lokasiMatches = product.location.toLowerCase().includes(lokasiParam);
+  const tipeTripMatches = product.category
+    .toLowerCase()
+    .includes(tipeTripParam);
+  const tanggalMatches = product.date === tanggalParam;
+
+  return lokasiMatches && tipeTripMatches && tanggalMatches;
+});
+
+displayProducts();
