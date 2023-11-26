@@ -25,3 +25,41 @@ document.addEventListener("click", function (e) {
     navbarNav.classList.remove("aktif");
   }
 });
+
+// Menduplikasi array products ke filteredProducts
+let filteredProducts = [...products];
+
+// Mengambil elemen DOM untuk menampilkan produk
+const productsContainer = document.querySelector(".tours");
+
+// Fungsi untuk menampilkan produk di dalam DOM
+const displayProducts = () => {
+  // Menampilkan pesan jika tidak ada produk yang sesuai dengan pencarian
+  if (filteredProducts.length < 1) {
+    productsContainer.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
+    return;
+  }
+
+  // Ambil 6 produk pertama dari array
+  const sixProducts = filteredProducts.slice(0, 6);
+
+  // Mengisi kontainer produk dengan HTML hasil mapping dari sixProducts
+  productsContainer.innerHTML = sixProducts
+    .map((product) => {
+      const { id, title, image, description } = product;
+      return `<div class="tour">
+                <div class="tour-image">
+                  <img src="${image}" alt="${title}">
+                </div>
+                <div class="tour-content">
+                  <h3>${title}</h3>
+                  <p>${description}</p>
+                  <a href="detail.html?id=${id}">Lihat Detail</a>
+                </div>
+              </div>`;
+    })
+    .join("");
+};
+
+// Panggil fungsi untuk menampilkan produk saat halaman dimuat
+document.addEventListener("DOMContentLoaded", displayProducts);
