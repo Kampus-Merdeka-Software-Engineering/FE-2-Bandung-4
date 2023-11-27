@@ -1,13 +1,8 @@
 // Mengubah format harga menjadi rupiah
-const formatRupiah = (price) => {
-  // Menggunakan Intl.NumberFormat untuk mengonversi harga ke format rupiah
-  const formattedPrice = new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-  }).format(price);
-
-  return formattedPrice;
-};
+const formatRupiah = (price) =>
+  new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR" }).format(
+    price
+  );
 
 // Menduplikasi array products ke filteredProducts
 let filteredProducts = [...products];
@@ -18,30 +13,29 @@ const productsContainer = document.querySelector(".products-container");
 // Fungsi untuk menampilkan produk di dalam DOM
 const displayProducts = () => {
   // Menampilkan pesan jika tidak ada produk yang sesuai dengan pencarian
-  if (filteredProducts.length < 1) {
-    productsContainer.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
+  if (!productsContainer || filteredProducts.length < 1) {
+    if (productsContainer) {
+      productsContainer.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
+    }
     return;
   }
 
   // Mengisi kontainer produk dengan HTML hasil mapping dari filteredProducts
-  productsContainer.innerHTML = filteredProducts
-    .map((product) => {
-      const { id, title, image, price } = product;
-      return `<a href="detail.html?id=${id}">
+  if (productsContainer) {
+    productsContainer.innerHTML = filteredProducts
+      .map(
+        ({ id, title, image, price }) => `<a href="detail.html?id=${id}">
       <article class="product" data-id="${id}">
-          <img
-            src="${image}"
-            class="product-img img"
-            alt=""
-          />
-          <footer>
-            <h5 class="product-name">${title}</h5>
-            <!-- Menampilkan harga dalam format rupiah -->
-            <span class="product-price">${formatRupiah(price)}</span>
-          </footer>
-        </article></a>`;
-    })
-    .join("");
+        <img src="${image}" class="product-img img" alt="" />
+        <footer>
+          <h5 class="product-name">${title}</h5>
+          <!-- Menampilkan harga dalam format rupiah -->
+          <span class="product-price">${formatRupiah(price)}</span>
+        </footer>
+      </article></a>`
+      )
+      .join("");
+  }
 };
 
 // Memanggil fungsi displayProducts untuk menampilkan produk awal
@@ -51,16 +45,18 @@ displayProducts();
 const form = document.querySelector(".input-form");
 const searchInput = document.querySelector(".search-input");
 
-form.addEventListener("keyup", () => {
-  // Mendapatkan nilai input pencarian
-  const inputValue = searchInput.value;
-  // Memfilter produk berdasarkan judul sesuai dengan input pencarian
-  filteredProducts = products.filter((product) => {
-    return product.title.toLowerCase().includes(inputValue);
+if (form && searchInput) {
+  form.addEventListener("keyup", () => {
+    // Mendapatkan nilai input pencarian
+    const inputValue = searchInput.value;
+    // Memfilter produk berdasarkan judul sesuai dengan input pencarian
+    filteredProducts = products.filter((product) =>
+      product.title.toLowerCase().includes(inputValue)
+    );
+    // Menampilkan produk yang sesuai dengan filter
+    displayProducts();
   });
-  // Menampilkan produk yang sesuai dengan filter
-  displayProducts();
-});
+}
 
 // Mengambil elemen DOM untuk menampilkan tombol perusahaan
 const companiesDOM = document.querySelector(".companies");
@@ -68,83 +64,86 @@ const companiesDOM = document.querySelector(".companies");
 // Fungsi untuk menampilkan tombol perusahaan di dalam DOM
 const displayButtons = () => {
   // Mengambil daftar unik perusahaan dari produk
-  const buttons = [
-    "all",
-    ...new Set(products.map((product) => product.category)),
-  ];
+  const buttons = ["all", ...new Set(products.map(({ category }) => category))];
   // Menampilkan tombol perusahaan berdasarkan daftar unik
-  companiesDOM.innerHTML = buttons
-    .map((category) => {
-      return `<button class='category-btn' data-id="${category}">${category}</button>`;
-    })
-    .join("");
+  if (companiesDOM) {
+    companiesDOM.innerHTML = buttons
+      .map(
+        (category) =>
+          `<button class='category-btn' data-id="${category}">${category}</button>`
+      )
+      .join("");
+  }
 };
 
 // Memanggil fungsi displayButtons untuk menampilkan tombol perusahaan awal
 displayButtons();
 
 // Event listener untuk klik tombol perusahaan
-companiesDOM.addEventListener("click", (e) => {
-  const el = e.target;
-  // Memfilter produk berdasarkan perusahaan sesuai dengan tombol yang diklik
-  if (el.classList.contains("category-btn")) {
-    if (el.dataset.id === "all") {
-      filteredProducts = [...products];
-    } else {
-      filteredProducts = products.filter((product) => {
-        return product.category === el.dataset.id;
-      });
+if (companiesDOM) {
+  companiesDOM.addEventListener("click", (e) => {
+    const el = e.target;
+    // Memfilter produk berdasarkan perusahaan sesuai dengan tombol yang diklik
+    if (el && el.classList.contains("category-btn")) {
+      filteredProducts =
+        el.dataset.id === "all"
+          ? [...products]
+          : products.filter(({ category }) => category === el.dataset.id);
+      // Mengosongkan nilai input pencarian
+      if (searchInput) {
+        searchInput.value = "";
+      }
+      // Menampilkan produk yang sesuai dengan filter
+      displayProducts();
     }
-    // Mengosongkan nilai input pencarian
-    searchInput.value = "";
-    // Menampilkan produk yang sesuai dengan filter
-    displayProducts();
-  }
-});
-
-// ...
-
-function cariTours() {
-  const lokasiValue = document.getElementById("lokasi").value.toLowerCase();
-  const tipeTripValue = document.getElementById("tujuan").value.toLowerCase();
-  const tanggalValue = document.getElementById("bulan").value;
-
-  // Mengambil bulan dari tanggal input
-  const bulanValue = new Date(tanggalValue).getMonth() + 1;
+  });
 }
+
+const cariTours = () => {
+  const lokasiElement = document.getElementById("lokasi");
+  const tujuanElement = document.getElementById("tujuan");
+  const bulanElement = document.getElementById("bulan");
+
+  if (lokasiElement && tujuanElement && bulanElement) {
+    const lokasiValue = lokasiElement.value.toLowerCase();
+    const tipeTripValue = tujuanElement.value.toLowerCase();
+    const tanggalValue = bulanElement.value;
+
+    // Mengambil bulan dari tanggal input
+    const bulanValue = new Date(tanggalValue).getMonth() + 1;
+  }
+};
 
 const urlParams = new URLSearchParams(window.location.search);
 const lokasiParam = urlParams.get("lokasi");
 const tipeTripParam = urlParams.get("tipeTrip");
 const bulanParam = urlParams.get("bulan");
 
-filteredProducts = products.filter((product) => {
+filteredProducts = products.filter(({ location, category, date }) => {
   const lokasiMatches = lokasiParam
-    ? product.location.toLowerCase().includes(lokasiParam)
-    : true; // Tampilkan jika lokasiParam tidak ada atau null
-
+    ? location.toLowerCase().includes(lokasiParam)
+    : true;
   const tipeTripMatches = tipeTripParam
-    ? product.category.toLowerCase().includes(tipeTripParam)
-    : true; // Tampilkan jika tipeTripParam tidak ada atau null
-
-  // Membandingkan bulan dari tanggal produk dengan bulan yang diambil dari parameter
+    ? category.toLowerCase().includes(tipeTripParam)
+    : true;
   const bulanMatches = bulanParam
-    ? new Date(product.date).getMonth() + 1 === parseInt(bulanParam)
-    : true; // Tampilkan jika bulanParam tidak ada atau null
+    ? new Date(date).getMonth() + 1 === parseInt(bulanParam)
+    : true;
 
-  return lokasiMatches || (tipeTripMatches && bulanMatches);
+  return (lokasiMatches && tipeTripMatches) || bulanMatches;
 });
 
 displayProducts();
 
 const cart = [];
-window.addEventListener("DOMContentLoaded", async function () {
+
+window.addEventListener("DOMContentLoaded", async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
   const productDetailContainer = document.querySelector(".product-detail");
 
-  if (productId) {
-    const product = products.find((product) => product.id === productId);
+  if (productId && productDetailContainer) {
+    const product = products.find(({ id }) => id === productId);
 
     if (product) {
       productDetailContainer.innerHTML = `
@@ -163,12 +162,12 @@ window.addEventListener("DOMContentLoaded", async function () {
   }
 });
 
-function addToCart() {
+const addToCart = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
 
   if (productId) {
-    const productToAdd = products.find((product) => product.id === productId);
+    const productToAdd = products.find(({ id }) => id === productId);
 
     if (productToAdd) {
       cart.push(productToAdd);
@@ -180,23 +179,25 @@ function addToCart() {
   } else {
     console.warn("No product ID found in the URL.");
   }
-}
+};
 
-function updateCartUI() {
+const updateCartUI = () => {
   const cartDetailContainer = document.querySelector(".cart-detail");
 
-  cartDetailContainer.innerHTML = "";
+  if (cartDetailContainer) {
+    cartDetailContainer.innerHTML = "";
 
-  cart.forEach((product) => {
-    const productItem = document.createElement("div");
-    productItem.classList.add("cart-item");
+    cart.forEach(({ title, category, price }) => {
+      const productItem = document.createElement("div");
+      productItem.classList.add("cart-item");
 
-    productItem.innerHTML = `
-      <h4>${product.title}</h4>
-      <p>${product.category}</p>
-      <span>${product.price}</span>
-    `;
+      productItem.innerHTML = `
+        <h4>${title}</h4>
+        <p>${category}</p>
+        <span>${price}</span>
+      `;
 
-    cartDetailContainer.appendChild(productItem);
-  });
-}
+      cartDetailContainer.appendChild(productItem);
+    });
+  }
+};
