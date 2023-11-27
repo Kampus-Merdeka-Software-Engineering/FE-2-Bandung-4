@@ -136,3 +136,67 @@ filteredProducts = products.filter((product) => {
 });
 
 displayProducts();
+
+const cart = [];
+window.addEventListener("DOMContentLoaded", async function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id");
+  const productDetailContainer = document.querySelector(".product-detail");
+
+  if (productId) {
+    const product = products.find((product) => product.id === productId);
+
+    if (product) {
+      productDetailContainer.innerHTML = `
+        <img src="${product.image}" class="img" alt="${product.title}" />
+        <div class="product-info">
+          <h3>${product.title}</h3>
+          <h5>${product.category}</h5>
+          <span>${product.price}</span>
+          <p>${product.description}</p><button class="btn" onclick="addToCart()">Add to Cart</button>
+        </div>`;
+    } else {
+      console.warn("Product not found.");
+    }
+  } else {
+    console.warn("No product ID found in the URL.");
+  }
+});
+
+function addToCart() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id");
+
+  if (productId) {
+    const productToAdd = products.find((product) => product.id === productId);
+
+    if (productToAdd) {
+      cart.push(productToAdd);
+      console.log("Product added to cart:", productToAdd);
+      updateCartUI();
+    } else {
+      console.warn("Product not found.");
+    }
+  } else {
+    console.warn("No product ID found in the URL.");
+  }
+}
+
+function updateCartUI() {
+  const cartDetailContainer = document.querySelector(".cart-detail");
+
+  cartDetailContainer.innerHTML = "";
+
+  cart.forEach((product) => {
+    const productItem = document.createElement("div");
+    productItem.classList.add("cart-item");
+
+    productItem.innerHTML = `
+      <h4>${product.title}</h4>
+      <p>${product.category}</p>
+      <span>${product.price}</span>
+    `;
+
+    cartDetailContainer.appendChild(productItem);
+  });
+}
