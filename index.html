@@ -32,7 +32,7 @@
         <a href="#">Beranda</a>
         <a href="tours.html">Tours</a>
         <a href="#daerah">Open Trip</a>
-        <a href="#maskapai">Gallery</a>
+        <a href="gallery.html">Gallery</a>
         <a href="#maskapai">About Us</a>
       </div>
 
@@ -57,12 +57,12 @@
   <div class="booking__container">
     <form id="searchForm" action="tours.html" method="get">
       <div class="input__group">
-        <label for="asal">Tempat</label>
-        <input type="text" id="asal" name="asal" required />
+        <label for="lokasi">Tempat</label>
+        <input type="text" id="asal" name="lokasi" required />
       </div>
       <div class="input__group dropdown">
         <label for="tujuan">Tipe Trip</label>
-        <select id="tujuan" name="tujuan" required>
+        <select id="tipeTrip" name="tipeTrip" required>
           <option value="all">All</option>
           <option value="group trip">Group Trip</option>
           <option value="konser trip">Konser Trip</option>
@@ -71,7 +71,7 @@
       </div>      
       <div class="input__group">
         <label for="tanggal">Tanggal</label>
-        <input type="month" id="tanggal" name="tanggal" required />
+        <input type="month" id="bulan" name="bulan" />
       </div>
       <button type="submit" class="btn" onclick="cariTours()">
         Cari Tours

@@ -102,26 +102,37 @@ companiesDOM.addEventListener("click", (e) => {
   }
 });
 
-function cariTours() {
-  const lokasiValue = document.getElementById("asal").value.toLowerCase();
-  const tipeTripValue = document.getElementById("tujuan").value.toLowerCase();
-  const tanggalValue = document.getElementById("tanggal").value;
+// ...
 
-  window.location.href = `tours.html?lokasi=${lokasiValue}&tipeTrip=${tipeTripValue}&tanggal=${tanggalValue}`;
+function cariTours() {
+  const lokasiValue = document.getElementById("lokasi").value.toLowerCase();
+  const tipeTripValue = document.getElementById("tujuan").value.toLowerCase();
+  const tanggalValue = document.getElementById("bulan").value;
+
+  // Mengambil bulan dari tanggal input
+  const bulanValue = new Date(tanggalValue).getMonth() + 1;
 }
+
 const urlParams = new URLSearchParams(window.location.search);
 const lokasiParam = urlParams.get("lokasi");
 const tipeTripParam = urlParams.get("tipeTrip");
-const tanggalParam = urlParams.get("tanggal");
+const bulanParam = urlParams.get("bulan");
 
 filteredProducts = products.filter((product) => {
-  const lokasiMatches = product.location.toLowerCase().includes(lokasiParam);
-  const tipeTripMatches = product.category
-    .toLowerCase()
-    .includes(tipeTripParam);
-  const tanggalMatches = product.date === tanggalParam;
+  const lokasiMatches = lokasiParam
+    ? product.location.toLowerCase().includes(lokasiParam)
+    : true; // Tampilkan jika lokasiParam tidak ada atau null
 
-  return lokasiMatches && tipeTripMatches && tanggalMatches;
+  const tipeTripMatches = tipeTripParam
+    ? product.category.toLowerCase().includes(tipeTripParam)
+    : true; // Tampilkan jika tipeTripParam tidak ada atau null
+
+  // Membandingkan bulan dari tanggal produk dengan bulan yang diambil dari parameter
+  const bulanMatches = bulanParam
+    ? new Date(product.date).getMonth() + 1 === parseInt(bulanParam)
+    : true; // Tampilkan jika bulanParam tidak ada atau null
+
+  return lokasiMatches || (tipeTripMatches && bulanMatches);
 });
 
 displayProducts();
