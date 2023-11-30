@@ -390,10 +390,6 @@ a {
   transition: 0.3s;
 }
 
-.footer__col p:hover {
-  color: var(--silver);
-}
-
 .footer__bar {
   padding: 0.5rem;
   display: flex;
