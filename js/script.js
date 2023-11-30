@@ -1,14 +1,72 @@
 // ===============
+// Page
+// ===============
+// Ketika di-scroll, navbar muncul
+// First check if the navbar element exists
+const navbar = document.querySelector(".Navbar");
+
+if (navbar) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > navbar.offsetHeight) {
+      navbar.classList.add("fixed");
+    } else {
+      navbar.classList.remove("fixed");
+    }
+  });
+}
+
+// Mengeluarkan menu ketika diklik
+const navbarNav = document.querySelector(".navbar-nav");
+const menuButton = document.querySelector("#menu");
+
+if (navbarNav && menuButton) {
+  menuButton.onclick = () => {
+    navbarNav.classList.toggle("aktif");
+  };
+
+  // Jika klik diluar navbar dan menubar, maka akan kembali semula
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+
+    // Jika target bukan menu atau navbar menu
+    if (!menuButton.contains(target) && !navbarNav.contains(target)) {
+      // Hapus class aktif dari navbar menu
+      navbarNav.classList.remove("aktif");
+    }
+  });
+}
+
+// ===============
 // Data
 // ===============
 // Menduplikasi array products ke filteredProducts
-let tampilProducts = [...products];
+let tampilProducts = [];
 
-// Mengambil elemen DOM untuk menampilkan produk
-const productsTampil = document.querySelector(".tours");
+// Fungsi untuk mendapatkan produk secara asinkron
+const getProductsAsync = async () => {
+  // Simulasi operasi asinkron (contoh: fetch data dari API)
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      // Misalnya, tampilProducts diisi dengan data setelah operasi asinkron selesai
+      tampilProducts = [...products];
+      resolve();
+    }, 1000); // Waktu simulasi asinkron (1 detik)
+  });
+};
 
 // Fungsi untuk menampilkan produk di dalam DOM
-const displayProduct = () => {
+const displayProduct = async () => {
+  // Mengambil elemen DOM untuk menampilkan produk
+  const productsTampil = document.querySelector(".tours");
+
+  // Menampilkan pesan jika elemen DOM tidak ditemukan
+  if (!productsTampil) {
+    return;
+  }
+
+  // Operasi asinkron untuk mendapatkan produk
+  await getProductsAsync();
+
   // Menampilkan pesan jika tidak ada produk yang sesuai dengan pencarian
   if (tampilProducts.length < 1) {
     productsTampil.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
@@ -242,34 +300,3 @@ const updateCartUI = () => {
     });
   }
 };
-
-// ===============
-// Page
-// ===============
-// Ketika di-scroll, navbar muncul
-const navbar = document.querySelector(".Navbar");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > navbar.offsetHeight) {
-    navbar.classList.add("fixed");
-  } else {
-    navbar.classList.remove("fixed");
-  }
-});
-
-// Mengeluarkan menu ketika diklik
-const navbarNav = document.querySelector(".navbar-nav");
-document.querySelector("#menu").onclick = () => {
-  navbarNav.classList.toggle("aktif");
-};
-
-// Jika klik diluar navbar dan menubar, maka akan kembali semula
-const klik = document.querySelector("#menu");
-document.addEventListener("click", (e) => {
-  const target = e.target;
-
-  // Jika target bukan menu atau navbar menu
-  if (!klik.contains(target) && !navbarNav.contains(target)) {
-    // Hapus class aktif dari navbar menu
-    navbarNav.classList.remove("aktif");
-  }
-});

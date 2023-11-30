@@ -1,5 +1,5 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
@@ -12,11 +12,14 @@ header {
   padding: 20px;
 }
 
-h1, h2 {
+h1,
+h2 {
   color: #333;
 }
 
-.about-us, .mission-vision, .contact-us {
+.about-us,
+.mission-vision,
+.contact-us {
   max-width: 800px;
   margin: 20px auto;
   background-color: #fff;
@@ -48,7 +51,7 @@ footer {
 }
 
 a {
-  color: #007BFF;
+  color: #007bff;
   text-decoration: none;
 }
 
