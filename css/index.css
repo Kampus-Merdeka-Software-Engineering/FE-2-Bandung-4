@@ -326,30 +326,6 @@ h2 {
   line-height: 1.6;
 }
 
-.maskapai .row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 5rem;
-  justify-content: center;
-}
-
-.maskapai .row .maskapai-card {
-  text-align: center;
-  padding-bottom: 5rem;
-}
-
-.maskapai .row .maskapai-card img {
-  width: 165px;
-  height: 165px;
-  margin: 2rem;
-  border-radius: 50%;
-}
-
-.maskapai .row .maskapai-card .nama-maskapai {
-  margin: 1.5rem auto 0.5rem;
-  font-size: 1.2rem;
-}
-
 /* Footer */
 .footer {
   background-color: var(--primary);
