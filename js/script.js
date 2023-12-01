@@ -1,44 +1,33 @@
 // ===============
 // Data
 // ===============
-// Menduplikasi array products ke filteredProducts
 let tampilProducts = [];
 
-// Fungsi untuk mendapatkan produk secara asinkron
 const getProductsAsync = async () => {
-  // Simulasi operasi asinkron (contoh: fetch data dari API)
   return new Promise((resolve) => {
     setTimeout(() => {
-      // Misalnya, tampilProducts diisi dengan data setelah operasi asinkron selesai
       tampilProducts = [...products];
       resolve();
-    }, 1000); // Waktu simulasi asinkron (1 detik)
+    }, 1000);
   });
 };
 
-// Fungsi untuk menampilkan produk di dalam DOM
 const displayProduct = async () => {
-  // Mengambil elemen DOM untuk menampilkan produk
   const productsTampil = document.querySelector(".tours");
 
-  // Menampilkan pesan jika elemen DOM tidak ditemukan
   if (!productsTampil) {
     return;
   }
 
-  // Operasi asinkron untuk mendapatkan produk
   await getProductsAsync();
 
-  // Menampilkan pesan jika tidak ada produk yang sesuai dengan pencarian
   if (tampilProducts.length < 1) {
     productsTampil.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
     return;
   }
 
-  // Ambil 6 produk pertama dari array
   const sixProducts = tampilProducts.slice(0, 6);
 
-  // Mengisi kontainer produk dengan HTML hasil mapping dari sixProducts
   productsTampil.innerHTML = sixProducts
     .map(
       ({ id, title, image, description }) => `
@@ -56,24 +45,17 @@ const displayProduct = async () => {
     .join("");
 };
 
-// Panggil fungsi untuk menampilkan produk saat halaman dimuat
 document.addEventListener("DOMContentLoaded", displayProduct);
 
-// Mengubah format harga menjadi rupiah
 const formatRupiah = (price) =>
   new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR" }).format(
     price
   );
 
-// Menduplikasi array products ke filteredProducts
 let filteredProducts = [...products];
-
-// Mengambil elemen DOM untuk menampilkan produk
 const productsContainer = document.querySelector(".products-container");
 
-// Fungsi untuk menampilkan produk di dalam DOM
 const displayProducts = () => {
-  // Menampilkan pesan jika tidak ada produk yang sesuai dengan pencarian
   if (!productsContainer || filteredProducts.length < 1) {
     if (productsContainer) {
       productsContainer.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
@@ -81,7 +63,6 @@ const displayProducts = () => {
     return;
   }
 
-  // Mengisi kontainer produk dengan HTML hasil mapping dari filteredProducts
   if (productsContainer) {
     productsContainer.innerHTML = filteredProducts
       .map(
@@ -90,7 +71,6 @@ const displayProducts = () => {
         <img src="${image}" class="product-img img" alt="" />
         <footer>
           <h5 class="product-name">${title}</h5>
-          <!-- Menampilkan harga dalam format rupiah -->
           <span class="product-price">${formatRupiah(price)}</span>
         </footer>
       </article></a>`
@@ -99,34 +79,26 @@ const displayProducts = () => {
   }
 };
 
-// Memanggil fungsi displayProducts untuk menampilkan produk awal
 displayProducts();
 
-// Event listener untuk input pencarian
 const form = document.querySelector(".input-form");
 const searchInput = document.querySelector(".search-input");
 
 if (form && searchInput) {
   form.addEventListener("keyup", () => {
-    // Mendapatkan nilai input pencarian
     const inputValue = searchInput.value;
-    // Memfilter produk berdasarkan judul sesuai dengan input pencarian
     filteredProducts = products.filter((product) =>
       product.title.toLowerCase().includes(inputValue)
     );
-    // Menampilkan produk yang sesuai dengan filter
     displayProducts();
   });
 }
 
-// Mengambil elemen DOM untuk menampilkan tombol perusahaan
 const companiesDOM = document.querySelector(".companies");
 
-// Fungsi untuk menampilkan tombol perusahaan di dalam DOM
 const displayButtons = () => {
-  // Mengambil daftar unik perusahaan dari produk
   const buttons = ["all", ...new Set(products.map(({ category }) => category))];
-  // Menampilkan tombol perusahaan berdasarkan daftar unik
+
   if (companiesDOM) {
     companiesDOM.innerHTML = buttons
       .map(
@@ -137,24 +109,22 @@ const displayButtons = () => {
   }
 };
 
-// Memanggil fungsi displayButtons untuk menampilkan tombol perusahaan awal
 displayButtons();
 
-// Event listener untuk klik tombol perusahaan
 if (companiesDOM) {
   companiesDOM.addEventListener("click", (e) => {
     const el = e.target;
-    // Memfilter produk berdasarkan perusahaan sesuai dengan tombol yang diklik
+
     if (el && el.classList.contains("category-btn")) {
       filteredProducts =
         el.dataset.id === "all"
           ? [...products]
           : products.filter(({ category }) => category === el.dataset.id);
-      // Mengosongkan nilai input pencarian
+
       if (searchInput) {
         searchInput.value = "";
       }
-      // Menampilkan produk yang sesuai dengan filter
+
       displayProducts();
     }
   });
@@ -170,7 +140,6 @@ const cariTours = () => {
     const tipeTripValue = tujuanElement.value.toLowerCase();
     const tanggalValue = bulanElement.value;
 
-    // Mengambil bulan dari tanggal input
     const bulanValue = new Date(tanggalValue).getMonth() + 1;
   }
 };
@@ -223,45 +192,65 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-const addToCart = () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get("id");
+// Function to open the user information modal
+const openUserInfoModal = () => {
+  const modal = document.getElementById("userInfoModal");
+  const closeBtn = document.querySelector(".close");
+  const userInfoForm = document.getElementById("userInfoForm");
 
-  if (productId) {
-    const productToAdd = products.find(({ id }) => id === productId);
+  if (modal && closeBtn && userInfoForm) {
+    modal.style.display = "block";
 
-    if (productToAdd) {
-      cart.push(productToAdd);
-      console.log("Product added to cart:", productToAdd);
-      updateCartUI();
-    } else {
-      console.warn("Product not found.");
-    }
-  } else {
-    console.warn("No product ID found in the URL.");
-  }
-};
+    // Close the modal when the close button is clicked
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
 
-const updateCartUI = () => {
-  const cartDetailContainer = document.querySelector(".cart-detail");
+    // Close the modal when the user clicks outside the modal
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
 
-  if (cartDetailContainer) {
-    cartDetailContainer.innerHTML = "";
+    // Handle form submission
+    userInfoForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-    cart.forEach(({ title, category, price }) => {
-      const productItem = document.createElement("div");
-      productItem.classList.add("cart-item");
+      // Get user information
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
 
-      productItem.innerHTML = `
-        <h4>${title}</h4>
-        <p>${category}</p>
-        <span>${price}</span>
-      `;
+      // Validate and process user information as needed
 
-      cartDetailContainer.appendChild(productItem);
+      // Close the modal
+      modal.style.display = "none";
+
+      // Perform any additional actions, e.g., update the cart with user information
+      updateCartUI(name, email);
     });
   }
 };
+
+// Function to update the cart UI with user information
+const updateCartUI = (name, email) => {
+  const cartDetailContainer = document.querySelector(".cart-detail");
+
+  if (cartDetailContainer) {
+    cartDetailContainer.innerHTML = `
+      <h3>Shopping Cart</h3>
+      <p>Name: ${name}</p>
+      <p>Email: ${email}</p>
+    `;
+  }
+};
+
+// Event listener for the "Add to Cart" button
+const addToCart = () => {
+  // Open the user information modal
+  openUserInfoModal();
+};
+
 // ===============
 // Page
 // ===============

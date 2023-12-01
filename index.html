@@ -51,16 +51,40 @@
       </main>
     </section>
     <!-- display awal -->
-
+<!-- tiket -->
+<section class="daerah" id="daerah">
+  <div class="booking__container">
+    <form id="searchForm" action="tours.html" method="get">
+      <div class="input__group">
+        <label for="lokasi">Tempat</label>
+        <input type="text" id="asal" name="lokasi" required />
+      </div>
+      <div class="input__group dropdown">
+        <label for="tujuan">Tipe Trip</label>
+        <select id="tipeTrip" name="tipeTrip" required>
+          <option value="all">All</option>
+          <option value="group trip">Group Trip</option>
+          <option value="konser trip">Konser Trip</option>
+          <option value="honeymoon trip">Honeymoon Trip</option>
+        </select>
+      </div>      
+      <div class="input__group">
+        <label for="tanggal">Tanggal</label>
+        <input type="month" id="bulan" name="bulan" />
+      </div>
+      <button type="submit" class="btn" onclick="cariTours()">
+        Cari Tours
+      </button>
+    </form>
+  </div>
+</section>
     <section class="section">
       <div class="title">
         <h2>Tentang Kami</h2>
         <p>
           Selamat datang dalam perjalanan kami! Kami bersemangat untuk menciptakan pengalaman perjalanan yang tak terlupakan dan melampaui batas biasa. Komitmen kami terhadap keunggulan dan inovasi membuat kami berbeda di dunia perjalanan.
         </p>
-      </div>
-      
-
+      </div>  
       <div class="about-center section-center">
         <div class="about-img">
           <img src="img/bg-1.jpeg" alt="" />
@@ -186,34 +210,6 @@
       </div>
     </section>
 <!-- Why Choose Us -->
-
-<!-- tiket -->
-<section class="daerah" id="daerah">
-  <div class="booking__container">
-    <form id="searchForm" action="tours.html" method="get">
-      <div class="input__group">
-        <label for="lokasi">Tempat</label>
-        <input type="text" id="asal" name="lokasi" required />
-      </div>
-      <div class="input__group dropdown">
-        <label for="tujuan">Tipe Trip</label>
-        <select id="tipeTrip" name="tipeTrip" required>
-          <option value="all">All</option>
-          <option value="group trip">Group Trip</option>
-          <option value="konser trip">Konser Trip</option>
-          <option value="honeymoon trip">Honeymoon Trip</option>
-        </select>
-      </div>      
-      <div class="input__group">
-        <label for="tanggal">Tanggal</label>
-        <input type="month" id="bulan" name="bulan" />
-      </div>
-      <button type="submit" class="btn" onclick="cariTours()">
-        Cari Tours
-      </button>
-    </form>
-  </div>
-</section>
     <!--Rekomendasi Tour-->
     <section class="rekomendasi-tour">
       <div class="container">
