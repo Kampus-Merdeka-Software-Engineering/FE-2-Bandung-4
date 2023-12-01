@@ -35,6 +35,39 @@ if (navbarNav && menuButton) {
     }
   });
 }
+document.addEventListener("DOMContentLoaded", function () {
+  try {
+    const viewAllButton = document.getElementById("viewAll");
+    const memoriesGrid = document.querySelector(".reasons");
+    const memoriesCards = document.querySelectorAll(".reason");
+
+    const itemsToShowInitially = 3;
+    let showingAll = false;
+
+    // Function to show or hide memories cards based on the button click
+    function toggleMemories() {
+      memoriesCards.forEach((card, index) => {
+        if (showingAll || index < itemsToShowInitially) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Toggle memories cards on page load
+    toggleMemories();
+
+    // Add event listener to the "View All" button
+    viewAllButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      showingAll = !showingAll;
+      toggleMemories();
+    });
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+});
 
 // ===============
 // Data

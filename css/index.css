@@ -166,6 +166,12 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+.memories__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
 
 h2 {
   text-align: center;
@@ -179,13 +185,21 @@ h2 {
   gap: 10px;
 }
 
-.reason {
+.reasons {
+  margin-top: 4rem;
   text-align: center;
-  padding: 1rem;
-  max-width: 500px;
-  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
 }
 
+.reason {
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 5rem;
+  background-color: var(--white);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.05);
+}
 .reason img {
   width: 80px;
   height: 80px;
@@ -193,17 +207,38 @@ h2 {
   border-radius: 50%;
 }
 
-.reason h3 {
+.reason span {
+  display: inline-block;
+  padding: 20px 32px;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  color: var(--white);
+}
+
+.reason h4 {
+  text-align: center;
+  margin-bottom: 1rem;
   font-size: 1.2rem;
-  margin: 1.5rem auto 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
 }
 
 .reason p {
   text-align: justify;
-  max-width: 38rem;
-  margin: auto;
-  font-weight: 100;
-  line-height: 1.6;
+  color: var(--text-light);
+  line-height: 1.75rem;
+}
+
+.view__all {
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: rgb(57, 116, 128);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
 }
 
 /* CSS untuk form pencarian */
