@@ -92,10 +92,9 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-
-  background-image: url(../img/bg1-1.png), url(../img/bg2-2.png),
-    url(../img/bg3-3.png);
-  animation: slideshow 15s infinite;
+  background-image: url(../img/bg-1.jpeg), url(../img/bg-2.jpeg),
+    url(../img/bg-3.jpeg);
+  animation: 15s infinite slideshow;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -107,15 +106,15 @@ body {
   0%,
   100% {
     opacity: 1;
-    background-image: url(../img/bg1-1.png);
+    background-image: url(../img/bg-1.jpeg);
   }
   25% {
     opacity: 1;
-    background-image: url(../img/bg2-2.png);
+    background-image: url(../img/bg-2.jpeg);
   }
   50% {
     opacity: 1;
-    background-image: url(../img/bg3-3.png);
+    background-image: url(../img/bg-3.jpeg);
   }
 }
 .awal::after {
@@ -132,7 +131,7 @@ body {
   max-width: 60rem;
 }
 .section {
-  background-color: #f7f7f7; /* Example background color */
+  background-color: #f7f7f7;
   padding: 5rem;
 }
 
@@ -155,14 +154,14 @@ body {
 }
 
 .about-img img {
-  max-width: 100%; /* Adjust max-width as needed */
+  max-width: 100%;
   height: auto;
 }
 
 .about {
   flex: 2;
-  max-width: 600px; /* Adjust max-width as needed */
-  margin: 0 auto; /* Center the .about section */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .btn-container {
@@ -185,10 +184,10 @@ body {
 }
 
 .about-content {
-  background-color: #f2f2f2; /* Example background color */
+  background-color: #f2f2f2;
   padding: 1rem;
-  border-radius: 8px; /* Example border radius */
-  margin-top: 1rem; /* Example margin top */
+  border-radius: 8px;
+  margin-top: 1rem;
 }
 
 .content {
@@ -233,10 +232,6 @@ h2 {
 .reason h4,
 h2 {
   text-align: center;
-  padding: 1rem;
-  max-width: 500px;
-  margin: 5px;
-  background-color: rgba(255, 255, 255, 0);
 }
 
 .booking__container .btn,
@@ -394,8 +389,6 @@ h2 {
   margin: 1.5rem auto 0.5rem;
   font-size: 1.2rem;
 }
-
-/* Footer */
 .footer {
   background-color: var(--primary);
 }
