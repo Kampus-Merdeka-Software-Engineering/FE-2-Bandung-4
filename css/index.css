@@ -586,3 +586,16 @@ a {
     text-align: center;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .awal {
+    background-size: cover;
+  }
+}
+
+/* Untuk layar besar atau desktop */
+@media only screen and (min-width: 768px) {
+  .awal {
+    background-size: cover;
+  }
+}
