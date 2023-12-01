@@ -18,14 +18,14 @@
 }
 
 .trip-image {
-  width: 80%;
+  width: 40%;
   height: 100px;
   overflow: hidden;
   border-radius: 5px;
 }
 
 .trip-image img {
-  width: 80%;
+  width: 40%;
   height: 100px;
   object-fit: cover;
 }
