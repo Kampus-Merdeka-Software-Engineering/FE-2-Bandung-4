@@ -4,17 +4,16 @@ body {
   padding: 0;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px; /* Jarak antar gambar */
-}
-
 header {
   background-color: #333;
   color: white;
   text-align: center;
   padding: 1rem;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px; /* Jarak antar gambar */
 }
 
 main {
