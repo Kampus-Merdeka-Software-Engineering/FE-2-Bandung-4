@@ -37,7 +37,7 @@
       </div>
 
       <div class="navbar-tambahan">
-        <a href="#" id="shopping">
+        <a href="shopping-cart.html" id="shopping">
           <i data-feather="shopping-bag"></i
         ></a>
         <!-- <a href="#" id="user"> <i data-feather="user"></i></a> -->
@@ -52,34 +52,75 @@
     </section>
     <!-- display awal -->
 
-<!-- tiket -->
-<section class="daerah" id="daerah">
-  <div class="booking__container">
-    <form id="searchForm" action="tours.html" method="get">
-      <div class="input__group">
-        <label for="lokasi">Tempat</label>
-        <input type="text" id="asal" name="lokasi" required />
+    <section class="section">
+      <div class="title">
+        <h2>about</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum,
+          aperiam!
+        </p>
       </div>
-      <div class="input__group dropdown">
-        <label for="tujuan">Tipe Trip</label>
-        <select id="tipeTrip" name="tipeTrip" required>
-          <option value="all">All</option>
-          <option value="group trip">Group Trip</option>
-          <option value="konser trip">Konser Trip</option>
-          <option value="honeymoon trip">Honeymoon Trip</option>
-        </select>
-      </div>      
-      <div class="input__group">
-        <label for="tanggal">Tanggal</label>
-        <input type="month" id="bulan" name="bulan" />
+
+      <div class="about-center section-center">
+        <div class="about-img">
+          <img src="img/bg-1.jpeg" alt="" />
+        </div>
+        <div class="about">
+          <!-- btn container -->
+          <div class="btn-container">
+            <button class="tab-btn active" data-id="history">Latar Belakang</button>
+            <button class="tab-btn" data-id="vision">Visi</button>
+            <button class="tab-btn" data-id="goals">Misi</button>
+          </div>
+          <div class="about-content">
+            <!-- single item -->
+            <div class="content active" id="history">
+              <h4>Latar Belakang</h4>
+              <p>
+                Perusahaan kami lahir dari hasrat dan cinta akan petualangan, keindahan dunia, dan momen-momen berharga dalam setiap perjalanan. Melihat kebutuhan akan pengalaman perjalanan yang unik dan beragam, kami mendirikan perusahaan ini dengan tekad untuk menjadi mitra setia dalam merencanakan dan menjalani perjalanan tak terlupakan. Dengan pengalaman kami yang mendalam dan dedikasi terhadap kepuasan pelanggan, kami berkomitmen untuk membawa warna dan kegembiraan dalam setiap perjalanan yang kami selenggarakan.
+              </p>
+            </div>
+            <!-- end of single item -->
+            <!-- single item -->
+            <div class="content" id="vision">
+              <h4>Visi</h4>
+              <p>
+                Menjadi penyelenggara perjalanan terkemuka yang dikenal oleh pelanggan dan mitra bisnis sebagai penggerak inovasi dalam industri perjalanan. Kami bermimpi untuk menginspirasi dan memberdayakan orang-orang untuk menjelajahi dunia dengan cara yang baru, mendalam, dan bermakna. Dengan visi ini, kami berusaha untuk menciptakan pengalaman perjalanan yang tidak hanya memenuhi harapan, tetapi juga meninggalkan jejak kenangan indah bagi setiap pelanggan kami.
+              </p>
+            </div>
+            <!-- end of single item -->
+            <!-- single item -->
+            <div class="content" id="goals">
+              <h4>Misi</h4>
+              <ol>
+                <li>
+                  <p>
+                    <strong>Memberikan Pengalaman Berkualitas Tinggi:</strong>
+                    Menyajikan perjalanan yang berkualitas tinggi dengan perhatian terhadap detail, keamanan, dan kenyamanan pelanggan.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Diversifikasi Produk dan Destinasi:</strong>
+                    Menawarkan berbagai produk perjalanan seperti grup trip, konser trip, honeymoon trip, dan open trip, dengan destinasi yang beragam di seluruh dunia.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Inovasi Berkelanjutan:</strong>
+                    Mengadopsi teknologi dan ide-ide inovatif untuk meningkatkan proses perencanaan perjalanan dan memberikan pengalaman yang lebih baik bagi pelanggan.
+                  </p>
+                </li>
+              </ol>
+            </div>
+            
+            <!-- end of single item -->
+          </div>
+        </div>
       </div>
-      <button type="submit" class="btn" onclick="cariTours()">
-        Cari Tours
-      </button>
-    </form>
-  </div>
-</section>
-    <!-- Why Choose Us -->
+    </section>
+
+<!-- Why Choose Us -->
     <section class="why-choose-us">
       <div class="container">
         <div class="memories__header">
@@ -144,9 +185,35 @@
         
       </div>
     </section>
+<!-- Why Choose Us -->
 
-    
-    <!-- Why Choose Us -->
+<!-- tiket -->
+<section class="daerah" id="daerah">
+  <div class="booking__container">
+    <form id="searchForm" action="tours.html" method="get">
+      <div class="input__group">
+        <label for="lokasi">Tempat</label>
+        <input type="text" id="asal" name="lokasi" required />
+      </div>
+      <div class="input__group dropdown">
+        <label for="tujuan">Tipe Trip</label>
+        <select id="tipeTrip" name="tipeTrip" required>
+          <option value="all">All</option>
+          <option value="group trip">Group Trip</option>
+          <option value="konser trip">Konser Trip</option>
+          <option value="honeymoon trip">Honeymoon Trip</option>
+        </select>
+      </div>      
+      <div class="input__group">
+        <label for="tanggal">Tanggal</label>
+        <input type="month" id="bulan" name="bulan" />
+      </div>
+      <button type="submit" class="btn" onclick="cariTours()">
+        Cari Tours
+      </button>
+    </form>
+  </div>
+</section>
     <!--Rekomendasi Tour-->
     <section class="rekomendasi-tour">
       <div class="container">

@@ -143,7 +143,8 @@ Single Product
 }
 
 .product-detail img {
-  height: 10rem;
+  width: 30rem;
+  height: 20rem;
   border-radius: var(--borderRadius);
 }
 
@@ -179,72 +180,71 @@ Single Product
     max-height: 500px;
   }
 }
- body 
-{            
-  font-family: Arial, sans-serif;    
+body {
+  font-family: Arial, sans-serif;
 }
- .container 
-{
+.container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
-  }
-  .header {
+}
+.header {
   padding: 20px 0;
   border-bottom: 1px solid #ddd;
-  }
-  .header h1 {
+}
+.header h1 {
   display: inline-block;
   font-size: 28px;
   margin-right: 10px;
-  }
-  .header input[type="text"] {
-   padding: 5px 10px;
-   width: 200px;
-    }
-  .main {
-   display: flex;
-   margin-top: 20px;
-    }
-  .sidebar {
-   width: 25%;
-   padding-right: 15px;
-    }
-   .sidebar h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-     }
-    .sidebar p {
-      margin-bottom: 10px;
-        }
-     .cart {
-      width: 75%;
-        }
-     .cart table {
-       width: 100%;
-       border-collapse: collapse;
-        }
-     .cart th, .cart td {
-       padding: 8px;
-       text-align: left;
-       border-bottom: 1px solid #ddd;
-        }
-      .cart th {
-        background-color: #f2f2f2;
-        }
-      .cart td input[type="text"] {
-       width: 100px;
-        }
-      .cart .total {
-        font-weight: bold;
-        }
-        .cart button {
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        cursor: pointer;
-        }
-        .cart button:hover {
-        background-color: #0056b3;
-        }
+}
+.header input[type="text"] {
+  padding: 5px 10px;
+  width: 200px;
+}
+.main {
+  display: flex;
+  margin-top: 20px;
+}
+.sidebar {
+  width: 25%;
+  padding-right: 15px;
+}
+.sidebar h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.sidebar p {
+  margin-bottom: 10px;
+}
+.cart {
+  width: 75%;
+}
+.cart table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cart th,
+.cart td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.cart th {
+  background-color: #f2f2f2;
+}
+.cart td input[type="text"] {
+  width: 100px;
+}
+.cart .total {
+  font-weight: bold;
+}
+.cart button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.cart button:hover {
+  background-color: #0056b3;
+}
