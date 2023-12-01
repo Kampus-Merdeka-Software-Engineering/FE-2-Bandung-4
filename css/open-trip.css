@@ -10,14 +10,15 @@ header {
   text-align: center;
   padding: 1rem;
 }
+
+main {
+  padding: 2rem;
+}
+
 img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px; /* Jarak antar gambar */
-}
-
-main {
-  padding: 2rem;
 }
 
 h2 {
