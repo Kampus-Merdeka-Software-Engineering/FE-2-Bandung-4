@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  background: #333;
+  background: rgba(85, 157, 171, 0.85);
   color: #fff;
   text-align: center;
   padding: 30px 0;
@@ -83,7 +83,7 @@ header h1 {
 
 /* Footer Styles */
 footer {
-  background: #333;
+  background: rgba(85, 157, 171, 0.85);
   color: #fff;
   text-align: center;
   padding: 20px 0;
