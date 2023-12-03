@@ -15,11 +15,21 @@ main {
      padding: 2rem;
 }
 
+h1{
+   background-color: rgba(85, 157, 171, 0.85);
+   margin: 0;
+   padding: 1rem;
+}
+
 img{
   padding: 20px;
-  width: 100%;
+  width: 50%;
   height: auto;
-  display: blok
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: row-reverse;
+  margin: auto;
 }
 
 h2 {
