@@ -1,67 +1,35 @@
-.opentrip-foto {
-  padding: 50px 20px; /* Mengurangi padding pada layar kecil */
-  background-color: #f7f7f7;
-}
-
-.tours {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.tour {
-  margin: 15px;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.trip-image {
-  width: 40%;
-  height: 100px;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-.trip-image img {
-  width: 40%;
-  height: 100px;
-  object-fit: cover;
-}
-
-
-
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
 }
 
 header {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
 }
 
 main {
-  padding: 2rem;
+     padding: 2rem;
 }
 
-img {
+img{
+  padding: 20px;
   max-width: 100%;
   height: auto;
-  margin-bottom: 10px; /* Jarak antar gambar */
+  display: blok
 }
 
 h2 {
-  margin-bottom: 1rem;
+   margin-bottom: 1rem;
+   margin-left: 20px;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+   min-width: 100%;
+   border-collapse: collapse;
 }
 
 th, td {
@@ -75,16 +43,20 @@ th {
 }
 
 tr:nth-child(even) {
-   background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
 
 tr:hover {
-   background-color: #ddd;
+    background-color: #ddd;
 }
 
-footer {
-   background-color: #333;
-   color: white;
-   text-align: center;
-   padding: 1rem;
+p{
+  margin-left: 20px;
 }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
