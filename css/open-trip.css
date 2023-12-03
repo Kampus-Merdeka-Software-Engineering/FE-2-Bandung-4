@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: rgba(85, 157, 171, 0.85);
     color: white;
     text-align: center;
     padding: 1rem;
@@ -55,8 +55,8 @@ p{
 }
 
         footer {
-            background-color: #333;
+            background-color: rgba(85, 157, 171, 0.85);
             color: white;
             text-align: center;
-            padding: 1rem;
+            padding: 0.5rem;
         }
