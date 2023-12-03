@@ -54,9 +54,29 @@ p{
   margin-left: 20px;
 }
 
-        footer {
-            background-color: rgba(85, 157, 171, 0.85);
-            color: white;
-            text-align: center;
-            padding: 0.5rem;
-        }
+footer {
+   background-color: rgba(85, 157, 171, 0.85);
+   color: white;
+   text-align: center;
+   padding: 0.5rem;
+}
+
+/* Media Query for responsiveness */
+
+@media screen and (max-width: 600px) {
+main {
+   padding: 1rem;
+}
+
+img {
+   padding: 10px;
+}
+
+h2 {
+  margin-left: 10px;
+}
+
+p {
+  margin-left: 10px;
+}
+}
