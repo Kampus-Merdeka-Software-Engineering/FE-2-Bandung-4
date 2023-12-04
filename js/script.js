@@ -197,6 +197,10 @@ const openUserInfoModal = () => {
   const modal = document.getElementById("userInfoModal");
   const closeBtn = document.querySelector(".close");
   const userInfoForm = document.getElementById("userInfoForm");
+  const title = document.querySelector('.product-info h3');
+  const price = document.querySelector('.product-info span');
+
+  console.log(title.innerHTML, price.innerHTML);
 
   if (modal && closeBtn && userInfoForm) {
     modal.style.display = "block";
