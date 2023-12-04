@@ -202,6 +202,12 @@ const openUserInfoModal = () => {
 
   console.log(title.innerHTML, price.innerHTML);
 
+  const titleField = modal.querySelector('.title-value');
+  titleField.innerHTML = title.innerHTML;
+
+  const priceField = modal.querySelector('.title-value');
+  priceField.innerHTML = price.innerHTML;
+
   if (modal && closeBtn && userInfoForm) {
     modal.style.display = "block";
 
