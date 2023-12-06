@@ -1,6 +1,9 @@
+// Definisi URL API
 const apiUrl = "http://localhost:3000";
+// Array untuk menyimpan data produk yang akan ditampilkan
 let tampilProducts = [];
 
+// Fungsi asinkron untuk mendapatkan data produk dari API
 const getProductsAsync = async () => {
   try {
     const response = await fetch(`${apiUrl}/product`);
@@ -11,20 +14,25 @@ const getProductsAsync = async () => {
   }
 };
 
-const displayProduct = async () => {
+// Fungsi untuk menampilkan produk awal pada halaman / index.html
+const displayAwal = async () => {
+  // Mendapatkan elemen dengan kelas 'tours' (tempat produk ditampilkan)
   const productsTampil = document.querySelector(".tours");
 
   if (!productsTampil) {
     return;
   }
 
+  // Mendapatkan data produk
   await getProductsAsync();
 
+  // Menampilkan pesan jika tidak ada produk yang cocok
   if (tampilProducts.length < 1) {
     productsTampil.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
     return;
   }
 
+  // Menampilkan enam produk pertama di index.html
   const sixProducts = tampilProducts.slice(0, 6);
 
   productsTampil.innerHTML = sixProducts
@@ -43,26 +51,29 @@ const displayProduct = async () => {
     )
     .join("");
 };
+let allProducts = []; // Menyimpan semua produk
+let filteredProducts = []; // Menyimpan produk setelah filtrasi
 
-document.addEventListener("DOMContentLoaded", displayProduct);
+const productsContainer = document.querySelector(".products-container");
+const companiesDOM = document.querySelector(".companies");
 
 const formatRupiah = (price) =>
   new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR" }).format(
     price
   );
 
-let filteredProducts = [...tampilProducts];
-const productsContainer = document.querySelector(".products-container");
+const fetchAllProducts = async () => {
+  try {
+    const response = await fetch(`${apiUrl}/product`);
+    allProducts = await response.json();
+  } catch (error) {
+    console.error("Error fetching all products:", error);
+  }
+};
 
-const displayProducts = () => {
+const displayProducts = (products) => {
   if (!productsContainer) {
     console.error("Products container not found.");
-    return;
-  }
-
-  // Menampilkan pesan jika tidak ada produk yang cocok
-  if (filteredProducts.length < 1) {
-    productsContainer.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
     return;
   }
 
@@ -70,7 +81,7 @@ const displayProducts = () => {
   productsContainer.innerHTML = "";
 
   // Menambahkan produk ke dalam kontainer
-  filteredProducts.forEach(({ id, title, imageURL, price }) => {
+  products.forEach(({ id, title, imageURL, price }) => {
     const productArticle = document.createElement("article");
     productArticle.classList.add("product");
     productArticle.setAttribute("data-id", id);
@@ -89,20 +100,23 @@ const displayProducts = () => {
   });
 };
 
-const companiesDOM = document.querySelector(".companies");
-
 const displayButtons = async () => {
   try {
     const response = await fetch(`${apiUrl}/category`);
     const categories = await response.json();
 
-    const buttons = ["all", ...new Set(categories.map(({ name }) => name))];
+    // Membuat array tombol kategori termasuk "all"
+    const buttons = [
+      { id: "all", name: "All" },
+      ...new Set(categories.map(({ id, name }) => ({ id, name }))),
+    ];
 
+    // Menampilkan tombol kategori pada elemen dengan kelas 'companies'
     if (companiesDOM) {
       companiesDOM.innerHTML = buttons
         .map(
           (category) =>
-            `<button class='category-btn' data-id="${category}">${category}</button>`
+            `<button class='category-btn' data-id="${category.id}">${category.name}</button>`
         )
         .join("");
     }
@@ -111,32 +125,43 @@ const displayButtons = async () => {
   }
 };
 
-displayButtons();
+document.addEventListener("DOMContentLoaded", async () => {
+  // display awal
+  await displayAwal();
+  // Menampilkan tombol kategori
+  await displayButtons();
+  // Mendapatkan semua produk
+  await fetchAllProducts();
+  // Menampilkan semua produk
+  displayProducts(allProducts);
 
-if (companiesDOM) {
-  companiesDOM.addEventListener("click", async (e) => {
-    const el = e.target;
+  // Menambahkan event listener untuk setiap klik pada tombol kategori
+  if (companiesDOM) {
+    companiesDOM.addEventListener("click", async (e) => {
+      const el = e.target;
 
-    if (el && el.classList.contains("category-btn")) {
       try {
-        let url = `${apiUrl}/product`;
+        if (el && el.classList.contains("category-btn")) {
+          let categoryId = el.dataset.id;
 
-        if (el.dataset.id !== "all") {
-          url += `?category=${el.dataset.id}`;
+          // Jika kategori yang diklik adalah "all", tampilkan semua produk
+          if (categoryId === "all") {
+            displayProducts(allProducts);
+          } else {
+            // Jika kategori tertentu diklik, ambil produk sesuai kategori
+            const response = await fetch(
+              `${apiUrl}/category/${categoryId}/product`
+            );
+            filteredProducts = await response.json();
+            displayProducts(filteredProducts);
+          }
         }
-
-        const response = await fetch(url);
-        filteredProducts = await response.json();
-
-        // Memanggil fungsi displayProducts setelah mengubah filteredProducts
-        displayProducts();
       } catch (error) {
-        console.error("Error fetching products by category:", error);
+        console.error("Error fetching products:", error);
       }
-    }
-  });
-}
-
+    });
+  }
+});
 // Filter products based on URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 const lokasiParam = urlParams.get("lokasi");
@@ -171,16 +196,18 @@ window.addEventListener("DOMContentLoaded", async () => {
     try {
       const response = await fetch(`${apiUrl}/product/${productId}`);
       const product = await response.json();
-
+      const formattedDate = new Date(product.date).toLocaleDateString();
       if (product) {
         productDetailContainer.innerHTML = `
           <img src="${product.imageURL}" class="img" alt="${product.title}" />
           <div class="product-info">
             <h3>${product.title}</h3>
-            <h5>${product.category.name}</h5>
-            <span>${product.price}</span>
+            <h5>${formattedDate}<h5>
+            <span>${product.location}</span>
+            <h5>${product.jumlahOrang} Orang </h5>
+            <span>${formatRupiah(product.price)}</span>
             <p>${product.description}</p>
-            <button class="btn" onclick="addToCart()">Add to Cart</button>
+            <button class="btn" onclick="showOrderForm()">Add to Cart</button>
           </div>`;
       } else {
         console.warn("Product not found.");
@@ -193,55 +220,121 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Function to open the user information modal
-const openUserInfoModal = () => {
-  const modal = document.getElementById("userInfoModal");
-  const closeBtn = document.querySelector(".close");
-  const userInfoForm = document.getElementById("userInfoForm");
-  const title = document.querySelector(".product-info h3");
-  const price = document.querySelector(".product-info span");
+function showOrderForm() {
+  const productTitle = document.querySelector(".product-info h3").textContent;
+  const productDate = document.querySelector(".product-info h5").textContent;
+  const jumlahOrang = document.querySelector(".product-info span").textContent;
 
-  console.log(title.innerHTML, price.innerHTML);
+  // Isi elemen formulir dengan informasi produk
+  document.getElementById("formProductTitle").textContent = productTitle;
+  document.getElementById("formProductDate").textContent = productDate;
+  document.getElementById("formJumlahOrang").textContent = jumlahOrang;
 
-  const titleField = modal.querySelector(".title-value");
-  titleField.innerHTML = title.innerHTML;
+  // Tampilkan formulir pemesanan
+  document.getElementById("orderFormOverlay").style.display = "block";
+}
 
-  const priceField = modal.querySelector(".title-value");
-  priceField.innerHTML = price.innerHTML;
+function hideOrderForm() {
+  // Sembunyikan formulir pemesanan
+  document.getElementById("orderFormOverlay").style.display = "none";
+}
 
-  if (modal && closeBtn && userInfoForm) {
-    modal.style.display = "block";
+function submitOrderForm(event) {
+  event.preventDefault();
 
-    // Close the modal when the close button is clicked
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
+  const formData = new FormData(document.getElementById("formPemesanan"));
+  const requestBody = {};
+  formData.forEach((value, key) => {
+    requestBody[key] = value;
+  });
+
+  // Kirim data ke backend (ganti URL sesuai dengan backend Anda)
+  fetch(`${apiUrl}/orders`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(requestBody),
+  })
+    .then((response) => response.json())
+    .then((responseData) => {
+      console.log(responseData);
+
+      // Tampilkan SweetAlert sukses
+      Swal.fire({
+        icon: "success",
+        title: "Pesanan Berhasil!",
+        text: "Terima kasih atas pesanan Anda.",
+        confirmButtonColor: "#645cff",
+      });
+
+      // Sembunyikan formulir pemesanan setelah sukses
+      hideOrderForm();
+
+      // Tambahkan logika atau tindakan lainnya setelah sukses terposting ke backend
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+
+      // Tampilkan SweetAlert error
+      Swal.fire({
+        icon: "error",
+        title: "Terjadi Kesalahan",
+        text: "Gagal melakukan pemesanan. Silakan coba lagi.",
+        confirmButtonColor: "#645cff",
+      });
     });
+}
 
-    // Close the modal when the user clicks outside the modal
-    window.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    });
+// // Function to open the user information modal
+// const openUserInfoModal = () => {
+//   const modal = document.getElementById("userInfoModal");
+//   const closeBtn = document.querySelector(".close");
+//   const userInfoForm = document.getElementById("userInfoForm");
+//   const title = document.querySelector(".product-info h3");
+//   const price = document.querySelector(".product-info span");
 
-    // Handle form submission
-    userInfoForm.addEventListener("submit", (event) => {
-      event.preventDefault();
+//   console.log(title.innerHTML, price.innerHTML);
 
-      // Get user information
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
+//   const titleField = modal.querySelector(".title-modal");
+//   titleField.innerHTML = title.innerHTML;
 
-      // Validate and process user information as needed
+//   const priceField = modal.querySelector(".price");
+//   priceField.innerHTML = price.innerHTML;
 
-      // Close the modal
-      modal.style.display = "none";
+//   if (modal && closeBtn && userInfoForm) {
+//     modal.style.display = "block";
 
-      // Perform any additional actions, e.g., update the cart with user information
-      updateCartUI(name, email);
-    });
-  }
-};
+//     // Close the modal when the close button is clicked
+//     closeBtn.addEventListener("click", () => {
+//       modal.style.display = "none";
+//     });
+
+//     // Close the modal when the user clicks outside the modal
+//     window.addEventListener("click", (event) => {
+//       if (event.target === modal) {
+//         modal.style.display = "none";
+//       }
+//     });
+
+//     // Handle form submission
+//     userInfoForm.addEventListener("submit", (event) => {
+//       event.preventDefault();
+
+//       // Get user information
+//       const name = document.getElementById("name").value;
+//       const email = document.getElementById("email").value;
+
+//       // Validate and process user information as needed
+
+//       // Close the modal
+//       modal.style.display = "none";
+
+//       // Perform any additional actions, e.g., update the cart with user information
+//       updateCartUI(name, email);
+//     });
+//   }
+// };
 
 // // Function to update the cart UI with user information
 // const updateCartUI = (name, email) => {
@@ -255,6 +348,16 @@ const openUserInfoModal = () => {
 //     `;
 //   }
 // };
+
+// // Event listener untuk form pemesanan
+// document
+//   .getElementById("formPemesanan")
+//   .addEventListener("submit", function (e) {
+//     e.preventDefault();
+//     // Tambahkan logika untuk mengirim data pemesanan ke server di sini
+//     // Setelah mengirim data, Anda mungkin ingin menyembunyikan form pemesanan
+//     hideOrderForm();
+//   });
 
 // // Event listener for the "Add to Cart" button
 // const addToCart = () => {
