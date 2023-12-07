@@ -26,7 +26,7 @@ body {
   font-family: "Koh Santepheap", serif;
   background-color: var(--bg);
 }
-.Navbar {
+/* .Navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,7 +83,7 @@ body {
 }
 .Navbar .navbar-nav a:hover::after {
   transform: scaleX(0.5);
-}
+} */
 #menu {
   display: none;
 }
@@ -490,17 +490,17 @@ a {
   }
 }
 @media (max-width: 768px) {
-  .Navbar .navbar-nav a,
+  /* .Navbar .navbar-nav a,
   .Navbar .navbar-nav a:hover {
     color: var(--dark-gray);
-  }
+  } */
   html {
     font-size: 75%;
   }
   #menu {
     display: inline-block;
   }
-  .Navbar .navbar-nav {
+  /* .Navbar .navbar-nav {
     position: absolute;
     top: 100%;
     right: -100%;
@@ -525,7 +525,7 @@ a {
     transform: scaleX(0.25);
     transition: 0.3s;
     transform-origin: 0 0;
-  }
+  } */
   .daerah {
     padding: 7.5rem 7% 1.4rem;
     margin-top: 2rem;
