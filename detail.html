@@ -27,10 +27,11 @@
       <div class="popup" onclick="event.stopPropagation()">
         <span class="popup-close" onclick="hideOrderForm()">&times;</span>
         <h2>Enter Your Information</h2>
-        <form id="formPemesanan">
+        <form id="formPemesanan" onsubmit="submitOrderForm(event)">
           <!-- Informasi Produk -->
           <h2>Informasi Produk</h2>
           <table>
+            <input type="hidden" id="idProduct" />
             <tr>
               <td>Nama Product:</td>
               <td id="formProductTitle"></td>
@@ -89,13 +90,7 @@
           </div>
 
           <!-- Tombol Submit -->
-          <button
-            type="submit"
-            class="btn-submit"
-            onclick="submitOrderForm(event)"
-          >
-            Pesan Sekarang
-          </button>
+          <button type="submit" class="btn-submit">Pesan Sekarang</button>
         </form>
       </div>
     </div>

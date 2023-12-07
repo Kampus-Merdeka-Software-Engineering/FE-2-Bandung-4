@@ -45,7 +45,7 @@ const displayAwal = async () => {
         <div class="tour-content">
           <h3>${title}</h3>
           <p>${description}</p>
-          <a href="detail.html?id=${id}">Lihat Detail</a>
+          <div class="containerss"><a href="detail.html?id=${id}" class="semua">Lihat Detail</a></div>
         </div>
       </div>`
     )
@@ -184,8 +184,6 @@ filteredProducts = tampilProducts.filter(({ location, category, date }) => {
 
 displayProducts();
 
-const cart = [];
-
 window.addEventListener("DOMContentLoaded", async () => {
   const apiUrl = "http://localhost:3000"; // Sesuaikan dengan URL API Anda
   const urlParams = new URLSearchParams(window.location.search);
@@ -204,7 +202,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             <h3>${product.title}</h3>
             <h5>${formattedDate}<h5>
             <span>${product.location}</span>
-            <h5>${product.jumlahOrang} Orang </h5>
+            <h5 class="orang">${product.jumlahOrang} Orang </h5>
             <span>${formatRupiah(product.price)}</span>
             <p>${product.description}</p>
             <button class="btn" onclick="showOrderForm()">Add to Cart</button>
@@ -221,14 +219,18 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 function showOrderForm() {
+  const productId = urlParams.get("id");
   const productTitle = document.querySelector(".product-info h3").textContent;
   const productDate = document.querySelector(".product-info h5").textContent;
-  const jumlahOrang = document.querySelector(".product-info span").textContent;
+  const jumlahOrang = document.querySelector(
+    ".product-info .orang"
+  ).textContent;
 
   // Isi elemen formulir dengan informasi produk
   document.getElementById("formProductTitle").textContent = productTitle;
   document.getElementById("formProductDate").textContent = productDate;
   document.getElementById("formJumlahOrang").textContent = jumlahOrang;
+  document.getElementById("idProduct").textContent = productId;
 
   // Tampilkan formulir pemesanan
   document.getElementById("orderFormOverlay").style.display = "block";
@@ -285,82 +287,3 @@ function submitOrderForm(event) {
       });
     });
 }
-
-// // Function to open the user information modal
-// const openUserInfoModal = () => {
-//   const modal = document.getElementById("userInfoModal");
-//   const closeBtn = document.querySelector(".close");
-//   const userInfoForm = document.getElementById("userInfoForm");
-//   const title = document.querySelector(".product-info h3");
-//   const price = document.querySelector(".product-info span");
-
-//   console.log(title.innerHTML, price.innerHTML);
-
-//   const titleField = modal.querySelector(".title-modal");
-//   titleField.innerHTML = title.innerHTML;
-
-//   const priceField = modal.querySelector(".price");
-//   priceField.innerHTML = price.innerHTML;
-
-//   if (modal && closeBtn && userInfoForm) {
-//     modal.style.display = "block";
-
-//     // Close the modal when the close button is clicked
-//     closeBtn.addEventListener("click", () => {
-//       modal.style.display = "none";
-//     });
-
-//     // Close the modal when the user clicks outside the modal
-//     window.addEventListener("click", (event) => {
-//       if (event.target === modal) {
-//         modal.style.display = "none";
-//       }
-//     });
-
-//     // Handle form submission
-//     userInfoForm.addEventListener("submit", (event) => {
-//       event.preventDefault();
-
-//       // Get user information
-//       const name = document.getElementById("name").value;
-//       const email = document.getElementById("email").value;
-
-//       // Validate and process user information as needed
-
-//       // Close the modal
-//       modal.style.display = "none";
-
-//       // Perform any additional actions, e.g., update the cart with user information
-//       updateCartUI(name, email);
-//     });
-//   }
-// };
-
-// // Function to update the cart UI with user information
-// const updateCartUI = (name, email) => {
-//   const cartDetailContainer = document.querySelector(".cart-detail");
-
-//   if (cartDetailContainer) {
-//     cartDetailContainer.innerHTML = `
-//       <h3>Shopping Cart</h3>
-//       <p>Name: ${name}</p>
-//       <p>Email: ${email}</p>
-//     `;
-//   }
-// };
-
-// // Event listener untuk form pemesanan
-// document
-//   .getElementById("formPemesanan")
-//   .addEventListener("submit", function (e) {
-//     e.preventDefault();
-//     // Tambahkan logika untuk mengirim data pemesanan ke server di sini
-//     // Setelah mengirim data, Anda mungkin ingin menyembunyikan form pemesanan
-//     hideOrderForm();
-//   });
-
-// // Event listener for the "Add to Cart" button
-// const addToCart = () => {
-//   // Open the user information modal
-//   openUserInfoModal();
-// };
