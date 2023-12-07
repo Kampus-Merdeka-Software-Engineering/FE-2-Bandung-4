@@ -92,8 +92,8 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url(../img/bg-1.jpeg), url(../img/bg-2.jpeg),
-    url(../img/bg-3.jpeg);
+  background-image: url(../img/bg1-1.png), url(../img/bg2-2.png),
+    url(../img/bg3-3.png);
   animation: 15s infinite slideshow;
   background-repeat: no-repeat;
   background-size: cover;
@@ -106,15 +106,15 @@ body {
   0%,
   100% {
     opacity: 1;
-    background-image: url(../img/bg-1.jpeg);
+    background-image: url(../img/bg1-1.png);
   }
   25% {
     opacity: 1;
-    background-image: url(../img/bg-2.jpeg);
+    background-image: url(../img/bg2-2.png);
   }
   50% {
     opacity: 1;
-    background-image: url(../img/bg-3.jpeg);
+    background-image: url(../img/bg3-3.png);
   }
 }
 .awal::after {
