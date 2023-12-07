@@ -1,0 +1,57 @@
+.gallery-foto {
+    padding: 50px 20px; /* Mengurangi padding pada layar kecil */
+    background-color: #f7f7f7;
+  }
+  
+  .tours {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .tour {
+    margin: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tour-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  
+  .tour-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .tour-content {
+    padding-top: 15px;
+  }
+  
+  .tour-content h3 {
+    margin-bottom: 10px;
+  }
+  
+  .tour-content p {
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  
+  .tour-content a {
+    color: #197296;
+    text-decoration: none;
+  }
+  
+  .tour-content a:hover {
+    text-decoration: underline;
+  }
