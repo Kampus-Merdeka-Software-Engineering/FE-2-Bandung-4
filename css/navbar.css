@@ -1,0 +1,117 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 5% 0.5rem;
+  background-color: rgba(255, 255, 255, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+.Navbar.fixed {
+  background-color: var(--navbar-bg);
+  border-bottom: 1px solid var(--navbar-border);
+  padding-bottom: 0;
+}
+.Navbar .logo {
+  display: flex;
+  flex: 0.8;
+  align-items: center;
+}
+.Navbar .navbar-logo {
+  font-size: 2rem;
+  font-style: solid;
+  color: #141414;
+}
+.Navbar .navbar-logo span {
+  color: #031727;
+  font-style: italic;
+}
+.Navbar .navbar-nav a,
+.Navbar .navbar-tambahan a {
+  color: var(--navbar-text);
+  margin: 0.4rem;
+}
+.Navbar img {
+  width: 80px;
+  height: 70px;
+}
+.Navbar .navbar-nav a {
+  display: inline-block;
+  font-size: 1.5rem;
+}
+.Navbar .navbar-nav a:hover {
+  color: #000;
+}
+.Navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.2rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s;
+}
+.Navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+#menu {
+  display: none;
+}
+
+a {
+  color: var(--bg);
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+@media (max-width: 1180px) {
+  html {
+    font-size: 85%;
+  }
+}
+@media (max-width: 768px) {
+  .Navbar .navbar-nav a,
+  .Navbar .navbar-nav a:hover {
+    color: var(--dark-gray);
+  }
+  html {
+    font-size: 75%;
+  }
+  #menu {
+    display: inline-block;
+  }
+  .Navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: var(--primary);
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+  .Navbar .navbar-nav.aktif {
+    right: 0;
+  }
+  .Navbar .navbar-nav a {
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+  .Navbar .navbar-nav a:hover::after {
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--bg);
+    transform: scaleX(0.25);
+    transition: 0.3s;
+    transform-origin: 0 0;
+  }
+}
+@media (max-width: 500px) {
+  html {
+    font-size: 50%;
+  }
+}
