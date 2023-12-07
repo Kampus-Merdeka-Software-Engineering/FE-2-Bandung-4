@@ -66,116 +66,81 @@ header h1 {
   }
 }
 
-.team-class {
+.team-member,h2
+{
+  display:flex;
   width: 100%;
   background-size: cover;
   background-position: center;
 }
-
-.team-class h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 55px;
-  margin-bottom: 30px;
-}
-
-.team-class h1 span {
-  color: black;
-  margin-left: 15px;
-}
-
-.team-class h1 span::after {
-  content: "";
+.card{
   width: 100%;
-  height: 2px;
-  background: grey;
-  display: block;
-  position: relative;
-  bottom: 5px;
-}
-
-.team-class .team-section {
-  margin: 0 auto;
-  display:grid;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  top: -5%;
-  grid-template-columns: repeat(auto-fit, minmax(160px, auto));
-  gap: 0.3rem;
-}
-
-.team-class .team-section .image {
-  width: 150px;
-  height: 150px;
-  border-radius: 10%;
-  margin: 0 20px;
-  display: flex;
-  align-items: self-end;
-  justify-content: center;
-  position: relative;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  transition: 0.4s;
-}
-
-.team-class .team-section .image:hover {
-  border-radius: 25px;
-  height: 200px;
-  background-color: skyblue;
-}
-
-.team-class .team-section .image img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 10%;
-  z-index: 5;
-  transition: 0.2s;
-}
-
-.team-class .team-section .image:hover img {
+  height: 500px;
   border-radius: 20px;
-  margin-top: -500px;
+  overflow: hidden;
+  border: 8px solid #fff;
+  position: relative;
+  display:grid;
 }
 
-.team-class .team-section .image .profile {
+.card-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card-body{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -100%;
+  color: black;
   position: absolute;
-  text-align: center;
-  top: 5px;
-  margin-bottom: 80px;
+  background: #d3d3d3;
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 1.5s;
 }
 
-
-
-.team-class .team-section .image .profile .name {
-  color: black;
-  text-align: center;
-  font-size: 0.8rem;
-  margin:-5px;
+.card:hover .card-body{
+  right: 0;
 }
 
-.team-class .team-section .image .profile .name .span {
-  width: 78%;
-  font-size: 0.7rem;
-  text-align: center;
-  margin: 5px auto 5px auto;
-  color:#555
+.card-title{
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 400;
 }
 
-.team-class .team-section .image .profile {
-  margin: 4px 5px 5px 0;
+.card-sub-title{
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.card-info {
+  font-size: 16px;
+  line-height: 25px;
+  margin: 40px 0;
+  font-weight: 400;
+}
+
+.card-btn {
+  color: #36768c;
+  background: grey;
+  width: 120px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  font-weight: 500;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.team-class .team-section .image .profile :hover {
-  color:darkblue;
-} 
-
-.team-class .team-section .image .profile .name .span :hover{
-  color: black;
 }
 
 /* Footer Styles */
