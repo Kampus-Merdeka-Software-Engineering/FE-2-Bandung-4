@@ -60,7 +60,7 @@ body {
     background-image: url(../img/bg3-3.png);
   }
 }
-.awal::after {
+/* .awal::after {
   content: "";
   display: block;
   position: absolute;
@@ -68,7 +68,7 @@ body {
   height: 25%;
   bottom: 0;
   background: linear-gradient(0deg, #559dab 5%, rgb(13, 106, 143, 0) 25%);
-}
+} */
 .awal .content {
   padding: 1.4rem 7%;
   max-width: 60rem;

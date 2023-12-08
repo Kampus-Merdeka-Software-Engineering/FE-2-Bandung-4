@@ -161,25 +161,37 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 });
-// Filter products based on URL parameters
-const urlParams = new URLSearchParams(window.location.search);
-const lokasiParam = urlParams.get("lokasi");
-const tipeTripParam = urlParams.get("tipeTrip");
-const bulanParam = urlParams.get("bulan");
 
-filteredProducts = tampilProducts.filter(({ location, category, date }) => {
-  const lokasiMatches = lokasiParam
-    ? location.toLowerCase().includes(lokasiParam)
-    : true;
-  const tipeTripMatches = tipeTripParam
-    ? category.toLowerCase().includes(tipeTripParam)
-    : true;
-  const bulanMatches = bulanParam
-    ? new Date(date).getMonth() + 1 === parseInt(bulanParam)
-    : true;
+// Fungsi filter product
+const fetchFilteredProducts = async () => {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lokasiParam = urlParams.get("lokasi");
+    const tipeTripParam = urlParams.get("tipeTrip");
+    const bulanParam = urlParams.get("bulan");
 
-  return (lokasiMatches && tipeTripMatches) || bulanMatches;
-});
+    const response = await fetch(
+      `${apiUrl}/product/filter?lokasi=${lokasiParam}&tipeTrip=${tipeTripParam}&bulan=${bulanParam}`
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch filtered products");
+    }
+
+    const filteredProducts = await response.json();
+
+    // Handle the filtered products, for example, display them on the page
+    displayProducts(filteredProducts);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// Call the fetchFilteredProducts function on page load
+window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
+
+// Call the fetchFilteredProducts function on page load
+window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
 
 displayProducts();
 
