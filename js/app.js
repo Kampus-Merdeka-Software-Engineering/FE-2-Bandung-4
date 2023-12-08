@@ -1,5 +1,5 @@
 // Definisi URL API
-const apiUrl = "http://localhost:3000";
+const apiUrl = "be-2-bandung-4-production.up.railway.app";
 // "mysql://root:C2eFcAAcb-65d-1GEBDF3BfGHbccAd-6@viaduct.proxy.rlwy.net:19665/railway";
 // Array untuk menyimpan data produk yang akan ditampilkan
 let tampilProducts = [];
