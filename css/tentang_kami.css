@@ -1,398 +1,232 @@
-*{
-    --borderRadius: 0.25rem;
+* {
+  --borderRadius: 0.25rem;
+}
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  margin-top: 110px;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background: rgba(85, 157, 171, 0.85);
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Section Styles */
+.about-us,
+.mission-vision,
+.team-member,
+.contact-us {
+  padding: 30px;
+  margin: 30px 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(85, 157, 171, 0.85);
+}
+
+.about-us h2,
+.mission-vision h2,
+.team-member h2,
+.contact-us h2 {
+  margin-bottom: 20px;
+  text-transform: inherit;
+}
+
+.about-us p,
+.mission-vision p,
+.team-member p,
+.contact-us p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  body {
-    font-family: "Arial", sans-serif;
-    margin: 0;
-    margin-top: 110px;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+  to {
+    opacity: 1;
   }
-  
-  header {
-    background: rgba(85, 157, 171, 0.85);
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 36px;
-  }
-  
-  .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-  }
-  
-  /* Section Styles */
-  .about-us,
-  .mission-vision,
-  .team-member,
-  .contact-us {
-    padding: 30px;
-    margin: 30px 0;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 2px 10px rgba(85, 157, 171, 0.85);
-  }
-  
-  .about-us h2,
-  .mission-vision h2,
-  .team-member h2,
-  .contact-us h2 {
-    margin-bottom: 20px;
-    text-transform: inherit;
-  }
-  
-  .about-us p,
-  .mission-vision p,
-  .team-member p,
-  .contact-us p {
-    margin-top: 10px;
-    font-size: 16px;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .team-member,h2
-  {
-    display:flex;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-  }
-  .card{
-    width: 100%;
-    height: 500px;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 8px solid #fff;
-    position: relative;
-    display:grid;
-  }
-  
-  .card-img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-  }
-  
-  .card-body{
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: -100%;
-    color: black;
-    position: absolute;
-    background: #d3d3d3;
-    backdrop-filter: blur(5px);
-    border-radius: 15px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: 1.5s;
-  }
-  
-  .card:hover .card-body{
-    right: 0;
-  }
-  
-  .card-title{
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 400;
-  }
-  
-  .card-sub-title{
-    text-transform: capitalize;
-    font-size: 14px;
-    font-weight: 300;
-  }
-  
-  .card-info {
-    font-size: 16px;
-    line-height: 25px;
-    margin: 40px 0;
-    font-weight: 400;
-  }
-  
-  .card-btn {
-    color: #36768c;
-    background: grey;
-    width: 120px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-transform: capitalize;
-    border: none;
-    outline: none;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  * {
-    --borderRadius: 0.25rem;
-  }
-  body {
-    font-family: "Arial", sans-serif;
-    margin: 0;
-    margin-top: 110px;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-   
-  header {
-    background: rgba(85, 157, 171, 0.85);
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-  }
-   
-  header h1 {
-    margin: 0;
-    font-size: 36px;
-  }
-   
-  .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-  }
-   
-  /* Section Styles */
-  .about-us,
-  .mission-vision,
-  .team-member,
-  .contact-us {
-    padding: 30px;
-    margin: 30px 0;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 2px 10px rgba(85, 157, 171, 0.85);
-  }
-   
-  .about-us h2,
-  .mission-vision h2,
-  .team-member h2,
-  .contact-us h2 {
-    margin-bottom: 20px;
-    text-transform: inherit;
-  }
-   
-  .about-us p,
-  .mission-vision p,
-  .team-member p,
-  .contact-us p {
-    margin-top: 10px;
-    font-size: 16px;
-  }
-   
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-   
-  .team-member {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-   
-  .card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    border: 8px solid #fff;
-    height: 500px;
-  }
-   
-  .card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-  }
-   
-  .card-body {
-    position: absolute;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100%;
-    color: black;
-    background: #d3d3d3;
-    backdrop-filter: blur(5px);
-    border-radius: 15px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: 1.5s;
-  }
-   
-  .card:hover .card-body {
-    right: 0;
-  }
-   
-  .card-title {
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 400;
-  }
-   
-  .card-sub-title {
-    text-transform: capitalize;
-    font-size: 14px;
-    font-weight: 300;
-  }
-   
-  .card-info {
-    font-size: 16px;
-    line-height: 25px;
-    margin: 40px 0;
-    font-weight: 400;
-  }
-   
-  .card-btn {
-    color: #36768c;
-    background: grey;
-    width: 120px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-transform: capitalize;
-    border: none;
-    outline: none;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  /* Contact Section */
+}
+
+.team-member {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 8px solid #fff;
+  height: 500px;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card-body {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  color: black;
+  background: #d3d3d3;
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 1.5s;
+}
+
+.card:hover .card-body {
+  right: 0;
+}
+
+.card-title {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.card-sub-title {
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.card-info {
+  font-size: 16px;
+  line-height: 25px;
+  margin: 40px 0;
+  font-weight: 400;
+}
+
+.card-btn {
+  color: #36768c;
+  background: grey;
+  width: 120px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+/* Contact Section */
+.contact .row {
+  display: flex;
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(85, 157, 171, 0.85);
+  overflow: hidden;
+}
+
+.contact .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.contact .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  border: 1px solid #eee;
+  padding-left: 2rem;
+}
+
+.contact .row form .input-group input,
+.contact .row form .input-group textarea {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: #333;
+  border: none;
+  resize: none;
+}
+
+.contact .row form .input-group textarea {
+  min-height: 150px;
+}
+
+.contact .row form .btn {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  background-color: rgba(85, 157, 171, 0.85);
+  cursor: pointer;
+}
+
+/* Footer Styles */
+footer {
+  background: rgba(85, 157, 171, 0.85);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 800px) {
   .contact .row {
-    display: flex;
-    margin-top: 2rem;
-    background-color: #fff; /* Ganti warna background sesuai kebutuhan */
-    border-radius: 8px;
-    box-shadow: 0px 2px 10px rgba(85, 157, 171, 0.85);
-    overflow: hidden;
+    flex-wrap: wrap;
   }
-   
+
   .contact .row .map {
-    flex: 1 1 45rem;
-    width: 100%;
-    object-fit: cover;
+    height: 30rem;
   }
-   
+
   .contact .row form {
-    flex: 1 1 45rem;
-    padding: 5rem 2rem;
-    text-align: center;
+    padding-top: 0;
   }
-   
-  .contact .row form .input-group {
-    display: flex;
-    align-items: center;
-    margin-top: 2rem;
-    background-color: var(--bg);
-    border: 1px solid #eee;
-    padding-left: 2rem;
-  }
-   
-  .contact .row form .input-group input,
-  .contact .row form .input-group textarea {
-    width: 100%;
-    padding: 2rem;
-    font-size: 1.7rem;
-    background: none;
-    color: #333; /* Ganti warna teks sesuai kebutuhan */
-    border: none; /* Remove border for textarea */
-    resize: none; /* Disable textarea resizing */
-  }
-   
-  .contact .row form .input-group textarea {
-    min-height: 150px; /* Set minimum height for textarea */
-  }
-   
-  .contact .row form .btn {
-    margin-top: 3rem;
-    display: inline-block;
-    padding: 1rem 3rem;
-    font-size: 1.7rem;
-    color: #fff;
-    background-color: rgba(85, 157, 171, 0.85); /* Ganti warna sesuai kebutuhan */
-    cursor: pointer;
-  }
-   
-  /* Footer Styles */
-  footer {
-    background: rgba(85, 157, 171, 0.85);
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-  }
-   
-  footer p {
-    margin: 0;
-    font-size: 14px;
-  }
-   
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-   
-  a:hover {
-    text-decoration: underline;
-  }
-   
-  @media (max-width: 800px) {
-    .contact .row {
-      flex-wrap: wrap;
-    }
-   
-    .contact .row .map {
-      height: 30rem;
-    }
-   
-    .contact .row form {
-      padding-top: 0;
-    }
-  }
-  
-  /* Footer Styles */
-  footer {
-    background: rgba(85, 157, 171, 0.85);
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-  }
-  
-  footer p {
-    margin: 0;
-    font-size: 14px;
-  }
-  
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
+}
