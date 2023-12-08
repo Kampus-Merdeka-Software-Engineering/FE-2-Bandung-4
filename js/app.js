@@ -1,6 +1,5 @@
 // Definisi URL API
-const apiUrl =
-  "mysql://root:C2eFcAAcb-65d-1GEBDF3BfGHbccAd-6@viaduct.proxy.rlwy.net:19665/railway";
+const apiUrl = "https://be-2-bandung-4-production.up.railway.app";
 // Array untuk menyimpan data produk yang akan ditampilkan
 let tampilProducts = [];
 
@@ -46,7 +45,7 @@ const displayAwal = async () => {
         <div class="tour-content">
           <h3>${title}</h3>
           <p>${description}</p>
-          <div class="containerss"><a href="detail.html?id=${id}" class="semua">Lihat Detail</a></div>
+          <a href="detail.html?id=${id}">Lihat Detail</a>
         </div>
       </div>`
     )
@@ -74,7 +73,6 @@ const fetchAllProducts = async () => {
 
 const displayProducts = (products) => {
   if (!productsContainer) {
-    console.error("Products container not found.");
     return;
   }
 
@@ -186,17 +184,16 @@ filteredProducts = tampilProducts.filter(({ location, category, date }) => {
 displayProducts();
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const apiUrl =
-    "mysql://root:C2eFcAAcb-65d-1GEBDF3BfGHbccAd-6@viaduct.proxy.rlwy.net:19665/railway"; // Sesuaikan dengan URL API Anda
+  const apiUrl = "https://be-2-bandung-4-production.up.railway.app";
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
   const productDetailContainer = document.querySelector(".product-detail");
-
   if (productId && productDetailContainer) {
     try {
       const response = await fetch(`${apiUrl}/product/${productId}`);
       const product = await response.json();
       const formattedDate = new Date(product.date).toLocaleDateString();
+      const stringifydProduct = JSON.stringify(product);
       if (product) {
         productDetailContainer.innerHTML = `
           <img src="${product.imageURL}" class="img" alt="${product.title}" />
@@ -204,11 +201,18 @@ window.addEventListener("DOMContentLoaded", async () => {
             <h3>${product.title}</h3>
             <h5>${formattedDate}<h5>
             <span>${product.location}</span>
-            <h5 class="orang">${product.jumlahOrang} Orang </h5>
+            <h5>${product.jumlahOrang} Orang</h5> 
             <span>${formatRupiah(product.price)}</span>
             <p>${product.description}</p>
-            <button class="btn" onclick="showOrderForm()">Add to Cart</button>
+            <button class="btn" id="addToCartButton">Add to Cart</button>
           </div>`;
+
+        // Attach event listener using JavaScript
+        document
+          .getElementById("addToCartButton")
+          .addEventListener("click", () => {
+            showOrderForm(product);
+          });
       } else {
         console.warn("Product not found.");
       }
@@ -220,19 +224,13 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-function showOrderForm() {
-  const productId = urlParams.get("id");
-  const productTitle = document.querySelector(".product-info h3").textContent;
-  const productDate = document.querySelector(".product-info h5").textContent;
-  const jumlahOrang = document.querySelector(
-    ".product-info .orang"
-  ).textContent;
-
+let cart = {};
+function showOrderForm(product) {
   // Isi elemen formulir dengan informasi produk
-  document.getElementById("formProductTitle").textContent = productTitle;
-  document.getElementById("formProductDate").textContent = productDate;
-  document.getElementById("formJumlahOrang").textContent = jumlahOrang;
-  document.getElementById("idProduct").textContent = productId;
+  cart = product;
+  document.getElementById("formProductTitle").textContent = product.title;
+  document.getElementById("formProductDate").textContent = product.date;
+  document.getElementById("formJumlahOrang").textContent = 1;
 
   // Tampilkan formulir pemesanan
   document.getElementById("orderFormOverlay").style.display = "block";
@@ -246,12 +244,29 @@ function hideOrderForm() {
 function submitOrderForm(event) {
   event.preventDefault();
 
+  // Menggunakan parseInt untuk mengubah nilai jumlahOrang menjadi tipe data number
+  const jumlahOrang = parseInt(
+    document.getElementById("jumlahOrang").value,
+    10
+  );
+
+  const teleponPelanggan = parseInt(
+    document.getElementById("teleponPelanggan").value
+  );
+
   const formData = new FormData(document.getElementById("formPemesanan"));
   const requestBody = {};
+
   formData.forEach((value, key) => {
     requestBody[key] = value;
   });
 
+  // Menyimpan nilai jumlahOrang dan teleponPelanggan yang sudah diubah ke dalam requestBody
+  requestBody.jumlahOrang = jumlahOrang;
+  requestBody.teleponPelanggan = teleponPelanggan;
+  requestBody.idProduk = cart.id;
+
+  debugger;
   // Kirim data ke backend (ganti URL sesuai dengan backend Anda)
   fetch(`${apiUrl}/orders`, {
     method: "POST",
