@@ -45,7 +45,7 @@ const displayAwal = async () => {
         <div class="tour-content">
           <h3>${title}</h3>
           <p>${description}</p>
-          <a href="detail.html?id=${id}">Lihat Detail</a>
+          <div class="containerss"><a href="detail.html?id=${id}" class="semua">Lihat Detail</a></div>
         </div>
       </div>`
     )
