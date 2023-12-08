@@ -1,6 +1,5 @@
 // Definisi URL API
 const apiUrl = "be-2-bandung-4-production.up.railway.app";
-// "mysql://root:C2eFcAAcb-65d-1GEBDF3BfGHbccAd-6@viaduct.proxy.rlwy.net:19665/railway";
 // Array untuk menyimpan data produk yang akan ditampilkan
 let tampilProducts = [];
 
@@ -185,6 +184,7 @@ filteredProducts = tampilProducts.filter(({ location, category, date }) => {
 displayProducts();
 
 window.addEventListener("DOMContentLoaded", async () => {
+  const apiUrl = "be-2-bandung-4-production.up.railway.app";
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
   const productDetailContainer = document.querySelector(".product-detail");
