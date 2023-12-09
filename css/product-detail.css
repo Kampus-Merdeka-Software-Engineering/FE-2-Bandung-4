@@ -184,7 +184,8 @@ a {
 
 #userInfoForm button:hover {
   background: var(--accent-color);
-} /* Styling overlay and popup */
+}
+/* Styling overlay and popup */
 .overlay {
   display: none;
   position: fixed;
@@ -200,11 +201,31 @@ a {
 
 .popup {
   background-color: white;
-  padding: 20px;
+  padding: 5vw;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 300px;
+  max-width: 80vw;
   text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#categoryTitle {
+  display: none;
+}
+
+.popup {
+  background-color: white;
+  padding: 5vw;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 80vw;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .popup h2 {
@@ -236,7 +257,7 @@ form label {
 }
 
 form input {
-  width: calc(100% - 20px); /* Sesuaikan lebar input */
+  width: calc(100% - 20px);
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -257,7 +278,7 @@ form input {
   padding: 5px;
   margin: 0 5px;
   cursor: pointer;
-  width: 30px; /* Sesuaikan lebar tombol */
+  width: 30px;
 }
 
 .jumlah-input-container button:hover {
@@ -265,7 +286,7 @@ form input {
 }
 
 .jumlah-input-container input {
-  width: 50px; /* Sesuaikan lebar input jumlah */
+  width: 50px;
   padding: 10px;
   margin: 0 5px;
   box-sizing: border-box;
@@ -284,4 +305,12 @@ form input {
 
 .btn-submit:hover {
   background-color: #504acc;
+}
+
+/* Responsive HP */
+@media screen and (max-width: 600px) {
+  .popup {
+    padding: 10px;
+    max-width: 90vw;
+  }
 }

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
-    const phone = parseInt(document.getElementById("phone").value);
+    const phone = document.getElementById("phone").value;
     const message = document.getElementById("message").value;
 
     if (!name || !email || !phone || !message) {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         showSweetAlert(
           "Success",
-          "Pesan Anda berhasil dikirim! Terimakasih Banyak",
+          "Pesan Anda berhasil dikirim! TERBAIK",
           "success"
         );
       })

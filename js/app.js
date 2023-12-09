@@ -1,5 +1,5 @@
 // Definisi URL API
-const apiUrl = "https://be-2-bandung-4-production.up.railway.app";
+const apiUrl = "http://localhost:3000";
 // Array untuk menyimpan data produk yang akan ditampilkan
 let tampilProducts = [];
 
@@ -71,33 +71,36 @@ const fetchAllProducts = async () => {
   }
 };
 
-const displayProducts = (products) => {
-  if (!productsContainer) {
-    return;
-  }
+function displayProducts(products) {
+  const productsContainer = document.querySelector(".products-container");
 
   // Menghapus konten sebelumnya
   productsContainer.innerHTML = "";
 
   // Menambahkan produk ke dalam kontainer
-  products.forEach(({ id, title, imageURL, price }) => {
-    const productArticle = document.createElement("article");
-    productArticle.classList.add("product");
-    productArticle.setAttribute("data-id", id);
+  if (Array.isArray(products) && products.length > 0) {
+    products.forEach(({ id, title, imageURL, price }) => {
+      const productArticle = document.createElement("article");
+      productArticle.classList.add("product");
+      productArticle.setAttribute("data-id", id);
 
-    productArticle.innerHTML = `
-      <a href="detail.html?id=${id}">
-        <img src="${imageURL}" class="product-img img" alt="" />
-        <footer>
-          <h5 class="product-name">${title}</h5>
-          <span class="product-price">${formatRupiah(price)}</span>
-        </footer>
-      </a>
-    `;
+      productArticle.innerHTML = `
+        <a href="detail.html?id=${id}">
+          <img src="${imageURL}" class="product-img img" alt="" />
+          <footer>
+            <h5 class="product-name">${title}</h5>
+            <span class="product-price">${formatRupiah(price)}</span>
+          </footer>
+        </a>
+      `;
 
-    productsContainer.appendChild(productArticle);
-  });
-};
+      productsContainer.appendChild(productArticle);
+    });
+  } else {
+    // Handle the case when products are not available
+    productsContainer.innerHTML = "<p>No products available.</p>";
+  }
+}
 
 const displayButtons = async () => {
   try {
@@ -162,7 +165,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Fungsi filter product
 const fetchFilteredProducts = async () => {
   try {
     const urlParams = new URLSearchParams(window.location.search);
@@ -170,9 +172,18 @@ const fetchFilteredProducts = async () => {
     const tipeTripParam = urlParams.get("tipeTrip");
     const bulanParam = urlParams.get("bulan");
 
-    const response = await fetch(
-      `${apiUrl}/product/filter?lokasi=${lokasiParam}&tipeTrip=${tipeTripParam}&bulan=${bulanParam}`
-    );
+    // Validasi parameter sebelum membuat permintaan fetch
+    if (!lokasiParam && !tipeTripParam && !bulanParam) {
+      console.error("No filter parameters provided");
+      return;
+    }
+    const url = new URL(`${apiUrl}/product`);
+
+    if (lokasiParam) url.searchParams.append("lokasi", lokasiParam);
+    if (tipeTripParam) url.searchParams.append("tipeTrip", tipeTripParam);
+    if (bulanParam) url.searchParams.append("bulan", bulanParam);
+
+    const response = await fetch(url.toString());
 
     if (!response.ok) {
       throw new Error("Failed to fetch filtered products");
@@ -183,12 +194,9 @@ const fetchFilteredProducts = async () => {
     // Handle the filtered products, for example, display them on the page
     displayProducts(filteredProducts);
   } catch (error) {
-    console.error(error);
+    console.error(error.message);
   }
 };
-
-// Call the fetchFilteredProducts function on page load
-window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
 
 // Call the fetchFilteredProducts function on page load
 window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
@@ -196,7 +204,7 @@ window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
 displayProducts();
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const apiUrl = "https://be-2-bandung-4-production.up.railway.app";
+  const apiUrl = "http://localhost:3000";
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
   const productDetailContainer = document.querySelector(".product-detail");
@@ -211,10 +219,11 @@ window.addEventListener("DOMContentLoaded", async () => {
           <img src="${product.imageURL}" class="img" alt="${product.title}" />
           <div class="product-info">
             <h3>${product.title}</h3>
+            <h5 id="categoryTitle">${product.categoryId}<h5>
             <h5>${formattedDate}<h5>
             <span>${product.location}</span>
-            <h5>${product.jumlahOrang} Orang</h5> 
-            <span>${formatRupiah(product.price)}</span>
+            <h5 id= "orang">${product.jumlahOrang} Orang</h5> 
+            <span id="productPrice">${formatRupiah(product.price)}</span>
             <p>${product.description}</p>
             <button class="btn" id="addToCartButton">Add to Cart</button>
           </div>`;
@@ -240,9 +249,13 @@ let cart = {};
 function showOrderForm(product) {
   // Isi elemen formulir dengan informasi produk
   cart = product;
-  document.getElementById("formProductTitle").textContent = product.title;
-  document.getElementById("formProductDate").textContent = product.date;
-  document.getElementById("formJumlahOrang").textContent = 1;
+  // Mendapatkan tanggal dengan format YYYY-MM-DD dari product.date
+  const productDate = new Date(product.date);
+  const formattedDate = productDate.toISOString().split("T")[0];
+
+  // Menetapkan nilai pada elemen-elemen formulir
+  document.getElementById("formProductTitle").innerText = product.title;
+  document.getElementById("formProductDate").innerText = formattedDate;
 
   // Tampilkan formulir pemesanan
   document.getElementById("orderFormOverlay").style.display = "block";
@@ -252,11 +265,10 @@ function hideOrderForm() {
   // Sembunyikan formulir pemesanan
   document.getElementById("orderFormOverlay").style.display = "none";
 }
-
 function submitOrderForm(event) {
   event.preventDefault();
 
-  // Menggunakan parseInt untuk mengubah nilai jumlahOrang menjadi tipe data number
+  // Mengambil nilai jumlahOrang dan teleponPelanggan dari input
   const jumlahOrang = parseInt(
     document.getElementById("jumlahOrang").value,
     10
@@ -266,53 +278,91 @@ function submitOrderForm(event) {
     document.getElementById("teleponPelanggan").value
   );
 
-  const formData = new FormData(document.getElementById("formPemesanan"));
-  const requestBody = {};
+  // Mengambil harga awal dari elemen dengan id "productPrice"
+  const hargaAwal = parseInt(
+    document.getElementById("productPrice").innerText.replace(/\D/g, "")
+  );
 
-  formData.forEach((value, key) => {
-    requestBody[key] = value;
+  // Mendapatkan kategori produk dari elemen dengan ID "categoryTitle"
+  const productCategory = parseInt(
+    document.getElementById("categoryTitle").innerText
+  );
+
+  // Hitung total harga dengan aturan tambahan
+  let totalHarga = hargaAwal * jumlahOrang; // Harga dasar
+
+  // Menggunakan kategori produk dari elemen HTML
+  if (productCategory == 1) {
+    // Kategori Group Trip
+    if (jumlahOrang > 1) {
+      // Harga tambah 50% per orang tambah (2 orang ke atas)
+      totalHarga += Math.floor(totalHarga * 0.5 * (jumlahOrang - 1));
+    }
+  } else if (productCategory == 3) {
+    // Kategori Concert Trip
+    // Harga kali jumlah orang
+    totalHarga *= jumlahOrang;
+  }
+
+  // Menampilkan total harga kepada pengguna
+  Swal.fire({
+    title: "Total Harga",
+    text: `${formatRupiah(totalHarga / 100)}`,
+    showCancelButton: true,
+    confirmButtonText: "Lanjutkan Booking",
+    cancelButtonText: "Batal",
+    confirmButtonColor: "#645cff",
+    cancelButtonColor: "#d33",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Lanjutkan dengan mengirimkan data ke backend
+      const formData = new FormData(document.getElementById("formPemesanan"));
+      const requestBody = {};
+
+      formData.forEach((value, key) => {
+        requestBody[key] = value;
+      });
+
+      requestBody.jumlahOrang = jumlahOrang;
+      requestBody.teleponPelanggan = teleponPelanggan;
+      requestBody.idProduk = cart.id;
+
+      // Kirim data ke backend (ganti URL sesuai dengan backend Anda)
+      fetch(`${apiUrl}/orders`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      })
+        .then((response) => response.json())
+        .then((responseData) => {
+          console.log(responseData);
+
+          // Tampilkan SweetAlert sukses
+          Swal.fire({
+            icon: "success",
+            title: "Pesanan Berhasil!",
+            text: "Terima kasih atas pesanan Anda.",
+            confirmButtonColor: "#645cff",
+          });
+
+          // Sembunyikan formulir pemesanan setelah sukses
+          hideOrderForm();
+
+          // Tambahkan logika atau tindakan lainnya setelah sukses terposting ke backend
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+
+          // Tampilkan SweetAlert error
+          Swal.fire({
+            icon: "error",
+            title: "Terjadi Kesalahan",
+            text: "Gagal melakukan pemesanan. Silakan coba lagi.",
+            confirmButtonColor: "#645cff",
+          });
+        });
+    }
   });
-
-  // Menyimpan nilai jumlahOrang dan teleponPelanggan yang sudah diubah ke dalam requestBody
-  requestBody.jumlahOrang = jumlahOrang;
-  requestBody.teleponPelanggan = teleponPelanggan;
-  requestBody.idProduk = cart.id;
-
-  debugger;
-  // Kirim data ke backend (ganti URL sesuai dengan backend Anda)
-  fetch(`${apiUrl}/orders`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(requestBody),
-  })
-    .then((response) => response.json())
-    .then((responseData) => {
-      console.log(responseData);
-
-      // Tampilkan SweetAlert sukses
-      Swal.fire({
-        icon: "success",
-        title: "Pesanan Berhasil!",
-        text: "Terima kasih atas pesanan Anda.",
-        confirmButtonColor: "#645cff",
-      });
-
-      // Sembunyikan formulir pemesanan setelah sukses
-      hideOrderForm();
-
-      // Tambahkan logika atau tindakan lainnya setelah sukses terposting ke backend
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-
-      // Tampilkan SweetAlert error
-      Swal.fire({
-        icon: "error",
-        title: "Terjadi Kesalahan",
-        text: "Gagal melakukan pemesanan. Silakan coba lagi.",
-        confirmButtonColor: "#645cff",
-      });
-    });
 }
