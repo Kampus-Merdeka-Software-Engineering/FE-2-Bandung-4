@@ -1,5 +1,5 @@
 // Definisi URL API
-const apiUrl = "http://localhost:3000";
+const apiUrl = "be-2-bandung-4-production.up.railway.app";
 // Array untuk menyimpan data produk yang akan ditampilkan
 let tampilProducts = [];
 
@@ -51,8 +51,9 @@ const displayAwal = async () => {
     )
     .join("");
 };
-let allProducts = [];
-let filteredProducts = [];
+let allProducts = []; // Menyimpan semua produk
+let filteredProducts = []; // Menyimpan produk setelah filtrasi
+
 const productsContainer = document.querySelector(".products-container");
 const companiesDOM = document.querySelector(".companies");
 
@@ -204,7 +205,7 @@ window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
 displayProducts();
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const apiUrl = "http://localhost:3000";
+  const apiUrl = "be-2-bandung-4-production.up.railway.app";
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
   const productDetailContainer = document.querySelector(".product-detail");
@@ -248,7 +249,7 @@ let cart = {};
 displayProducts();
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const apiUrl = "http://localhost:3000";
+  const apiUrl = "be-2-bandung-4-production.up.railway.app";
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
   const productDetailContainer = document.querySelector(".product-detail");
