@@ -51,9 +51,8 @@ const displayAwal = async () => {
     )
     .join("");
 };
-let allProducts = []; // Menyimpan semua produk
-let filteredProducts = []; // Menyimpan produk setelah filtrasi
-
+let allProducts = [];
+let filteredProducts = [];
 const productsContainer = document.querySelector(".products-container");
 const companiesDOM = document.querySelector(".companies");
 
@@ -71,36 +70,33 @@ const fetchAllProducts = async () => {
   }
 };
 
-function displayProducts(products) {
-  const productsContainer = document.querySelector(".products-container");
+const displayProducts = (products) => {
+  if (!productsContainer) {
+    return;
+  }
 
   // Menghapus konten sebelumnya
   productsContainer.innerHTML = "";
 
   // Menambahkan produk ke dalam kontainer
-  if (Array.isArray(products) && products.length > 0) {
-    products.forEach(({ id, title, imageURL, price }) => {
-      const productArticle = document.createElement("article");
-      productArticle.classList.add("product");
-      productArticle.setAttribute("data-id", id);
+  products.forEach(({ id, title, imageURL, price }) => {
+    const productArticle = document.createElement("article");
+    productArticle.classList.add("product");
+    productArticle.setAttribute("data-id", id);
 
-      productArticle.innerHTML = `
-        <a href="detail.html?id=${id}">
-          <img src="${imageURL}" class="product-img img" alt="" />
-          <footer>
-            <h5 class="product-name">${title}</h5>
-            <span class="product-price">${formatRupiah(price)}</span>
-          </footer>
-        </a>
-      `;
+    productArticle.innerHTML = `
+      <a href="detail.html?id=${id}">
+        <img src="${imageURL}" class="product-img img" alt="" />
+        <footer>
+          <h5 class="product-name">${title}</h5>
+          <span class="product-price">${formatRupiah(price)}</span>
+        </footer>
+      </a>
+    `;
 
-      productsContainer.appendChild(productArticle);
-    });
-  } else {
-    // Handle the case when products are not available
-    productsContainer.innerHTML = "<p>No products available.</p>";
-  }
-}
+    productsContainer.appendChild(productArticle);
+  });
+};
 
 const displayButtons = async () => {
   try {
@@ -165,6 +161,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+// Fungsi filter product
 const fetchFilteredProducts = async () => {
   try {
     const urlParams = new URLSearchParams(window.location.search);
@@ -201,6 +198,53 @@ const fetchFilteredProducts = async () => {
 // Call the fetchFilteredProducts function on page load
 window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
 
+// Call the fetchFilteredProducts function on page load
+window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
+
+displayProducts();
+
+window.addEventListener("DOMContentLoaded", async () => {
+  const apiUrl = "http://localhost:3000";
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id");
+  const productDetailContainer = document.querySelector(".product-detail");
+  if (productId && productDetailContainer) {
+    try {
+      const response = await fetch(`${apiUrl}/product/${productId}`);
+      const product = await response.json();
+      const formattedDate = new Date(product.date).toLocaleDateString();
+      const stringifydProduct = JSON.stringify(product);
+      if (product) {
+        productDetailContainer.innerHTML = `
+          <img src="${product.imageURL}" class="img" alt="${product.title}" />
+          <div class="product-info">
+            <h3>${product.title}</h3>
+            <h5>${formattedDate}<h5>
+            <span>${product.location}</span>
+            <h5>${product.jumlahOrang} Orang</h5> 
+            <span>${formatRupiah(product.price)}</span>
+            <p>${product.description}</p>
+            <button class="btn" id="addToCartButton">Add to Cart</button>
+          </div>`;
+
+        // Attach event listener using JavaScript
+        document
+          .getElementById("addToCartButton")
+          .addEventListener("click", () => {
+            showOrderForm(product);
+          });
+      } else {
+        console.warn("Product not found.");
+      }
+    } catch (error) {
+      console.error("Error fetching product details:", error);
+    }
+  } else {
+    console.warn("No product ID found in the URL.");
+  }
+});
+
+let cart = {};
 displayProducts();
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -245,7 +289,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-let cart = {};
 function showOrderForm(product) {
   // Isi elemen formulir dengan informasi produk
   cart = product;
