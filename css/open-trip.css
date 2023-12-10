@@ -4,93 +4,96 @@ body {
    padding: 0;
 }
 
-.section-poster {
-   margin-top:100px;
-}
-
-header {
-    background-color: rgba(85, 157, 171, 0.85);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-}
-
-main {
-     padding: 2rem;
-}
-
-h1{
-   background-color: rgba(85, 157, 171, 0.85);
-   margin: 0;
-   padding: 1rem;
-}
-
-img{
-  padding: 20px;
-  width: 50%;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  flex-direction: row-reverse;
-  margin: auto;
-}
-
-h2 {
+/* Poster Styles */
+.poster img {
+   width: 100%;
+   height: auto;
+ }
+ 
+ /* Jadwal Styles */
+ .jadwal {
+   padding: 2rem;
+ }
+ 
+ .jadwal h2 {
    margin-bottom: 1rem;
-   margin-left: 20px;
-}
-
-table {
+ }
+ 
+ table {
    min-width: 100%;
    border-collapse: collapse;
-}
-
-th, td {
+ }
+ 
+ th, td {
    border: 1px solid #ddd;
    padding: 8px;
    text-align: left;
-}
-
-th {
+ }
+ 
+ th {
    background-color: #f2f2f2;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tr:hover {
-    background-color: #ddd;
-}
-
-p{
-  margin-left: 20px;
-}
-
-footer {
+ }
+ 
+ tr:nth-child(even) {
+   background-color: #f2f2f2;
+ }
+ 
+ tr:hover {
+   background-color: #ddd;
+ }
+ 
+ .jadwal p {
+   margin-left: 20px;
+ }
+ 
+ /* Footer Styles */
+ .footer {
    background-color: rgba(85, 157, 171, 0.85);
    color: white;
    text-align: center;
    padding: 0.5rem;
-}
-
-/* Media Query for responsiveness */
-
-@media screen and (max-width: 600px) {
-main {
-   padding: 1rem;
-}
-
-img {
-   padding: 10px;
-}
-
-h2 {
-  margin-left: 10px;
-}
-
-p {
-  margin-left: 10px;
-}
-}
+ }
+ 
+ .footer__container {
+   display: flex;
+   justify-content: space-between;
+ }
+ 
+ .footer__col {
+   flex: 1;
+   text-align: left;
+ }
+ 
+ .footer__col a {
+   text-decoration: none;
+   color: white;
+   display: block;
+   margin-bottom: 5px;
+ }
+ 
+ .footer__bar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 10px;
+ }
+ 
+ .socials span {
+   margin: 0 5px;
+ }
+ 
+ /* Media Query for responsiveness */
+ @media screen and (max-width: 600px) {
+   .jadwal {
+     padding: 1rem;
+   }
+ 
+   .poster img {
+     padding: 10px;
+   }
+ 
+   .jadwal h2,
+   .jadwal p {
+     margin-left: 10px;
+   }
+ }

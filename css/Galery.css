@@ -55,3 +55,25 @@
   .tour-content a:hover {
     text-decoration: underline;
   }
+  
+  /* Footer Styles */
+footer {
+  background: rgba(85, 157, 171, 0.85);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
