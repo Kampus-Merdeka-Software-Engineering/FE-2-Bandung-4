@@ -28,7 +28,7 @@ const displayAwal = async () => {
 
   // Menampilkan pesan jika tidak ada produk yang cocok
   if (tampilProducts.length < 1) {
-    productsTampil.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
+    productsTampil.innerHTML = `<h6></h6>`;
     return;
   }
 
@@ -78,6 +78,12 @@ const displayProducts = (products) => {
 
   // Menghapus konten sebelumnya
   productsContainer.innerHTML = "";
+  // Menambahkan produk ke dalam kontainer
+  if (products.length === 0) {
+    // Jika tidak ada produk, tampilkan pesan
+    productsContainer.innerHTML = `<h6>Yah:( Tidak Ada Trip</h6>`;
+    return;
+  }
 
   // Menambahkan produk ke dalam kontainer
   products.forEach(({ id, title, imageURL, price }) => {
@@ -129,9 +135,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   await displayAwal();
   // Menampilkan tombol kategori
   await displayButtons();
-  // Mendapatkan semua produk
-  await fetchAllProducts();
-  // Menampilkan semua produk
   displayProducts(allProducts);
 
   // Menambahkan event listener untuk setiap klik pada tombol kategori
@@ -145,6 +148,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           // Jika kategori yang diklik adalah "all", tampilkan semua produk
           if (categoryId === "all") {
+            // Memanggil kembali fungsi untuk mendapatkan semua produk
+            await fetchAllProducts();
             displayProducts(allProducts);
           } else {
             // Jika kategori tertentu diklik, ambil produk sesuai kategori
@@ -156,7 +161,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           }
         }
       } catch (error) {
-        console.error("Error fetching products:", error);
+        await fetchAllProducts();
+        displayProducts(allProducts);
       }
     });
   }
@@ -173,8 +179,14 @@ const fetchFilteredProducts = async () => {
     // Validasi parameter sebelum membuat permintaan fetch
     if (!lokasiParam && !tipeTripParam && !bulanParam) {
       console.error("No filter parameters provided");
+
+      // Jika tidak ada parameter filter, panggil fetchAllProducts
+      await fetchAllProducts();
+      displayProducts(allProducts);
+
       return;
     }
+
     const url = new URL(`${apiUrl}/product`);
 
     if (lokasiParam) url.searchParams.append("lokasi", lokasiParam);
@@ -188,64 +200,13 @@ const fetchFilteredProducts = async () => {
     }
 
     const filteredProducts = await response.json();
-
-    // Handle the filtered products, for example, display them on the page
     displayProducts(filteredProducts);
   } catch (error) {
     console.error(error.message);
   }
 };
 
-// Call the fetchFilteredProducts function on page load
 window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
-
-// Call the fetchFilteredProducts function on page load
-window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
-
-displayProducts();
-
-window.addEventListener("DOMContentLoaded", async () => {
-  const apiUrl = "be-2-bandung-4-production.up.railway.app";
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get("id");
-  const productDetailContainer = document.querySelector(".product-detail");
-  if (productId && productDetailContainer) {
-    try {
-      const response = await fetch(`${apiUrl}/product/${productId}`);
-      const product = await response.json();
-      const formattedDate = new Date(product.date).toLocaleDateString();
-      const stringifydProduct = JSON.stringify(product);
-      if (product) {
-        productDetailContainer.innerHTML = `
-          <img src="${product.imageURL}" class="img" alt="${product.title}" />
-          <div class="product-info">
-            <h3>${product.title}</h3>
-            <h5>${formattedDate}<h5>
-            <span>${product.location}</span>
-            <h5>${product.jumlahOrang} Orang</h5> 
-            <span>${formatRupiah(product.price)}</span>
-            <p>${product.description}</p>
-            <button class="btn" id="addToCartButton">Add to Cart</button>
-          </div>`;
-
-        // Attach event listener using JavaScript
-        document
-          .getElementById("addToCartButton")
-          .addEventListener("click", () => {
-            showOrderForm(product);
-          });
-      } else {
-        console.warn("Product not found.");
-      }
-    } catch (error) {
-      console.error("Error fetching product details:", error);
-    }
-  } else {
-    console.warn("No product ID found in the URL.");
-  }
-});
-
-let cart = {};
 displayProducts();
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -333,25 +294,12 @@ function submitOrderForm(event) {
   );
 
   // Hitung total harga dengan aturan tambahan
-  let totalHarga = hargaAwal * jumlahOrang; // Harga dasar
-
-  // Menggunakan kategori produk dari elemen HTML
-  if (productCategory == 1) {
-    // Kategori Group Trip
-    if (jumlahOrang > 1) {
-      // Harga tambah 50% per orang tambah (2 orang ke atas)
-      totalHarga += Math.floor(totalHarga * 0.5 * (jumlahOrang - 1));
-    }
-  } else if (productCategory == 3) {
-    // Kategori Concert Trip
-    // Harga kali jumlah orang
-    totalHarga *= jumlahOrang;
-  }
+  const harga = hargaAwal * jumlahOrang;
 
   // Menampilkan total harga kepada pengguna
   Swal.fire({
     title: "Total Harga",
-    text: `${formatRupiah(totalHarga / 100)}`,
+    text: `${formatRupiah(harga / 100)}`,
     showCancelButton: true,
     confirmButtonText: "Lanjutkan Booking",
     cancelButtonText: "Batal",
@@ -370,6 +318,7 @@ function submitOrderForm(event) {
       requestBody.jumlahOrang = jumlahOrang;
       requestBody.teleponPelanggan = teleponPelanggan;
       requestBody.idProduk = cart.id;
+      requestBody.totalHarga = harga / 100;
 
       // Kirim data ke backend (ganti URL sesuai dengan backend Anda)
       fetch(`${apiUrl}/orders`, {

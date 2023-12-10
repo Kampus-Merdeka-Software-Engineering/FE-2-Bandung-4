@@ -4,10 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
   messageForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const message = document.getElementById("message").value;
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+    const messageInput = document.getElementById("message");
+
+    const name = nameInput.value;
+    const email = emailInput.value;
+    const phone = phoneInput.value;
+    const message = messageInput.value;
 
     if (!name || !email || !phone || !message) {
       showSweetAlert(
@@ -44,7 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
           "Success",
           "Pesan Anda berhasil dikirim! TERBAIK",
           "success"
-        );
+        ).then(() => {
+          nameInput.value = "";
+          emailInput.value = "";
+          phoneInput.value = "";
+          messageInput.value = "";
+        });
       })
       .catch((error) => {
         console.error("Error:", error.message);
@@ -57,8 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function showSweetAlert(title, text, icon) {
-    // Menampilkan SweetAlert
-    Swal.fire({
+    return Swal.fire({
       title: title,
       text: text,
       icon: icon,
