@@ -152,10 +152,12 @@ ul {
 .product {
   margin-bottom: 1rem;
 }
-.product footer {
-  padding: 0.75rem 0;
-  text-align: center;
-}
+.product-footer {
+  padding : 0.75rem 0;
+  text-align : center;
+  color : black;
+  background-color : rgb (151 169 173 / 85%);
+  }
 .product-name {
   margin-bottom: 0.25rem;
 }
