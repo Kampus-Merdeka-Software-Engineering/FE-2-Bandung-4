@@ -126,6 +126,7 @@ body {
   border-radius: 8px;
   margin-top: 1rem;
   margin-right: 20px; 
+  text-align: justify;
 }
 
 .content {
