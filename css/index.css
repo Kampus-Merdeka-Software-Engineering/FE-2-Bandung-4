@@ -122,9 +122,10 @@ body {
 
 .about-content {
   background-color: #f2f2f2;
-  padding: 50px 20px;
+  padding: 20px 20px;
   border-radius: 8px;
   margin-top: 1rem;
+  margin-right: 20px; 
 }
 
 .content {
@@ -441,13 +442,20 @@ a {
   }
 
   .about-img {
-    margin-right: 0;
+    margin-top: 50px;
     margin-bottom: 1rem;
-  }
+    width:calc(100% - 0.1rem);
+    overflow-x:auto;
+    white-space:nowrap;
+  } 
 
   .btn-container {
-    flex-direction: column;
-  }
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding:5px;
+  margin-right:25px;
+}
   .booking__container form,
   .travellers__grid {
     grid-template-columns: repeat(2, 1fr);
