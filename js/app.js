@@ -1,5 +1,5 @@
 // Definisi URL API
-const apiUrl = "be-2-bandung-4-production.up.railway.app";
+const apiUrl = "https://be-2-bandung-4-production.up.railway.app";
 // Array untuk menyimpan data produk yang akan ditampilkan
 let tampilProducts = [];
 
@@ -210,7 +210,7 @@ window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
 displayProducts();
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const apiUrl = "be-2-bandung-4-production.up.railway.app";
+  const apiUrl = "https://be-2-bandung-4-production.up.railway.app";
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
   const productDetailContainer = document.querySelector(".product-detail");
