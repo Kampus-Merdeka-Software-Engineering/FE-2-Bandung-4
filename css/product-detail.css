@@ -62,8 +62,10 @@ a {
 /* Image */
 .img {
   width: 100%;
+  height: 500px;
   display: block;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 /* Button */
