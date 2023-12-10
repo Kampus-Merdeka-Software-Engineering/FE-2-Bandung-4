@@ -4,6 +4,10 @@ body {
    padding: 0;
 }
 
+.section-poster {
+   margin-top:100px;
+}
+
 header {
     background-color: rgba(85, 157, 171, 0.85);
     color: white;
