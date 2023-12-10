@@ -1,5 +1,6 @@
 .Navbar {
   display: flex;
+  font-family: "Koh Santepheap", serif;
   justify-content: space-between;
   align-items: center;
   padding: 0.2rem 5% 0.5rem;
