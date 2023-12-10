@@ -158,9 +158,10 @@ ul {
   color : black;
   background-color : rgb (151 169 173 / 85%);
   }
-.product-name {
-  margin-bottom: 0.25rem;
-}
+  .product-name {
+    margin-bottom : 0.25rem;
+    color : black;
+    }
 .product-price {
   margin-bottom: 0;
   color: var(--grey-700);
