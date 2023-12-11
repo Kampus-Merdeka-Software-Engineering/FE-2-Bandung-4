@@ -4,11 +4,21 @@ body {
    padding: 0;
 }
 
+.section-poster{
+  margin-top:100px;
+}
 /* Poster Styles */
 .poster img {
-   width: 100%;
+   width: 50%;
    height: auto;
+   padding: 20px;
+  display:flex;
+  flex-wrap:wrap;
+  align-content:center;
+  flex-direction:row-reverse;
+  margin:auto;
  }
+ 
  
  /* Jadwal Styles */
  .jadwal {
