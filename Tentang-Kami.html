@@ -13,8 +13,8 @@
     <nav class="Navbar">
       <div class="logo">
         <a href="#" class="navbar-gambar">
-          <img src="img/logooo.png" alt="logo"
-        /></a>
+          <img src="img/logooo.png" alt="logo" />
+        </a>
         <a href="#" class="navbar-logo">Orang<span> Trip</span></a>
       </div>
       <div class="navbar-nav">
@@ -26,11 +26,19 @@
       </div>
 
       <div class="navbar-tambahan">
-        <a href="shopping-cart.html" id="shopping">
-          <i data-feather="shopping-bag"></i
-        ></a>
-        <!-- <a href="#" id="user"> <i data-feather="user"></i></a> -->
-        <a href="#" id="menu"> <i data-feather="menu"></i></a>
+        <a href="#" id="menu">
+          <svg
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <use href="css/feather-sprite.svg#menu"></use>
+          </svg>
+        </a>
       </div>
     </nav>
     <!-- Navbar -->
@@ -85,57 +93,12 @@
         </li>
       </ol>
     </section>
+
     <h2>Tim Kami</h2>
     <section class="team-member">
-      <div class="card">
-        <img src="img/aby.jpg" class="card-img" />
-        <div class="card-body">
-          <h1 class="card-title">Aby Herdiansyah</h1>
-          <p class="card-sub-tittle">Project Leader Group 4</p>
-          <p class="card-info">BackEnd Dev</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="img/Ade.jpg" class="card-img" />
-        <div class="card-body">
-          <h1 class="card-title">Ade Lutfiah</h1>
-          <p class="card-sub-tittle">Group 4</p>
-          <p class="card-info">FrontEnd Dev</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="img/elyana.jpg" class="card-img" />
-        <div class="card-body">
-          <h1 class="card-title">Elyana Lestari</h1>
-          <p class="card-sub-tittle">Group 4</p>
-          <p class="card-info">FrontEnd Dev</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="img/Justin1.jpeg" class="card-img" />
-        <div class="card-body">
-          <h1 class="card-title">Justin Virgin Yolanda</h1>
-          <p class="card-sub-tittle">Group 4</p>
-          <p class="card-info">Quality Assurance</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="img/made.jpg" class="card-img" />
-        <div class="card-body">
-          <h1 class="card-title">Made Arnandea Fatiha Putri</h1>
-          <p class="card-sub-tittle">Group 4</p>
-          <p class="card-info">Quality Assurance</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="img/sahrul.jpg" class="card-img" />
-        <div class="card-body">
-          <h1 class="card-title">Sahrul Riswanto</h1>
-          <p class="card-sub-tittle">Group 4</p>
-          <p class="card-info">BackEnd Dev</p>
-        </div>
-      </div>
+      <!-- Cards Tim -->
     </section>
+
     <!-- Contact Section start -->
     <section id="contact" class="contact">
       <h2><span>Kontak</span> Kami</h2>
@@ -151,15 +114,45 @@
 
         <form id="messageForm">
           <div class="input-group">
-            <i data-feather="user"></i>
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="css/feather-sprite.svg#user" />
+            </svg>
             <input type="text" id="name" placeholder="Nama" />
           </div>
           <div class="input-group">
-            <i data-feather="mail"></i>
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="css/feather-sprite.svg#mail" />
+            </svg>
             <input type="text" id="email" placeholder="Email" />
           </div>
           <div class="input-group">
-            <i data-feather="phone"></i>
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="css/feather-sprite.svg#phone" />
+            </svg>
             <input type="text" id="phone" placeholder="Nomor HP" />
           </div>
           <div class="input-group">
@@ -170,10 +163,12 @@
         </form>
       </div>
     </section>
+
     <footer>
       <p>&copy; 2023 Orang Trip. Hak Cipta Dilindungi.</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/tentang-kami.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
