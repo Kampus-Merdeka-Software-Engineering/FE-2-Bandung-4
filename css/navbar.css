@@ -1,3 +1,23 @@
+:root {
+  --primary: #559dab;
+  --bg: #ffffff;
+  --navbar-bg: rgba(85, 157, 171, 0.85);
+  --navbar-border: #197296;
+  --navbar-text: #ffffff;
+  --dark-gray: #031727;
+  --deep-sky-blue: #197296;
+  --silver: #c0c0c0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: none;
+}
+* {
+  text-decoration: none;
+}
 .Navbar {
   display: flex;
   font-family: "Koh Santepheap", serif;
