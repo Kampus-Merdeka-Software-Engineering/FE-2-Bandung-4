@@ -13,12 +13,12 @@
     <nav class="Navbar">
       <div class="logo">
         <a href="#" class="navbar-gambar">
-          <img src="img/logooo.png" alt="logo" />
-        </a>
+          <img src="img/logooo.png" alt="logo"
+        /></a>
         <a href="#" class="navbar-logo">Orang<span> Trip</span></a>
       </div>
       <div class="navbar-nav">
-        <a href="index.html">Beranda</a>
+        <a href="#">Beranda</a>
         <a href="tours.html">Trip</a>
         <a href="open-trip.html">Open Trip</a>
         <a href="gallery.html">Gallery</a>
@@ -26,24 +26,16 @@
       </div>
 
       <div class="navbar-tambahan">
-        <a href="#" id="menu">
-          <svg
-            width="24"
-            height="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <use href="css/feather-sprite.svg#menu"></use>
-          </svg>
-        </a>
+        <a href="shopping-cart.html" id="shopping">
+          <i data-feather="shopping-bag"></i
+        ></a>
+        <!-- <a href="#" id="user"> <i data-feather="user"></i></a> -->
+        <a href="#" id="menu"> <i data-feather="menu"></i></a>
       </div>
     </nav>
     <!-- Navbar -->
+    <h2>Tentang Kami</h2>
     <section class="about-us">
-      <h2>Tentang Kami</h2>
       <p>
         Perusahaan kami lahir dari hasrat dan cinta akan petualangan, keindahan
         dunia, dan momen-momen berharga dalam setiap perjalanan. Melihat
@@ -55,9 +47,8 @@
         yang kami selenggarakan.
       </p>
     </section>
-
+    <h2>Misi dan Visi</h2>
     <section class="mission-vision">
-      <h2>Misi dan Visi</h2>
       <p>
         Menjadi penyelenggara perjalanan terkemuka yang dikenal oleh pelanggan
         dan mitra bisnis sebagai penggerak inovasi dalam industri perjalanan.
@@ -93,12 +84,57 @@
         </li>
       </ol>
     </section>
-
     <h2>Tim Kami</h2>
     <section class="team-member">
-      <!-- Cards Tim -->
+      <div class="card">
+        <img src="img/aby.jpg" class="card-img" />
+        <div class="card-body">
+          <h1 class="card-title">Aby Herdiansyah</h1>
+          <p class="card-sub-tittle">Project Leader Group 4</p>
+          <p class="card-info">BackEnd Dev</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/Ade.jpg" class="card-img" />
+        <div class="card-body">
+          <h1 class="card-title">Ade Lutfiah</h1>
+          <p class="card-sub-tittle">Group 4</p>
+          <p class="card-info">FrontEnd Dev</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/elyana.jpg" class="card-img" />
+        <div class="card-body">
+          <h1 class="card-title">Elyana Lestari</h1>
+          <p class="card-sub-tittle">Group 4</p>
+          <p class="card-info">FrontEnd Dev</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/Justin1.jpeg" class="card-img" />
+        <div class="card-body">
+          <h1 class="card-title">Justin Virgin Yolanda</h1>
+          <p class="card-sub-tittle">Group 4</p>
+          <p class="card-info">Quality Assurance</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/made.jpg" class="card-img" />
+        <div class="card-body">
+          <h1 class="card-title">Made Arnandea Fatiha Putri</h1>
+          <p class="card-sub-tittle">Group 4</p>
+          <p class="card-info">Quality Assurance</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/sahrul.jpg" class="card-img" />
+        <div class="card-body">
+          <h1 class="card-title">Sahrul Riswanto</h1>
+          <p class="card-sub-tittle">Group 4</p>
+          <p class="card-info">BackEnd Dev</p>
+        </div>
+      </div>
     </section>
-
     <!-- Contact Section start -->
     <section id="contact" class="contact">
       <h2><span>Kontak</span> Kami</h2>
@@ -114,45 +150,15 @@
 
         <form id="messageForm">
           <div class="input-group">
-            <svg
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <use href="css/feather-sprite.svg#user" />
-            </svg>
+            <i data-feather="user"></i>
             <input type="text" id="name" placeholder="Nama" />
           </div>
           <div class="input-group">
-            <svg
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <use href="css/feather-sprite.svg#mail" />
-            </svg>
+            <i data-feather="mail"></i>
             <input type="text" id="email" placeholder="Email" />
           </div>
           <div class="input-group">
-            <svg
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <use href="css/feather-sprite.svg#phone" />
-            </svg>
+            <i data-feather="phone"></i>
             <input type="text" id="phone" placeholder="Nomor HP" />
           </div>
           <div class="input-group">
@@ -163,12 +169,22 @@
         </form>
       </div>
     </section>
+    <!-- Contact Section end -->
+
+    <section class="contact-us">
+      <h2>Hubungi Kami</h2>
+      <p>
+        Jika Anda memiliki pertanyaan atau informasi pemesanan lebih lanjut,
+        silakan hubungi kami:
+      </p>
+      <address>
+        Telp: +62821********<br />
+        Email: <a href="mailto:info@example.com">cs@orangtrip.com</a>
+      </address>
+    </section>
 
     <footer>
       <p>&copy; 2023 Orang Trip. Hak Cipta Dilindungi.</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/tentang-kami.js"></script>
-    <script src="js/script.js"></script>
   </body>
 </html>
