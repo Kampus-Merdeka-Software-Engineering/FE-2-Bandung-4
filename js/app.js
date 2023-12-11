@@ -1,5 +1,6 @@
 // Definisi URL API
 const apiUrl = "https://be-2-bandung-4-production.up.railway.app";
+// const apiUrl = "http://localhost:3000";
 // Array untuk menyimpan data produk yang akan ditampilkan
 let tampilProducts = [];
 
@@ -210,7 +211,7 @@ window.addEventListener("DOMContentLoaded", fetchFilteredProducts);
 displayProducts();
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const apiUrl = "https://be-2-bandung-4-production.up.railway.app";
+  // const apiUrl = "https://be-2-bandung-4-production.up.railway.app";
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
   const productDetailContainer = document.querySelector(".product-detail");
@@ -339,6 +340,24 @@ function submitOrderForm(event) {
             text: "Terima kasih atas pesanan Anda.",
             confirmButtonColor: "#645cff",
           });
+          const { namaPelanggan, emailPelanggan, totalHarga } = responseData;
+
+          // Construct the WhatsApp message
+          const waMessage = encodeURIComponent(
+            `Halo, saya ingin memesan Tiket ${
+              document.getElementById("formProductTitle").innerText
+            }.\n\n` +
+              `Detail Pesanan:\n` +
+              `- Nama: ${namaPelanggan}\n` +
+              `- Email: ${emailPelanggan}\n` +
+              `- Total Harga: Rp ${formatRupiah(totalHarga)}`
+          );
+
+          // Construct the WhatsApp URL
+          const waUrl = `https://wa.me/+6283890045179?text=${waMessage}`;
+
+          // Redirect to WhatsApp URL
+          window.location.href = waUrl;
 
           // Sembunyikan formulir pemesanan setelah sukses
           hideOrderForm();
